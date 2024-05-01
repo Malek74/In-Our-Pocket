@@ -5,15 +5,16 @@ import DefaultLayout from '@/layouts/default'
 import { useMemo, useState } from 'react';
 
 export default function Page() {
-  const [value, setValue] = useState("junior2nextui.org");
+  const [emailValue, setEmailValue] = useState("");
+  const [passlValue, setPassValue] = useState("");
 
-  const validateEmail = (value: string) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  const validateEmail = (emailValue: string) => emailValue.match(/^^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i);
 
   const isInvalid = useMemo(() => {
-    if (value === "") return false;
+    if (emailValue === "") return false;
 
-    return validateEmail(value) ? false : true;
-  }, [value]);
+    return validateEmail(emailValue) ? false : true;
+  }, [emailValue]);
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -27,18 +28,20 @@ export default function Page() {
         </CardHeader>
         <Divider />
     <Input
-      value={value}
+      value={emailValue}
       type="email"
       label="Email"
       variant="bordered"
       isInvalid={isInvalid}
-      color={isInvalid ? "danger" : "success"}
+      color={isInvalid ? "danger" : (emailValue.length== 0 ? "default" : "success")}
       errorMessage={isInvalid && "Please enter a valid email"}
-      onValueChange={setValue}
+      onValueChange={setEmailValue}
       className="w-80"
+      placeholder='Enter your email'
       isRequired
     />
     <Input
+      isRequired
       label="Password"
       variant="bordered"
       placeholder="Enter your password"
@@ -53,6 +56,8 @@ export default function Page() {
       }
       type={isVisible ? "text" : "password"}
       className="w-80"
+      value={passlValue}
+      onValueChange={setPassValue}
     />
     <Button isDisabled={isInvalid} radius="full" className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
       Log in
