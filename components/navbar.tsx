@@ -86,7 +86,7 @@ export const Navbar = () => {
 					<Link isExternal href={siteConfig.links.discord}>
 						<DiscordIcon className="text-default-500" />
 					</Link>
-					<Link isExternal href={siteConfig.links.github}>
+					<Link isExternal href="manageAccount">
 						<GithubIcon className="text-default-500" />
 					</Link>
 					<ThemeSwitch />
