@@ -1,11 +1,11 @@
 import { EyeFilledIcon, EyeSlashFilledIcon } from "@/components/icons";
 import { Button, Card, CardHeader, Divider, Input } from "@nextui-org/react";
 import { useMemo, useState } from "react";
+import NextLink from "next/link";
 
 export default function Page() {
   const [emailValue, setEmailValue] = useState("");
   const [passlValue, setPassValue] = useState("");
-
   const validateEmail = (emailValue: string) =>
     emailValue.match(/^^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i);
 
@@ -13,17 +13,17 @@ export default function Page() {
     if (emailValue === "") return false;
 
     return validateEmail(emailValue) ? false : true;
-  }, [emailValue]);
+  }, [emailValue, setEmailValue]);
 
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div className="flex flex-col min-h-screen min-w-screen justify-center items-center">
+    <div className="flex flex-col min-h-screen justify-center items-center gap-6">
       <Card className="flex flex-col justify-center items-center gap-4 p-6">
         <CardHeader className="flex justify-center items-center">
-          <label className="text-xl font-bold">Admin Login</label>
+          <label className="text-xl font-bold">Login</label>
         </CardHeader>
         <Divider />
         <Input
@@ -71,14 +71,19 @@ export default function Page() {
         <Button
           isDisabled={isInvalid}
           radius="full"
-          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          className="bg-rose text-black shadow-lg"
         >
           Log in
         </Button>
       </Card>
-      <Card className="flex flex-col justify-center items-center gap-4 p-6 w-full">
+      <Card className="flex flex-col justify-center items-center gap-4 p-4 w-[368px]">
         <CardHeader className="flex justify-center items-center">
-          <label className="text-xl font-bold">Admin Login</label>
+          <label className="text-sm">
+            {"New Donor/Organization and wish to "}
+            <NextLink href={"/register"} color="foreground">
+              Register?
+            </NextLink>
+          </label>
         </CardHeader>
       </Card>
     </div>
