@@ -70,7 +70,7 @@ export default function OrgTable() {
         );
       case "actions":
         return (
-          <div className="relative flex items-center gap-2">
+          <div className="relative flex items-center gap-2 mt-1">
             <Tooltip content="Details"></Tooltip>
             <Tooltip content="Edit organisation">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">

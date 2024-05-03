@@ -3,6 +3,7 @@ const columns = [
     { name: "Type", uid: "type" },
     { name: "Status", uid: "status" },
     { name: "ACTIONS", uid: "actions" },
+    {name:"Area",uid:"area"},
   ];
   
   const users = [
@@ -12,6 +13,7 @@ const columns = [
       type: "Hospital",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"New Cairo"
     },
     {
       id: 2,
@@ -19,6 +21,8 @@ const columns = [
       type: "Mosque",
       status: "pending",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 3,
@@ -26,6 +30,8 @@ const columns = [
       type: "Church",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Giza"
+
     },
     {
       id: 4,
@@ -33,6 +39,8 @@ const columns = [
       type: "Orphanage",
       status: "pending",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 5,
@@ -40,6 +48,8 @@ const columns = [
       type: "School",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 6,
@@ -47,6 +57,8 @@ const columns = [
       type: "NGO",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 7,
@@ -54,6 +66,8 @@ const columns = [
       type: "Community Center",
       status: "pending",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 8,
@@ -61,6 +75,8 @@ const columns = [
       type: "Food Bank",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 9,
@@ -68,6 +84,8 @@ const columns = [
       type: "Shelter",
       status: "pending",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
     {
       id: 10,
@@ -75,6 +93,8 @@ const columns = [
       type: "Animal Rescue",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      area:"Maadi"
+
     },
   ];
   
