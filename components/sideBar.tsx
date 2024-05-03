@@ -36,7 +36,7 @@ return (
                     <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-mint p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                             <FaUsers />
                             <h3 className="text-base text-gray-800 group-hover:text-white font-semibold">
-                                    Orgianisations
+                                    Organizations
                             </h3>
                     </div>
                     </Link>
