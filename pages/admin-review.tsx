@@ -1,10 +1,8 @@
-import DefaultLayout from "@/layouts/default";
-import App from "@/components/admin-table";
+import AdminTable from "@/components/admin-table";
+import { AdminPanelSettingsTwoTone } from "@mui/icons-material";
 
 export default function adminReviewPage() {
   return (
-    <DefaultLayout>
-      <App></App>
-    </DefaultLayout>
+    <AdminTable></AdminTable>
   );
 }
