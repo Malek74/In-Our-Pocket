@@ -8,7 +8,7 @@ import {
   Link,
 } from "@nextui-org/react";
 
-export default function App() {
+export default function AdminTable() {
   return (
     <Table aria-label="Example empty table">
       <TableHeader>
