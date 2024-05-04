@@ -22,7 +22,6 @@ import { link as linkStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
-import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 
@@ -62,7 +61,7 @@ export const Navbar = () => {
             <DropdownItem key="help_and_feedback">Security</DropdownItem>
             <DropdownItem key="logout" color="danger">
               Log Out
-            </DropdownItem>
+            </DropdownItem>					
           </DropdownMenu>
         </Dropdown>
 				</NavbarMenuItem>
