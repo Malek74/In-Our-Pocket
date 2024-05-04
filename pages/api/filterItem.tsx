@@ -5,12 +5,11 @@ import { Checkbox, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from 
 interface FilterItemProps {
 }
 
-export default function FilterItem({ handleFilterChange }: FilterItemProps) {
+export default function FilterItem() {
     const [isSelected, setIsSelected] = useState(false);
 
     const handleAreaChange = (area: string) => {
         setIsSelected(true);
-        handleFilterChange(area);
     };
 
     return (
