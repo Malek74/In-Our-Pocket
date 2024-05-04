@@ -1,4 +1,4 @@
-import { nextui } from '@nextui-org/react'
+import { colors, nextui } from '@nextui-org/react'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,7 +9,14 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'rose': "#FEE7E6",
+        'mint': '#ECFDF1',
+        'yellow': '#F9EAC2',
+        'Orange': '#FFD898'
+      }
+    },
   },
   darkMode: "class",
   plugins: [nextui()],
