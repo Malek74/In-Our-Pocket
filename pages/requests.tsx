@@ -24,6 +24,6 @@ export default function Requests(){
            <div className= 'flex gap-4'><Chip>org15</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
            <div className= 'flex gap-4'><Chip>org16</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
              </div>*/
-             <div>ahmedTable</div>
+             <div><ReqTable></ReqTable></div>
          )
 }
