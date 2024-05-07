@@ -66,4 +66,15 @@ export const siteConfig = {
 		discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev"
 	},
+
+	governates: [
+		{
+			name: "Cairo",
+			areas: ["New Cairo","6 October", "Sheikh Zayed"]
+		},
+		{
+			name: "Alexandria",
+			areas:  ["IDK", "Kornseh", "2emet el share3", "MASHROOOO3333", "Genyh"]
+		}
+	]
 };
