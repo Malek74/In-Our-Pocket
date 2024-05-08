@@ -28,6 +28,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 import { Logo } from "@/components/icons";
 import Profile from "./profileIcon";
+import { useTheme } from "next-themes";
 
 //todo: add profile icon
 export const Navbar = () => {
@@ -61,7 +62,7 @@ export const Navbar = () => {
             <DropdownItem key="help_and_feedback">Security</DropdownItem>
             <DropdownItem key="logout" color="danger">
               Log Out
-            </DropdownItem>					
+            </DropdownItem>				
           </DropdownMenu>
         </Dropdown>
 				</NavbarMenuItem>
