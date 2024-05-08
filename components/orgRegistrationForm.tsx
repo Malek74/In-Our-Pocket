@@ -7,7 +7,7 @@ import {
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import { siteConfig } from "@/config/site";
-import { FileUploader } from "react-drag-drop-files";
+import FileUploader from "./FileUploader";
 
 export const OrgRegistrationForm = () => {
   const [firstNameValue, setFirstNameValue] = useState("");
@@ -57,7 +57,8 @@ export const OrgRegistrationForm = () => {
   const [contactValue, setContactValue] = useState("");
   return (
     <div className="flex flex-col gap-4 justify-center">
-      <FileUploader label="Upload Files" classes="drop-area"></FileUploader>
+      <FileUploader />
+      <Map />
     </div>
   );
 };
