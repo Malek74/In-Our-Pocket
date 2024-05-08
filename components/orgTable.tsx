@@ -10,20 +10,40 @@ import {
   Chip,
   Tooltip,
   Pagination,
+  Link,
 } from "@nextui-org/react";
-import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
-import { columns, users } from "./orgData";
 import { EyeIcon } from "./eyeIcon";
+import DeleteDialog from "./deleteDialog";
+import { Truculenta } from "next/font/google";
 
 const statusColorMap = {
   active: "success",
   pending: "warning",
 };
 
-export default function OrgTable() {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+export default function OrgTable({ columns, users,deleteFunction }: { columns: any[]; users: any[],deleteFunction: any }) {
 
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [userID, setUserID] = useState(0);
+  const openDeleteDialog = () => {
+    setDeleteDialogOpen(true);
+
+  };
+
+  const closeDeleteDialog = () => {
+    setDeleteDialogOpen(false);
+  };
+
+  function handleDelete  (id:number)  {
+    openDeleteDialog();
+    setUserID(id); 
+  };
+  function deleteEntry(){
+    deleteFunction(userID);
+    closeDeleteDialog();
+  }
 
   const renderCell = React.useCallback((user: any, columnKey: string) => {
     const cellValue = user[columnKey];
@@ -71,22 +91,20 @@ export default function OrgTable() {
       case "actions":
         return (
           <div className="relative flex items-center gap-2 mt-1">
-            <Tooltip content="Details"></Tooltip>
-            <Tooltip content="Edit organisation">
+           <Tooltip content="View Orgaization">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
+                <Link href="./organizationDetails"><EyeIcon /></Link>
+                
               </span>
             </Tooltip>
             <Tooltip color="danger" content="Delete organisation">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
+            <span
+                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                  onClick={() => handleDelete(user.id)}
+                >               <DeleteIcon />
               </span>
             </Tooltip>
-            <Tooltip content="View Orgaization">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </span>
-            </Tooltip>
+            
           </div>
         );
       default:
@@ -134,6 +152,11 @@ export default function OrgTable() {
         color="primary"
         onChange={(page) => handlePageChange(page)}
       ></Pagination>
+     <DeleteDialog
+        open={deleteDialogOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={deleteEntry}
+      />
     </div>
   );
 }
