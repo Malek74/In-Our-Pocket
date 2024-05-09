@@ -1,3 +1,63 @@
+export function filterUsers(users: any[], column1: string, value1: any, column2: string, value2: any, column3: string, value3: any) {
+  if (column1 === "null" && column2 === "null" && column3 === "null") {
+    return users;
+  }
+  if (column1 === "null" && column2 === "null" && column3 !== "null") {
+    console.log(column3,value3);
+    return users.filter(user =>
+      user[column3].toLowerCase().includes(value3.toLowerCase())
+    );
+  }
+  if (column1 === "null" && column2 !== "null" && column3 === "null") {
+    return users.filter(user =>
+      user[column2].toLowerCase().includes(value2.toLowerCase())
+    );
+  }
+  if (column1 !== "null" && column2 === "null" && column3 === "null") {
+    return users.filter(user =>
+      user[column1].toLowerCase().includes(value1.toLowerCase())
+    );
+  }
+  if (column1 === "null" && column2 !== "null" && column3 !== "null") {
+    return users.filter(user =>
+      user[column2].toLowerCase().includes(value2.toLowerCase()) &&
+      user[column3].toLowerCase().includes(value3.toLowerCase())
+    );
+  }
+  if (column1 !== "null" && column2 === "null" && column3 !== "null") {
+    return users.filter(user =>
+      user[column1].toLowerCase().includes(value1.toLowerCase()) &&
+      user[column3].toLowerCase().includes(value3.toLowerCase())
+    );
+  }
+  if (column1 !== "null" && column2 !== "null" && column3 === "null") {
+    return users.filter(user =>
+      user[column1].toLowerCase().includes(value1.toLowerCase()) &&
+      user[column2].toLowerCase().includes(value2.toLowerCase())
+    );
+  }
+  // All columns are provided
+  return users.filter(user =>
+    user[column1].toLowerCase().includes(value1.toLowerCase()) &&
+    user[column2].toLowerCase().includes(value2.toLowerCase()) &&
+    user[column3].toLowerCase().includes(value3.toLowerCase())
+  );
+}
+
+          
+
+
+export function searchUsers(users: any[], query: string) {
+  if(query.length === 0){
+    return users;
+  
+  }else{
+    return users.filter(user =>
+      user.name.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+} 
+
 const columns = [
     { name: "Orgaization Name", uid: "name" },
     { name: "Type", uid: "type" },
@@ -6,7 +66,7 @@ const columns = [
     { name: "ACTIONS", uid: "actions" },
   ];
   
-  const users = [
+  const Originalusers = [
     {
       id: 1,
       name: "Hospital 1",
@@ -98,5 +158,5 @@ const columns = [
     },
   ];
   
-  export { columns, users };
+  export { columns, Originalusers };
   
