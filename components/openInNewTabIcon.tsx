@@ -2,7 +2,7 @@ import React from 'react';
 
 const OpenInNewTabIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" width="1em" height="1em" viewBox="0 0 32 32" id="icon" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="1em" height="1em" viewBox="0 0 32 32" id="icon" {...props}>
       <defs>
         <style>
           {`.cls-1 {
