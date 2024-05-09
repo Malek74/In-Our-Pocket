@@ -26,6 +26,9 @@ import googlemaps from "@/components/googlemaps";
 
 
 export default function BloodDonation() {
+    const [desc, setDesc] = useState("");
+    function showAlert() {
+        alert("Thank you for your contribution, your request has been submitted.");}
     return(
     <><div>
     <Navbar />
@@ -68,10 +71,29 @@ export default function BloodDonation() {
                                 </p>
                                     </div>
                         </div>
+                        <div className=" text-black gap-10 text-2xl  mt-4 ">
+                                 <Input
+                                value={desc}
+                                type="text"
+                                label="Health Issues (if any)?"
+                                variant="bordered"
+                                //color={"bg-black"}
+                                onValueChange={setDesc}
+                                className="max-w-xs text-black"
+                                style={{ width: '300px'}}
+                                placeholder="Enter info here"
+                                //isRequired
+                                />
+                                </div>
                     </div>
                 </Card>
                 <Divider />
-                <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg">Go Back</Button>
+                <div className="flex flex-row items-center  justify-center gap-10 " >
+                        <Button onClick={showAlert} type="submit" radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Donate</Button>
+                        {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+                        > Go Back</Button> */}
+                    
+                    </div>
             </Card>
            
         </div>
