@@ -5,25 +5,29 @@ export const siteConfig = {
 	description: "Make beautiful websites regardless of your design experience.",
 	navItems: [
 		{
-			label: "7oor",
-			href: "/",
+			label: "Admin Review Submissions",
+			href: "/admin-review",
 		},
-    {
-      label: "SignUp",
-      href: "/signup",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    }
+		{
+			label: "SignUp",
+			href: "/signup",
+		},
+		{
+			label: "Requests",
+			href: "/requests",
+		},
+		{
+			label: "Pricing",
+			href: "/pricing",
+		},
+		{
+			label: "Blog",
+			href: "/blog",
+		},
+		{
+			label: "About",
+			href: "/about",
+		}
 	],
 	navMenuItems: [
 		{
@@ -64,6 +68,6 @@ export const siteConfig = {
 		twitter: "https://twitter.com/getnextui",
 		docs: "https://nextui-docs-v2.vercel.app",
 		discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev"
+		sponsor: "https://patreon.com/jrgarciadev"
 	},
 };

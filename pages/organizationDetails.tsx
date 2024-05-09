@@ -3,7 +3,7 @@ import OrgTable from "@/components/orgTable";
 import SearchBar from "@/components/searchBar";
 import Sidebar from "@/components/sideBar";
 import { Button, Pagination, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import FilterMenu from "./api/filterMenu";
+import FilterMenu from "../components/filterMenu";
 import FormView from "@/components/organizationPage";
 import React from 'react';
 
