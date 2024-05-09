@@ -1,4 +1,5 @@
 import { Image, Card, CardBody, CardFooter } from "@nextui-org/react";
+import React from "react";
 
 export default function RequestCard({ data }: { data: any }) {
   return (
