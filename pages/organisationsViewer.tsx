@@ -39,13 +39,13 @@ export default function OrganisationsViewer() {
             setFilterCol1(selectedValue);
             setTypeChip("visible");
         }
-        if (selectedColumn === "area") {
+        if (selectedColumn === "status") {
             setValue2(selectedValue);
             setColumn2(selectedColumn);
             setFilterCol2(selectedValue);
             setAreaChip("visible");
         }
-        if(selectedColumn === "status"){    
+        if(selectedColumn === "area"){    
             setValue3(selectedValue);
             setColumn3(selectedColumn);
             setFilterCol3(selectedValue);
@@ -77,7 +77,7 @@ export default function OrganisationsViewer() {
         setValue2("None");
         setColumn2("null");
         setFilterCol2("");
-        setStatusChip("hidden");
+        setAreaChip("hidden");
     }
 
     function closeFilterStatus() {

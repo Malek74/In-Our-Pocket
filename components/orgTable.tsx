@@ -93,7 +93,7 @@ export default function OrgTable({ columns, users,deleteFunction }: { columns: a
           <div className="relative flex items-center gap-2 mt-1">
            <Tooltip content="View Orgaization">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link href="./organizationDetails"><EyeIcon /></Link>
+                <Link href="./organizationDetails" className="bg-grey"><EyeIcon /></Link>
                 
               </span>
             </Tooltip>
