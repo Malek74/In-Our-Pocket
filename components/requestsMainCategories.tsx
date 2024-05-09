@@ -26,7 +26,7 @@ export default function MainCategories() {
     {
       title: "Blood Donation",
       img: "/bloodDonation.jpg",
-      link: "/bloodDonationRequests",
+      link: "/bloodDonationRequest",
     },
     {
       title: "Teaching Posts",

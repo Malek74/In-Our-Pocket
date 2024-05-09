@@ -15,9 +15,9 @@ const FormView = ({ data }: { data: any }) => {
     window.open(pdfUrl, "_blank");
   };
   return (
-    <div className="container mx-auto mt-8">
+    <div className="container mx-auto mt-8 bg-yellow">
       {/* Organization Name and Type */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8 bg-blue">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-2">{data.organizationName}</h1>
           <p className="text-lg">{data.organizationType}</p>
@@ -25,9 +25,9 @@ const FormView = ({ data }: { data: any }) => {
       </div>
 
       {/* Left Aligned Attributes */}
-      <div className="flex justify-center mb-4">
-        <div className="w-3/5 pr-8">
-          <div className="mb-4">
+      <div className="flex justify-center mb-4 bg-orange">
+        <div className="w-1/2 pl-8 pr-8 bg-pink">
+          <div className="mb-4 bg-gray">
             <p className="font-bold">Representative Information:</p>
             <p>
               <span className="font-semibold">First Name:</span>{" "}
@@ -42,9 +42,9 @@ const FormView = ({ data }: { data: any }) => {
               {data.representativeGender}
             </p>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 bg-blue">
             <p className="font-bold">Proof of Employment:</p>
-            <div className="flex items-center">
+            <div className="flex items-center bg-purple">
               <Button
                 className="mr-2 bg-blue-500 text-white px-4 py-2 rounded"
                 color="primary"
@@ -70,8 +70,8 @@ const FormView = ({ data }: { data: any }) => {
         </div>
 
         {/* Right Aligned Attributes */}
-        <div className="w-2/5 pl-8">
-          <div className="mb-4">
+        <div className="w-1/2 pl-8 pr-8 ">
+          <div className="mb-4 bg-green">
             <p className="font-bold">Contact Information:</p>
             <p>
               <span className="font-semibold">Address:</span>{" "}
@@ -86,7 +86,7 @@ const FormView = ({ data }: { data: any }) => {
               {data.representativeNumber}
             </p>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 bg-blue">
             <p className="font-bold">Proof of Organization Legitimacy:</p>
             <div className="flex items-center">
               <Button
