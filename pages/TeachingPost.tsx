@@ -10,7 +10,7 @@ import { useMemo, useState } from "react";
 import { Counter } from '@/components/counter';
 import { Navbar } from '@/components/navbar';
 import SideNavbar from '@/components/sideBar';
- import {Button, Card, CardHeader, Divider, Input} from "@nextui-org/react";
+ import {Button, Card, CardHeader, Divider, Input, Select, SelectItem} from "@nextui-org/react";
 import React from "react";
 import FormView from "@/components/organizationPage";
 import {item} from '@/components/ClothesDonationDetails';
@@ -18,20 +18,43 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyV
 import Image from 'next/image';
 import jeansImage from "@/components/images/jeans_image.jpg" ;
 import Stethooo from "@/components/images/stetho.jpg" ;
+import option from "@/components/dropdownSubject"
+
 
 
 
 
 
 export default function TeachingPost() {
+    const [quantity, setQuantity] = useState(1);
+    const [buttonPressed, setButtonPressed] = useState(false);
+    const [selectedForm, setSelectedForm] = useState("");
+ 
+  const [desc, setDesc] = useState("");
+
+  
+    const options = [
+      { value: "option1", label: "None" },
+      { value: "option2", label: "Math" },
+      { value: "option3", label: "Physics" },
+      { value: "option4", label: "Biology" },
+      { value: "option5", label: "Chemistry" },
+      { value: "option6", label: "English" },
+      { value: "option7", label: "French" },
+      { value: "option8", label: "German" },
+      { value: "option9", label: "Arabic" },
+    ];
+  
+   
+    function showAlert() {
+        alert("Thank you for your contribution, your request has been submitted.");}
     return (
         <><div>
             <Navbar />
             <SideNavbar/>
         </div>
-        <div className="flex justify-center items-center h-screen bg-gray-200">
-                <div className="flex">
-                  <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-white rounded-lg shadow-md" style={{ width: '50%', minWidth: '600px',height:'600px' }}>
+        <div className="flex flex-col min-h-screen justify-center items-center gap-6 bg-gray-200">
+                  <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-white rounded-lg shadow-md" style={{ width: '50%', minWidth: '600px' }}>
                         <CardHeader className="flex justify-center items-left">
                             <label className="text-4xl text-black font-bold">Teaching Posts</label>
                         </CardHeader>
@@ -44,58 +67,79 @@ export default function TeachingPost() {
                                     <p className="text-2xl text-black">30</p>
                                 </div>
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Address: </p>
-                                    <p className="text-2xl text-black">Teseen</p>
+                                    <p className="text-2xl text-black font-bold mr-2 mt-3">Address: </p>
+                                    <p className="text-2xl text-black mt-3">Teseen</p>
                                 </div>
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Subjects: </p>
-                                    {/* </div>
-                                    <div className="flex items-center"> */}
-                                    <p className="text-2xl text-black" >Biology-Math</p>
+                                    <p className="text-sm text-black font-bold mr-2 mt-3">Please select a subject from each drop down. If you don't want to choose another subject please choose none. </p>
+                                    
                                 </div>
+                                <div className="flex items-center">
+                                    <p className="text-2xl text-black font-bold mr-4 mt-2">Subject 1: </p>
+                                   
+                                 <div className="flex items-center mt-2" style={{width: '300px'}}>
+                                    <Select
+                                    placeholder="Select an option"
+                                    onChange={(value) => console.log("Selected:", value)}
+                                    required
+                                    >
+                                    { options.map((option) => (
+                                        <SelectItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </SelectItem>
+                                    ))}
+                                    </Select>
+                                </div>
+                                </div>
+
+                            
+                            <div className="flex items-center">
+                                    <p className="text-2xl text-black font-bold mr-4 mt-3">Subject 2: </p>
+                                    <div className="flex items-center mt-3" style={{width: '300px'}}>
+                                    <Select
+                                    placeholder="Select an option"
+                                    onChange={(value) => console.log("Selected:", value)}
+                                    required
+                                    >
+                                    { options.map((option) => (
+                                        <SelectItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </SelectItem>
+                                    ))}
+                                    </Select>
+                                </div>
+                                </div>
+
+                                <div className="flex items-center">
+                                    <p className="text-2xl text-black font-bold mr-4 mt-3">Subject 3: </p>
+                                    <div className="flex items-center mt-3" style={{width: '300px'}}>
+                                    <Select
+                                    placeholder="Select an option"
+                                    onChange={(value) => console.log("Selected:", value)}
+                                    isRequired
+                                    >
+                                    { options.map((option) => (
+                                        <SelectItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </SelectItem>
+                                    ))}
+                                    </Select>
+                                </div>
+                                </div>
+                            
                             </div>
                         </Card>
-                        <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md" style={{ width: '30%', minWidth: '550px' }}>
-                            <div className="flex flex-col">
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Number of Students: </p>
-                                    <p className="text-2xl text-black">15</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Address: </p>
-                                    <p className="text-2xl text-black">Katameya</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Subjects: </p>
-                                    {/* </div>
-                                    <div className="flex items-center"> */}
-                                    <p className="text-2xl text-black" >English-French-German</p>
-                                </div>
-                            </div>
-                        </Card>
-                        <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md" style={{ width: '30%', minWidth: '550px' }}>
-                            <div className="flex flex-col">
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Number of Students: </p>
-                                    <p className="text-2xl text-black">20</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Address: </p>
-                                    <p className="text-2xl text-black">MG</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Subjects: </p>
-                                    {/* </div>
-                                    <div className="flex items-center"> */}
-                                    <p className="text-2xl text-black" >Physics</p>
-                                </div>
-                            </div>
-                        </Card>
+                        
                         <Divider />
-                        <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg">Go Back</Button>
+                        <div className="flex flex-row items-center  justify-center gap-10 " >
+                        <Button onClick={showAlert} type="submit" radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Submit</Button>
+                        {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+                        > Go Back</Button> */}
+                    
+                    </div>
                     </Card>
                     
-                </div>
+                
 
             </div></>
     );
