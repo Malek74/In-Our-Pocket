@@ -1,102 +1,187 @@
+import exp from "constants";
+
+export function filterUsers(users: any[], column1: string, value1: any, column2: string, value2: any) {
+    if (column1 === "null" && column2 === "null") {
+      return users;
+    }
+    if (column1 === "null" && column2 !== "null") {
+      return users.filter(user =>
+        user[column2].toLowerCase().includes(value2.toLowerCase())
+      );
+    }
+    if (column1 !== "null" && column2 === "null") {
+      return users.filter(user =>
+        user[column1].toLowerCase().includes(value1.toLowerCase())
+      );
+    }
+    if (column1 !== "null" && column2 !== "null") {
+      return users.filter(user =>
+        user[column1].toLowerCase().includes(value1.toLowerCase()) &&
+        user[column2].toLowerCase().includes(value2.toLowerCase())
+      );
+    }
+    // All columns are provided
+    return users.filter(user =>
+      user[column1].toLowerCase().includes(value1.toLowerCase()) &&
+      user[column2].toLowerCase().includes(value2.toLowerCase())
+    );
+  }
+  
+            
+  
+  
+  export function searchUsers(users: any[], query: string) {
+    if(query.length === 0){
+      return users;
+    
+    }else{
+      return users.filter(user =>
+        user.name.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+  } 
+
+
 const columns = [
-    { name: "Orgaization Name", uid: "name" },
-    { name: "Type", uid: "type" },
+    { name: "Donor name", uid: "name" },
+    { name: "Expertise", uid: "exp" },
     { name: "Status", uid: "status" },
     { name: "ACTIONS", uid: "actions" },
-    {name:"Area",uid:"area"},
   ];
   
-  const users = [
+  const Donors = [
     {
       id: 1,
-      name: "Hospital 1",
-      type: "Hospital",
+      name: "John Doe",
+      exp: "Teacher",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"New Cairo"
+      address: "123 Main Street, Cityville, State",
+      age: "25",
+      gender: "Male",
+      email: "john.doe@teachers.org",
+      number: "+20 123 456 7890",
+      dob: "1996-01-01",
     },
     {
       id: 2,
-      name: "Mosque 1",
-      type: "Mosque",
+      name: "Jane Smith",
+      exp: "Healthcare Professional",
       status: "pending",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258a2462d826712d",
+      address: "123 Main Street, Cityville, State",
+      age: "30",
+      gender: "Female",
+      email: "jane.smith@healthcare.org",
+      number: "+20 123 456 7890",
+      dob: "1991-01-01",
     },
     {
       id: 3,
-      name: "Church 1",
-      type: "Church",
+      name: "Michael Johnson",
+      exp: "Regular Donor",
       status: "active",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Giza"
-
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+      address: "123 Main Street, Cityville, State",
+      age: "35",
+      gender: "Male",
+      email: "michael.johnson@donors.org",
+      number: "+20 123 456 7890",
+      dob: "1986-01-01",
     },
     {
       id: 4,
-      name: "Orphanage 1",
-      type: "Orphanage",
+      name: "Emily Davis",
+      exp: "Healthcare Professional",
       status: "pending",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258114e29026302d",
+      address: "123 Main Street, Cityville, State",
+      age: "40",
+      gender: "Female",
+      email: "emily.davis@healthcare.org",
+      number: "+20 123 456 7890",
+      dob: "1981-01-01",
     },
     {
       id: 5,
-      name: "School 1",
-      type: "School",
+      name: "Sarah Brown",
+      exp: "Teacher",
       status: "active",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+      address: "123 Main Street, Cityville, State",
+      age: "45",
+      gender: "Female",
+      email: "sarah.brown@teachers.org",
+      number: "+20 123 456 7890",
+      dob: "1976-01-01",
     },
     {
       id: 6,
-      name: "NGO 1",
-      type: "NGO",
+      name: "Matthew Clark",
+      exp: "Regular Donor",
       status: "active",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258114e29026708c",
+      address: "123 Main Street, Cityville, State",
+      age: "50",
+      gender: "Male",
+      email: "matthew.clark@donors.org",
+      number: "+20 123 456 7890",
+      dob: "1971-01-01",
     },
     {
       id: 7,
-      name: "Community Center 1",
-      type: "Community Center",
+      name: "Emma Wilson",
+      exp: "Teacher",
       status: "pending",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+      address: "123 Main Street, Cityville, State",
+      age: "55",
+      gender: "Female",
+      email: "emma.wilson@teachers.org",
+      number: "+20 123 456 7890",
+      dob: "1966-01-01",
     },
     {
       id: 8,
-      name: "Food Bank 1",
-      type: "Food Bank",
+      name: "Christopher Martinez",
+      exp: "Healthcare Professional",
       status: "active",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      avatar: "https://i.pravatar.cc/150?u=a04258a2462d826712d",
+      address: "123 Main Street, Cityville, State",
+      age: "60",
+      gender: "Male",
+      email: "christopher.martinez@healthcare.org",
+      number: "+20 123 456 7890",
+      dob: "1961-01-01",
     },
     {
       id: 9,
-      name: "Shelter 1",
-      type: "Shelter",
-      status: "pending",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
+      name: "Olivia Taylor",
+      exp: "Regular Donor",
+      status: "active",
+      avatar: "https://i.pravatar.cc/150?u=a04258a2462d826712d",
+      address: "123 Main Street, Cityville, State",
+      age: "65",
+      gender: "Female",
+      email: "olivia.taylor@donors.org",
+      number: "+20 123 456 7890",
+      dob: "1956-01-01",
     },
     {
       id: 10,
-      name: "Animal Rescue 1",
-      type: "Animal Rescue",
+      name: "Daniel Anderson",
+      exp: "Healthcare Professional",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-      area:"Maadi"
-
-    },
+      address: "123 Main Street, Cityville, State",
+      age: "70",
+      gender: "Male",
+      email: "daniel.anderson@healthcare.org",
+      number: "+20 123 456 7890",
+      dob: "1951-01-01",
+    }
   ];
-  
-  export { columns, users };
+
+  export { columns, Donors };
+
   

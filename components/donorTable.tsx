@@ -10,15 +10,23 @@ import {
   Chip,
   Tooltip,
   Pagination,
+  Link,
 } from "@nextui-org/react";
 import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
-import { columns, users } from "./orgData";
+import { columns } from "./donordata";
 import { EyeIcon } from "./eyeIcon";
+import { Donors } from "./donordata";
+import { item } from "./ClothesDonationDetails";
 
 const statusColorMap = {
-  active: "success",
-  pending: "warning",
+    active: "success",
+    pending: "warning",
+};
+
+const handleClick = (donorId: number) => {
+    sessionStorage.setItem('selectedDonorId', donorId.toString());
+    console.log("Donor ID:", donorId);
 };
 
 export default function DonorTable() {
@@ -39,7 +47,7 @@ export default function DonorTable() {
             {user.email}
           </User>
         );
-      case "type":
+      case "exp":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
@@ -72,19 +80,16 @@ export default function DonorTable() {
         return (
           <div className="relative flex items-center gap-2 mt-1">
             <Tooltip content="Details"></Tooltip>
-            <Tooltip content="Edit organisation">
+            <Tooltip content="View Volunteer Request">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
+                <Link  onClick={() => handleClick(user.id)} href="/volunteerPage" className="text-[#a1a1a1]">
+                <EyeIcon className=""/>
+                </Link>
               </span>
             </Tooltip>
             <Tooltip color="danger" content="Delete Volunteer Request">
               <span className="text-lg text-danger cursor-pointer active:opacity-50">
                 <DeleteIcon />
-              </span>
-            </Tooltip>
-            <Tooltip content="View Volunteer Request">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
               </span>
             </Tooltip>
           </div>
@@ -94,7 +99,7 @@ export default function DonorTable() {
     }
   }, []);
 
-  const paginatedUsers = users.slice(
+  const paginatedUsers = Donors.slice(
     (currentPage - 1) * 5,
     currentPage * 5
   );
@@ -130,7 +135,7 @@ export default function DonorTable() {
       </Table>
       <Pagination className="mt-2"
         initialPage={currentPage}
-        total={Math.ceil(users.length / 5)}
+        total={Math.ceil(Donors.length / 5)}
         color="primary"
         onChange={(page) => handlePageChange(page)}
       ></Pagination>
