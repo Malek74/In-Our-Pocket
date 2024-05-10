@@ -44,9 +44,6 @@ export function filterUsers(users: any[], column1: string, value1: any, column2:
   );
 }
 
-          
-
-
 export function searchUsers(users: any[], query: string) {
   if(query.length === 0){
     return users;

@@ -1,20 +1,14 @@
 import { Navbar } from "@/components/navbar";
-import OrgTable from "@/components/orgTable";
-import SearchBar from "@/components/searchBar";
 import Sidebar from "@/components/sideBar";
-import { Button, Pagination, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import FilterMenu from "./api/filterMenu";
-import FormView from "@/components/organizationPage";
+import { Button } from "@nextui-org/react";
 import React from 'react';
-import DataHolder_Wborder from "@/components/dataHolderWborder";
 import {Image} from "@nextui-org/image";
 import OrganizationLogo from "@/components/OrganizationLogo";
-import BusinessIcon from '@mui/icons-material/Business';
-import PlaceIcon from '@mui/icons-material/Place';
-import MapIcon from '@mui/icons-material/Map';
-import AreaIcon from "@/components/areaIcon";
-import DownloadIcon from "@/components/DownloadIcon";
-import OpenInNewTabIcon from "@/components/openInNewTabIcon";
+import PlaceIcon from "@mui/icons-material/Place";
+import AreaIcon from "@mui/icons-material/LocationCity";
+import MapIcon from "@mui/icons-material/Map";
+import OpenInNewTabIcon from "@mui/icons-material/OpenInNew";
+import DownloadIcon from "@mui/icons-material/Download";
 import { EmailOutlined, LocalPhoneOutlined, PersonPinCircleOutlined } from "@mui/icons-material";
 
 
@@ -23,7 +17,7 @@ export default function accountManagmentPage() {
         <div className="relative  flex flex-col h-screen ">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="mx-12 my-12 flex justify-between">
                         <div className="w-1/4">

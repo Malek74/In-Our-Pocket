@@ -79,11 +79,11 @@ export default function ViewDonationsOrganization() {
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="flex justify-between m-4 align-middle">
                         <div>
-                            <h1 className="font-bold">Donations  Management</h1>
+                            <h1 className="font-bold text-4xl">Donations Management</h1>
                         </div>
                             <div className="flex flex-row justify-between">
                                 <div className="align-middle m-1">
@@ -91,7 +91,7 @@ export default function ViewDonationsOrganization() {
                                     <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
                                 </div>
                                 <div className="align-middle m-1">
-                                <Button endContent={<FaPlus></FaPlus>}>
+                                <Button endContent={<FaPlus></FaPlus>} className="bg-mint">
                                         New Donation Request
                                     </Button>
                                 </div>

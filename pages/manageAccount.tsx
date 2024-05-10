@@ -17,7 +17,7 @@ export default function ManageAccount() {
   return (
     <div className="flex flex-col min-h-screen ">
 
-      <SideNavbar></SideNavbar>
+      <SideNavbar elements={[]}></SideNavbar>
 
      <div className="flex justify-start min-w-screen"> <Navbar></Navbar></div>
       <div className="flex justify-center">

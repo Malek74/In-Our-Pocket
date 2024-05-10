@@ -23,6 +23,9 @@ import { FaBell } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 
+import { IoMdArrowDropdown } from "react-icons/io";
+
+
 
 
 
@@ -59,35 +62,28 @@ export const Navbar = () => {
 					icon={<FaBell></FaBell>}
 					items={[<Notification icon={<FaLocationDot></FaLocationDot>} mainTitle="Driver Arrived" message="Your driver is about to arrive , get ready for pickup." linkText="View Trip" dest="./trackRide"></Notification>,<Notification icon={<FaCheck></FaCheck>} mainTitle="Donation Request Fulfilled" message="Your donation request is fullfiled" linkText="View Donation Request"></Notification>,<Notification icon={<FaLocationDot></FaLocationDot>} mainTitle="Driver Arrived" message="Your driver is about to arrive , get ready for pickup." linkText="View Trip" dest="./trackRide"></Notification>,<Notification icon={<FaCheck></FaCheck>} mainTitle="Donation Request Fulfilled" message="Your donation request is fullfiled" linkText="View Donation Request"></Notification>]}
 					></MyDropdown>
-				{/* <Dropdown isDisabled={false}>
-				<DropdownTrigger>
-				<Button isIconOnly variant="light"><FaBell></FaBell></Button>
-				</DropdownTrigger>
-				<DropdownMenu>
-					<DropdownItem>
-						<Notification icon={<FaLocationDot></FaLocationDot>} mainTitle="Malek" message="Click to view"></Notification>
-					</DropdownItem>
-				</DropdownMenu>
 
-			</Dropdown> */}
 				</NavbarMenuItem>
 
 				<NavbarMenuItem>
 					
 					<Dropdown placement="bottom-end">
 						<DropdownTrigger>
-							<Button className="flex justify-center items-center" variant="light">
-								<p className="font-semibold p-1">Malek</p>
+							<div className="flex justify-center items-center p-2 rounded-xl hover:bg-mint " >
 								<Avatar />
-							</Button>
+								<p className="font-semibold p-1">Malek</p>
+								<IoMdArrowDropdown/>
+
+							</div>
 						</DropdownTrigger>
 						<DropdownMenu aria-label="Profile Actions" variant="flat">
-							<DropdownItem key="profile" className="h-14 gap-2">
-								<p className="font-semibold">email: malek@email.com</p>
+							<DropdownItem key="profile" className="h-14 gap-2 rounded-xl border-2">
+							<p className="font-semibold ">email: </p>
+							<p className="font-semibold text-blue-600">malek@email.com</p>
 							</DropdownItem>
 							
 								<DropdownItem key="profile">					
-								<Link href="/manageAccount">Profile
+								<Link href="/manageAccount" className="text-black">Profile
 									</Link></DropdownItem>
 							<DropdownItem key="help_and_feedback">Security</DropdownItem>
 							<DropdownItem key="logout" color="danger">
