@@ -16,8 +16,7 @@ import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
 import { columns } from "./donordata";
 import { EyeIcon } from "./eyeIcon";
-import { Donors } from "./donordata";
-import { item } from "./ClothesDonationDetails";
+import DeleteDialog from "./deleteDialog";
 
 const statusColorMap = {
     active: "success",
@@ -29,8 +28,35 @@ const handleClick = (donorId: number) => {
     console.log("Donor ID:", donorId);
 };
 
-export default function DonorTable() {
+export default function DonorTable({ columns, users,deleteFunction }: { columns: any[]; users: any[],deleteFunction: any }) {
+  
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [userID, setUserID] = useState(0);
+  const openDeleteDialog = () => {
+    setDeleteDialogOpen(true);
+
+  };
+
+  const handleViewClick = ( orgID: number) => {
+    sessionStorage.setItem('selectedOrgID', orgID.toString());
+    console.log("Org ID:", orgID);
+  };
+
+  const closeDeleteDialog = () => {
+    setDeleteDialogOpen(false);
+  };
+
+  function handleDelete  (id:number)  {
+    openDeleteDialog();
+    setUserID(id); 
+  };
+  function deleteEntry(){
+    deleteFunction(userID);
+    closeDeleteDialog();
+  }
+
+
 
 
   const renderCell = React.useCallback((user: any, columnKey: string) => {
@@ -87,9 +113,11 @@ export default function DonorTable() {
                 </Link>
               </span>
             </Tooltip>
-            <Tooltip color="danger" content="Delete Volunteer Request">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
+            <Tooltip color="danger" content="Delete organisation">
+            <span
+                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                  onClick={() => handleDelete(user.id)}
+                >               <DeleteIcon />
               </span>
             </Tooltip>
           </div>
@@ -99,7 +127,7 @@ export default function DonorTable() {
     }
   }, []);
 
-  const paginatedUsers = Donors.slice(
+  const paginatedUsers = users.slice(
     (currentPage - 1) * 5,
     currentPage * 5
   );
@@ -135,10 +163,15 @@ export default function DonorTable() {
       </Table>
       <Pagination className="mt-2"
         initialPage={currentPage}
-        total={Math.ceil(Donors.length / 5)}
+        total={Math.ceil(users.length / 5)}
         color="primary"
         onChange={(page) => handlePageChange(page)}
       ></Pagination>
+      <DeleteDialog
+      open={deleteDialogOpen}
+      onClose={closeDeleteDialog}
+      onConfirm={deleteEntry}
+    />
     </div>
   );
 }

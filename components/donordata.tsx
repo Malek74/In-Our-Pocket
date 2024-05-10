@@ -1,45 +1,35 @@
 import exp from "constants";
 
-export function filterUsers(users: any[], column1: string, value1: any, column2: string, value2: any) {
-    if (column1 === "null" && column2 === "null") {
-      return users;
-    }
-    if (column1 === "null" && column2 !== "null") {
-      return users.filter(user =>
-        user[column2].toLowerCase().includes(value2.toLowerCase())
-      );
-    }
-    if (column1 !== "null" && column2 === "null") {
-      return users.filter(user =>
-        user[column1].toLowerCase().includes(value1.toLowerCase())
-      );
-    }
-    if (column1 !== "null" && column2 !== "null") {
-      return users.filter(user =>
-        user[column1].toLowerCase().includes(value1.toLowerCase()) &&
-        user[column2].toLowerCase().includes(value2.toLowerCase())
-      );
-    }
-    // All columns are provided
-    return users.filter(user =>
-      user[column1].toLowerCase().includes(value1.toLowerCase()) &&
-      user[column2].toLowerCase().includes(value2.toLowerCase())
+export function filterDonors(donors: any[], column1: string, value1: any,column2:string,value2:string) {
+  console.log("gowa function",column1,value1,column2,value2)
+  if(column1==="null" && column2==="null"){
+    return donors;
+  }
+  if(column1==="null" && column2!=="null"){
+    return donors.filter(donor =>
+      donor[column2].toLowerCase().includes(value2.toLowerCase()));
+  }
+  if(column1!=="null" && column2==="null"){
+    return donors.filter(donor =>
+      donor[column1].toLowerCase().includes(value1.toLowerCase()));
+  }
+  if(column1!=="null" && column2!=="null"){
+    return donors.filter(donor =>
+      donor[column1].toLowerCase().includes(value1.toLowerCase()) && donor[column2].toLowerCase().includes(value2.toLowerCase()));
+  }
+          
+}
+
+export function searchDonors(donors: any[], query: string) {
+  if(query.length === 0){
+    return donors;
+  
+  }else{
+    return donors.filter(donor =>
+      donor.name.toLowerCase().includes(query.toLowerCase())
     );
   }
-  
-            
-  
-  
-  export function searchUsers(users: any[], query: string) {
-    if(query.length === 0){
-      return users;
-    
-    }else{
-      return users.filter(user =>
-        user.name.toLowerCase().includes(query.toLowerCase())
-      );
-    }
-  } 
+} 
 
 
 const columns = [
@@ -49,7 +39,7 @@ const columns = [
     { name: "ACTIONS", uid: "actions" },
   ];
   
-  const Donors = [
+  const originalSet = [
     {
       id: 1,
       name: "John Doe",
@@ -182,6 +172,6 @@ const columns = [
     }
   ];
 
-  export { columns, Donors };
+  export { columns, originalSet };
 
   
