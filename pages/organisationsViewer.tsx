@@ -121,7 +121,7 @@ export default function OrganisationsViewer() {
                                     </FilterMenu>
                                 </div>
                                 <div className="w-[240]">
-                                    <SearchBar placeHolder="Search by Organisation Name" query={query} handleSearch={handleSearch}/>
+                                    <SearchBar placeHolder="Organization Name" query={query} handleSearch={handleSearch}/>
                                 </div>
                             </div>
                     </div>
