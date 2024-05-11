@@ -5,7 +5,7 @@ export default function FilterItemDropDown({
   value,
   attribute,
   onChange,
-  column
+  column,
 }: {
   value: any;
   values: string[];
@@ -20,7 +20,9 @@ export default function FilterItemDropDown({
         className=""
         variant="bordered"
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event.target.value, column,)}
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+          onChange(event.target.value, column)
+        }
       >
         {values.map((element) => (
           <SelectItem key={element} value={element}>
