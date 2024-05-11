@@ -3,27 +3,41 @@
 import AcceptOrReject from "@/components/acceptOrReject";
 import ReqTable from "@/components/ahmedTable";
 import MyButton from "@/components/ahmedButton";
-import {Chip} from "@nextui-org/react";
 
-export default function Requests(){
-    return(/*<div className='flex flex-col justify-center items-center gap-4'>
-           <div className= 'flex gap-4'><Chip>org1</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org2</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org3</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org4</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org5</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org6</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org7</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org8</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org9</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org10</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org11</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org12</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org13</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org14</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org15</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-           <div className= 'flex gap-4'><Chip>org16</Chip><AcceptOrReject></AcceptOrReject><MyButton></MyButton></div>
-             </div>*/
-             <div>ahmedTable</div>
-         )
+import SearchBar from "@/components/searchBar";
+import FilterMenu from "./api/filterMenu";
+import Sidebar from "@/components/sideBar";
+import { Navbar } from "@/components/navbar";
+
+export default function Requests() {
+  return (
+    <div className="relative flex flex-col h-screen">
+      <Navbar></Navbar>
+      <div className="flex flex-row flex-1">
+        <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+        <div className="flex-1 flex flex-col">
+          <div className="flex justify-between m-4 align-middle">
+            <div>
+              <h1 className="">Organizations</h1>
+            </div>
+            <div className="flex flex-row justify-between">
+              <div className="align-middle m-1">
+                <FilterMenu></FilterMenu>
+              </div>
+              <div className="w-[240]">
+                <SearchBar />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <ReqTable></ReqTable>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  )
 }
