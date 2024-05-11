@@ -75,6 +75,7 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
               break;
           }
           return (
+
             <div className="flex items-center">
               {avatarIcon && <span className="mr-2">{avatarIcon}</span>}
               <span className="font-semibold">{donation.donation}</span>
@@ -170,6 +171,9 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
         onConfirm={deleteEntry}
+        messageHeader="Delete Donation"
+        message="Are you sure you want to delete this donation request? Donation will be permanently
+        removed. This action cannot be undone."
       />
     </div>
   );

@@ -99,10 +99,11 @@ export default function ViewDonationsOrganization() {
                                 <div className="align-middle m-1">
                                     
                                     <FilterMenu 
+                                    variant="regular"
                                     icon={<p>Filter</p>}
                                     items={[
-                                    <FilterItemDropDown attribute="Status" values={["None","Fulfilled","Pending"]} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
-                                    <FilterItemDropDown attribute="Category" values={["None","Clothes","Toys","Food","Medical Supplies","School Supplies","Blood"].sort()} column= "Category" onChange={handleChange}  value={value1}></FilterItemDropDown>
+                                    <FilterItemDropDown attribute="Status" values={["Fulfilled","Pending"].sort()} onChange={handleChange}  value={value2} column="status" variant="regular"></FilterItemDropDown>,
+                                    <FilterItemDropDown attribute="Category" values={["Clothes","Toys","Food","Medical Supplies","School Supplies","Blood"].sort()} onChange={handleChange}  value={value1} column="Category" variant="regular"></FilterItemDropDown>,
                                     ]}>
                                     </FilterMenu>
                                 </div>

@@ -114,10 +114,11 @@ export default function OrganisationsViewer() {
                                 <div className="align-middle m-1">
                                     <FilterMenu
                                     items={[
-                                        <FilterItemDropDown attribute="Type" values={["Mosque","Church","Orphanage","Hospital","School","Refugee Camp"].sort()} column= "type" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Area" values={["New Cairo","Giza","Maadi"].sort()} onChange={handleChange}  value={value2} column="area"></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value3} column="status"></FilterItemDropDown>
-                                        ]}>
+                                        <FilterItemDropDown attribute="Type" values={["Mosque","Church","Orphanage","Hospital","School","Refugee Camp"].sort()} column= "type" onChange={handleChange}  value={value1} variant="regular"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Area" values={["New Cairo","Giza","Maadi"].sort()} onChange={handleChange}  value={value2} column="area" variant="regular"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value3} column="status" variant="regular"></FilterItemDropDown>
+                                        ]}
+                                        variant="regular">
                                     </FilterMenu>
                                 </div>
                                 <div className="w-[240]">

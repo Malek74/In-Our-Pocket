@@ -109,16 +109,18 @@ const columns = [
 
     },
     {
-      id: 6,
-      name: "NGO 1",
-      type: "NGO",
-      area:"Maadi",
+      id: 5,
+      name: "School 2",
+      type: "School",
+      area:"New Cairo",
       status: "active",
-      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",    },
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+
+    },
     {
       id: 7,
-      name: "Community Center 1",
-      type: "Community Center",
+      name: "Hospital 3",
+      type: "Hospital",
       area:"Maadi",
       status: "pending",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
@@ -126,8 +128,8 @@ const columns = [
     },
     {
       id: 8,
-      name: "Food Bank 1",
-      type: "Food Bank",
+      name: "Refugee Camp 1",
+      type: "Refugee Camp",
       area:"Maadi",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
@@ -136,8 +138,8 @@ const columns = [
     },
     {
       id: 9,
-      name: "Shelter 1",
-      type: "Shelter",
+      name: "Hospital 2",
+      type: "Hospital",
       area:"Maadi",
 
       status: "pending",
@@ -146,8 +148,8 @@ const columns = [
     },
     {
       id: 10,
-      name: "Animal Rescue 1",
-      type: "Animal Rescue",
+      name: "School 3",
+      type: "School",
       area:"Maadi",
       status: "active",
       avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
