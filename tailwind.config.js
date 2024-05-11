@@ -11,10 +11,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        ...require('tailwindcss/colors'),
         'rose': "#FEE7E6",
         'mint': '#ECFDF1',
         'yellow': '#F9EAC2',
-        'Orange': '#FFD898'
+        'orange': '#FFD898'
       }
     },
   },
