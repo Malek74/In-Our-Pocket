@@ -79,11 +79,11 @@ export default function ViewDonationsOrganization() {
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="flex justify-between m-4 align-middle">
                         <div>
-                            <h1 className="font-bold">Donations  Management</h1>
+                            <h1 className="font-bold text-4xl">Donations Management</h1>
                         </div>
                             <div className="flex flex-row justify-between">
                                 <div className="align-middle m-1">
@@ -91,7 +91,7 @@ export default function ViewDonationsOrganization() {
                                     <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
                                 </div>
                                 <div className="align-middle m-1">
-                                <Button endContent={<FaPlus></FaPlus>}>
+                                <Button endContent={<FaPlus></FaPlus>} className="bg-mint">
                                         New Donation Request
                                     </Button>
                                 </div>
@@ -99,10 +99,11 @@ export default function ViewDonationsOrganization() {
                                 <div className="align-middle m-1">
                                     
                                     <FilterMenu 
+                                    variant="regular"
                                     icon={<p>Filter</p>}
                                     items={[
-                                    <FilterItemDropDown attribute="Status" values={["None","Fulfilled","Pending"]} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
-                                    <FilterItemDropDown attribute="Category" values={["None","Clothes","Toys","Food","Medical Supplies","School Supplies","Blood"].sort()} column= "Category" onChange={handleChange}  value={value1}></FilterItemDropDown>
+                                    <FilterItemDropDown attribute="Status" values={["Fulfilled","Pending"].sort()} onChange={handleChange}  value={value2} column="status" variant="regular"></FilterItemDropDown>,
+                                    <FilterItemDropDown attribute="Category" values={["Clothes","Toys","Food","Medical Supplies","School Supplies","Blood"].sort()} onChange={handleChange}  value={value1} column="Category" variant="regular"></FilterItemDropDown>,
                                     ]}>
                                     </FilterMenu>
                                 </div>

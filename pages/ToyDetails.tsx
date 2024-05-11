@@ -27,6 +27,27 @@ import Barbie from "@/components/images/barbie.jpg" ;
 
 
 export default function ToyDetails() {
+    const [quantity, setQuantity] = useState(1);
+    const [buttonPressed, setButtonPressed] = useState(false);
+    const [selectedForm, setSelectedForm] = useState("");
+  
+  const [desc, setDesc] = useState("");
+  
+    const decrementQuantity = () => {
+      if (quantity > 1) {
+        setQuantity(quantity - 1);
+      }
+    };
+  
+    const incrementQuantity = () => {
+      if (quantity < 5 ){
+      setQuantity(quantity + 1);}
+      else {
+          alert ("The maximum quantity you can donate for such item is 5.")
+      }
+    };
+    function showAlert() {
+        alert("Thank you for your contribution, your request has been submitted.");}
     return (
         <><div>
             <Navbar />
@@ -44,16 +65,16 @@ export default function ToyDetails() {
                         <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md" style={{ width: '30%', minWidth: '350px' }}>
                             <div className="flex flex-col">
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Type: </p>
-                                    <p className="text-2xl text-black">Barbie Doll</p>
+                                    <p className="text-2xl text-black font-bold mr-2 mt-2">Type: </p>
+                                    <p className="text-2xl text-black mt-2">Barbie Doll</p>
                                 </div>
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Gender: </p>
-                                    <p className="text-2xl text-black"> Female</p>
+                                    <p className="text-2xl text-black font-bold mr-2 mt-3">Gender: </p>
+                                    <p className="text-2xl text-black mt-3"> Female</p>
                                 </div>
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Age: </p>
-                                    <p className="text-2xl text-black"> 3+ years old </p>
+                                    <p className="text-2xl text-black font-bold mr-2 mt-3">Age: </p>
+                                    <p className="text-2xl text-black mt-3"> 3+ years old </p>
                                 </div>
                                 {/* <div className="flex items-center">
                                     <p className="text-2xl text-black font-bold mr-2">Season:</p>
@@ -63,9 +84,29 @@ export default function ToyDetails() {
                                     <p className="text-2xl text-black font-bold mr-2">Material:</p>
                                     <p className="text-2xl text-black"> Denim</p>
                                 </div> */}
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Quantity: </p>
-                                    <p className="text-2xl text-black"> 4</p>
+                                <div className="flex flex-row items-center">
+                                <p className="text-2xl text-black font-bold mr-2 mt-3">Quantity: </p>
+                            <Button radius="full" className="bg-black text-white text-1xl font-bold shadow-lg mr-4 mt-5"  onClick={decrementQuantity} style={{ width: '10px', height: '30px' }}>
+                                -
+                            </Button>
+                            <span className="mr-4 mt-3"  >{quantity}</span>
+                            <Button radius="full" className="bg-black text-white text-1xl font-bold shadow-lg mt-5" onClick={incrementQuantity} style={{ width: '10px', height: '30px' }}>
+                                +
+                            </Button>
+                            </div>
+                            <div className=" text-black gap-10 text-2xl  mt-4 ">
+                            <Input
+                                value={desc}
+                                type="text"
+                                label="Description"
+                                variant="bordered"
+                                //color={"bg-black"}
+                                onValueChange={setDesc}
+                                className="max-w-xs text-black"
+                                style={{ width: '300px'}}
+                                placeholder="Enter specification for item (if needed)?"
+                                //isRequired
+                                />
                                 </div>
                             </div>
                         </Card>
@@ -75,7 +116,12 @@ export default function ToyDetails() {
                         </Card>
 
                         <Divider />
-                        <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg">Go Back</Button>
+                        <div className="flex flex-row items-center  justify-center gap-10 " >
+                        <Button onClick={showAlert} type="submit" radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Donate</Button>
+                        {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+                        > Go Back</Button> */}
+                    
+                    </div>
                     </Card>
                     
                 {/* </div> */}

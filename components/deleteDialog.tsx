@@ -4,13 +4,9 @@ import Button from "@nextui-org/react";
 import React from 'react';
 import { MdDelete } from 'react-icons/md';
 
-interface DeleteDialogProps {
-  open: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-}
 
-const DeleteDialog: React.FC<DeleteDialogProps> = ({ open, onClose, onConfirm }) => {
+
+function DeleteDialog ( {open, onClose, onConfirm, message,messageHeader}:{open: boolean, onClose: () => void, onConfirm: () => void, message: string,messageHeader:string}){
 
 
   const cancelButtonRef = useRef(null)
@@ -49,12 +45,11 @@ const DeleteDialog: React.FC<DeleteDialogProps> = ({ open, onClose, onConfirm })
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                        Delete Organization
+                        {messageHeader}
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to delete this organization account? All the organisation  data will be permanently
-                          removed. This action cannot be undone.
+                          {message}
                         </p>
                       </div>
                     </div>

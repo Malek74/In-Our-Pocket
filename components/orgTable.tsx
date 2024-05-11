@@ -16,6 +16,8 @@ import { DeleteIcon } from "./deleteIcon";
 import { EyeIcon } from "./eyeIcon";
 import DeleteDialog from "./deleteDialog";
 import { Truculenta } from "next/font/google";
+import { FaRegHospital, FaMosque, FaChurch } from "react-icons/fa";
+import { FaSchoolFlag, FaChildren, FaPeopleRoof } from "react-icons/fa6";
 
 const statusColorMap = {
   active: "success",
@@ -55,14 +57,35 @@ export default function OrgTable({ columns, users,deleteFunction }: { columns: a
 
     switch (columnKey) {
       case "name":
+
+      let avatarIcon;
+
+      switch (user.type) {
+        case "Hospital":
+          avatarIcon = <FaRegHospital/>;
+          break;
+        case "School":
+          avatarIcon = <FaSchoolFlag />;
+          break;
+        case "Orphanage":
+          avatarIcon = <FaChildren />;
+          break;
+        case "Mosque":
+          avatarIcon = <FaMosque />;
+          break;
+        case "Church":
+          avatarIcon = <FaChurch />;
+          break;
+        case "Refugee Camp":
+        default:
+          avatarIcon = <FaPeopleRoof />;
+          break;
+      }
         return (
-          <User
-            avatarProps={{ radius: "lg", src: user.avatar }}
-            // description={user.email}
-            name={cellValue}
-          >
-            {user.email}
-          </User>
+          <div className="flex items-center">
+          {avatarIcon && <span className="mr-2">{avatarIcon}</span>}
+          <span className="font-semibold">{user.name}</span>
+        </div>
         );
       case "type":
         return (
@@ -98,7 +121,8 @@ export default function OrgTable({ columns, users,deleteFunction }: { columns: a
           <div className="relative flex items-center gap-2 mt-1">
            <Tooltip content="View Orgaization">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link href="./organizationDetails" onClick={() => handleViewClick(user.id)} className="bg-grey"><EyeIcon /></Link>
+                <Link href="./organizationDetails" className="text-black
+                "><EyeIcon /></Link>
                 
               </span>
             </Tooltip>
@@ -161,6 +185,9 @@ export default function OrgTable({ columns, users,deleteFunction }: { columns: a
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
         onConfirm={deleteEntry}
+        messageHeader="Delete Organization"
+        message="Are you sure you want to delete this organization account? All the organisation  data will be permanently
+        removed. This action cannot be undone."
       />
     </div>
   );

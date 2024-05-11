@@ -2,6 +2,7 @@
 import { Navbar } from "@/components/navbar";
 import Sidebar from "@/components/sideBar";
 import { use, useState } from "react";
+import AdminElements from "@/components/AdminsideBarElements";
 
 
 export default function IndexPage() {
@@ -10,7 +11,7 @@ export default function IndexPage() {
 		<div className="relative flex flex-col h-screen">
 			<Navbar />
 			<div>
-				<Sidebar></Sidebar>
+				<Sidebar elements={AdminElements}></Sidebar>
 				
 
 				</div>

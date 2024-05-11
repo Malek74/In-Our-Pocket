@@ -44,9 +44,6 @@ export function filterUsers(users: any[], column1: string, value1: any, column2:
   );
 }
 
-          
-
-
 export function searchUsers(users: any[], query: string) {
   if(query.length === 0){
     return users;
@@ -154,6 +151,23 @@ const columns = [
     },
 
     {
+      id: 5,
+      name: "School 2",
+      type: "School",
+      address:"",
+      area:"New Cairo",
+      governate:"Cairo",
+      status: "active",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+      repFName: "Saaed",
+      repLName: "Mansour",
+      repGender: "Male",
+      repEmail:"@.org",
+      repAdd:"",
+      repNum:"",
+    },
+
+    {
       id: 6,
       name: "NGO 1",
       type: "NGO",
@@ -172,6 +186,8 @@ const columns = [
 
     {
       id: 7,
+      name: "Hospital 3",
+      type: "Hospital",
       name: "Community Center 1",
       type: "Community Center",
       address:"",
@@ -188,6 +204,8 @@ const columns = [
     },
     {
       id: 8,
+      name: "Refugee Camp 1",
+      type: "Refugee Camp",
       name: "Food Bank 1",
       type: "Food Bank",
       address:"",
@@ -205,6 +223,8 @@ const columns = [
 
     {
       id: 9,
+      name: "Hospital 2",
+      type: "Hospital",
       name: "Shelter 1",
       type: "Shelter",
       address:"",
@@ -221,6 +241,8 @@ const columns = [
     },
     {
       id: 10,
+      name: "School 3",
+      type: "School",
       name: "Animal Rescue 1",
       type: "Animal Rescue",
       address:"",
