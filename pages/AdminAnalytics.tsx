@@ -17,7 +17,7 @@ export default function AdminAnalytics() {
                 </div>
 				<div className="flex flex-col m-2">
                     <div>
-                        <h1 className="font-bold text-4xl m-2">Organization Analytics</h1>
+                        <h1 className="font-bold text-4xl m-2">Organizations Analytics</h1>
                         <div className="flex flex-row ">
                             <div className="border-solid border-2 m-2 rounded-xl">
                                 <div>
