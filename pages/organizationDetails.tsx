@@ -36,13 +36,11 @@ export default function Organisations() {
 
 
     useEffect(() => {
-        // Retrieve the donor ID from session storage
         const orgID = sessionStorage.getItem('selectedOrgID');
         if(orgID !== null){
         const selectedOrg = Originalusers.find(Originalusers => Originalusers.id === parseInt(orgID));
         
         if (selectedOrg) {
-            // If the donor is found, set the donor's name
             setName(selectedOrg.name);
             setType(selectedOrg.type);
             setAdd(selectedOrg.address);
@@ -56,10 +54,21 @@ export default function Organisations() {
             setNum(selectedOrg.repNum);
             setStatus(selectedOrg.status); 
         } else {
-            // Handle the case where the donor with the given ID is not found
             console.log("Donor not found with the given ID");
         }}
-        }, []); // Run this effect only once, similar to componentDidMount
+        }, []); 
+
+        const handleOpenInNewTab = () => {
+            const pdfUrl = '/lect.pdf';
+            window.open(pdfUrl, '_blank');
+            };
+            const handleDownload = () => {
+                const anchor = document.createElement('a');
+                anchor.href = '/lect.pdf';
+                anchor.download = '';
+                anchor.click();
+            };
+
     return (
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
@@ -142,11 +151,8 @@ export default function Organisations() {
                                 <div>
                                     {/* div holding buttons */}
                                     <div className="flex justify-between">
-                                        <Button className="mr-2 px-4 py-2 rounded" color='primary' variant='ghost' startContent={<OpenInNewTabIcon/>} >Open in New Tab</Button>
-                                        <a href='/Lect.pdf' download>
-                                        <Button className="px-4 py-2 rounded"   color='primary' variant='ghost' startContent={<DownloadIcon/>} > <p className="">Download</p></Button>
-                                        </a>
-                                        
+                                        <Button className="mr-2 px-4 py-2 rounded" color='primary' variant='ghost' startContent={<OpenInNewTabIcon/>} onClick={handleOpenInNewTab}>Open in New Tab</Button>
+                                        <Button className="px-4 py-2 rounded"   color='primary' variant='ghost' startContent={<DownloadIcon/>} onClick={handleDownload}> <p className="">Download</p></Button>
                                     </div>
                                 </div>
                             </div>
@@ -193,10 +199,8 @@ export default function Organisations() {
                                     {/* Proof Of legitimacy div */}
                                     <div>
                                         <div className="flex justify-between">
-                                            <Button className="mr-2 px-4 py-2 rounded" color='primary' variant='ghost' startContent={<OpenInNewTabIcon/>} >Open in New Tab</Button>
-                                            <a href='/Lect.pdf' download>
-                                            <Button className="px-4 py-2 rounded" color='primary' variant='ghost' startContent={<DownloadIcon/>}> Download</Button>
-                                            </a>
+                                            <Button className="mr-2 px-4 py-2 rounded" color='primary' variant='ghost' startContent={<OpenInNewTabIcon/>} onClick={handleOpenInNewTab} >Open in New Tab</Button>
+                                            <Button className="px-4 py-2 rounded" color='primary' variant='ghost' startContent={<DownloadIcon/>} onClick={handleDownload}> Download</Button>
                                         </div>
                                     </div>
 

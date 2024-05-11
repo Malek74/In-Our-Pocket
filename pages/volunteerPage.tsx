@@ -15,7 +15,7 @@ import DownloadIcon from "@/components/DownloadIcon";
 import OpenInNewTabIcon from "@/components/openInNewTabIcon";
 import { CakeOutlined, EmailOutlined, LocalPhoneOutlined, Person, Person2Outlined, PersonPinCircleOutlined, Work } from "@mui/icons-material";
 import FormView from "@/components/organizationPage";
-import { Donors } from "@/components/donordata";
+import { originalSet } from "@/components/donordata";
 import exp from "constants";
 
 export default function volunteerPage() {
@@ -30,16 +30,12 @@ export default function volunteerPage() {
     const [Status, setStatus] = useState('None');
 
     useEffect(() => {
-        // Retrieve the donor ID from session storage
         const donorId = sessionStorage.getItem('selectedDonorId');
     
-        // Find the donor with the matching ID in the Donors array
-        // Assuming Donors array is accessible/importable here
         if(donorId !== null){
-        const selectedDonor = Donors.find(donor => donor.id === parseInt(donorId));
+        const selectedDonor = originalSet.find(originalSet => originalSet.id === parseInt(donorId));
     
         if (selectedDonor) {
-          // If the donor is found, set the donor's name
           setName(selectedDonor.name);
           setName(selectedDonor.name);
           setExp(selectedDonor.exp);
@@ -51,12 +47,20 @@ export default function volunteerPage() {
           setDOB(selectedDonor.dob);
           setStatus(selectedDonor.status);
         } else {
-          // Handle the case where the donor with the given ID is not found
           console.log("Donor not found with the given ID");
         }}
-      }, []); // Run this effect only once, similar to componentDidMount
+      }, []);
 
-
+    const handleOpenInNewTab = () => {
+    const pdfUrl = '/lect.pdf';
+    window.open(pdfUrl, '_blank');
+    };
+    const handleDownload = () => {
+        const anchor = document.createElement('a');
+        anchor.href = '/lect.pdf';
+        anchor.download = '';
+        anchor.click();
+    };
 
     return (
         <div className="relative flex flex-col h-screen">
@@ -165,10 +169,8 @@ export default function volunteerPage() {
                                                 <div>
                                                     {/* div holding buttons */}
                                                     <div className="grid jusity-items-between justify-start justify-items-center gap-2 mx-24 -my-[8px]  ">
-                                                        <Button className=" px-4 py-2 rounded" color='primary' isDisabled={Expertise === "Regular Donor"} variant='ghost' startContent={<OpenInNewTabIcon />} >Open in New Tab</Button>
-                                                        <a href='/Lect.pdf' download >
-                                                            <Button className="px-4 py-2 rounded w-40" color='primary' isDisabled={Expertise === "Regular Donor"} variant='ghost' startContent={<DownloadIcon />} > <p className="">Download</p></Button>
-                                                        </a>
+                                                        <Button className=" px-4 py-2 rounded" color='primary' isDisabled={Expertise === "Regular Donor"} variant='ghost' startContent={<OpenInNewTabIcon />} onClick={handleOpenInNewTab}>Open in New Tab</Button>    
+                                                            <Button className="px-4 py-2 rounded w-40" color='primary' isDisabled={Expertise === "Regular Donor"} variant='ghost' startContent={<DownloadIcon />} onClick={handleDownload}> <p className="">Download</p></Button>                                                        
                                                     </div>
                                                 </div>
                                             </div>
