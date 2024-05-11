@@ -11,6 +11,7 @@ import { FaPlus } from "react-icons/fa";
 import DonationTable from "@/components/donationsTable";
 import { SetStateAction, useEffect, useState } from "react";
 import { columns, originalSet,filterDonations,searchDonations } from "@/components/donationsData";
+import { CreateDonationModal } from "@/components/createDonationModal";
 
 export default function ViewDonationsOrganization() {
     const [query, setQuery] = useState('');
@@ -91,9 +92,7 @@ export default function ViewDonationsOrganization() {
                                     <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
                                 </div>
                                 <div className="align-middle m-1">
-                                <Button endContent={<FaPlus></FaPlus>} className="bg-mint">
-                                        New Donation Request
-                                    </Button>
+                                <CreateDonationModal></CreateDonationModal>
                                 </div>
                                 
                                 <div className="align-middle m-1">

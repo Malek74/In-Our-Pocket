@@ -16,7 +16,7 @@ import DeleteDialog from "./deleteDialog";
 import { BiSolidDonateBlood } from "react-icons/bi";
 import { TbHorseToy } from "react-icons/tb";
 import { GiClothes } from "react-icons/gi";
-import { FaDrumstickBite,FaBriefcaseMedical  } from "react-icons/fa";
+import { FaDrumstickBite,FaBriefcaseMedical,FaPencilRuler  } from "react-icons/fa";
 
 
 const statusColorMap = {
@@ -67,7 +67,8 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
               avatarIcon = <FaBriefcaseMedical />;
               break;
             case "School Supplies":
-              avatarIcon = <FaDrumstickBite />;
+              avatarIcon = <FaPencilRuler />;
+              ;
               break;
             case "Blood Donation":
             default:
