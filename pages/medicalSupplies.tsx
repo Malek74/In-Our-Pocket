@@ -58,7 +58,7 @@ export default function MedicalSuppliesViewer() {
     selectedColumn: SetStateAction<string>
   ) {
     console.log(selectedValue, selectedColumn);
-    if (selectedColumn === "age") {
+    if (selectedColumn === "supplies") {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
@@ -170,33 +170,15 @@ export default function MedicalSuppliesViewer() {
                 <FilterMenu
                   items={[
                     <FilterItemDropDown
-                      attribute="Age"
+                      attribute="Supplies"
                       values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
+                       "Medication","Medical Devices","Medical Equipment"
                       ].sort()}
-                      column="age"
+                      column="supplies"
                       onChange={handleChange}
                       value={value1}
-                    ></FilterItemDropDown>,
-                    <FilterItemDropDown
-                      attribute="Gender"
-                      values={["Male", "Female"].sort()}
-                      onChange={handleChange}
-                      value={value2}
-                      column="Gender"
-                    ></FilterItemDropDown>,
-                    <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
-                      onChange={handleChange}
-                      value={value3}
-                      column="status"
-                    ></FilterItemDropDown>,
+                    ></FilterItemDropDown>
+                   
                   ]}
                 ></FilterMenu>
               </div>

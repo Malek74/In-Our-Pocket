@@ -13,9 +13,9 @@ import FilterMenu from "../components/filterMenu";
 import { SetStateAction, useEffect, useState } from "react";
 import {
   clothesUsers,
-  filterUsers,
   searchUsers,
   clothesColumns,
+  filterUsersRange,
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
@@ -48,8 +48,8 @@ export default function ClothesViewer() {
   const [filterCol1, setFilterCol1] = useState("");
   const [filterCol2, setFilterCol2] = useState("");
   const [filterCol3, setFilterCol3] = useState("");
-  const [areaChip, setAreaChip] = useState("hidden");
-  const [typeChip, setTypeChip] = useState("hidden");
+  const [genderChip, setGenderChip] = useState("hidden");
+  const [ageChip, setAgeChip] = useState("hidden");
   const [statusChip, setStatusChip] = useState("hidden");
 
   function handleChange(
@@ -61,13 +61,13 @@ export default function ClothesViewer() {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
-      setTypeChip("visible");
+      setAgeChip("visible");
     }
     if (selectedColumn === "gender") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
-      setAreaChip("visible");
+      setGenderChip("visible");
     }
     if (selectedColumn === "season") {
       setValue3(selectedValue);
@@ -80,7 +80,7 @@ export default function ClothesViewer() {
     const newRes = results.filter((result) => result.id !== id);
     setResults(newRes);
     const filteredResults =
-      filterUsers(newRes, column1, value1, column2, value2, column3, value3) ||
+    filterUsersRange(newRes, column1, value1, column2, value2, column3, value3) ||
       [];
     setDisplayedResults(filteredResults);
   }
@@ -95,14 +95,14 @@ export default function ClothesViewer() {
     setValue1("None");
     setColumn1("null");
     setFilterCol1("");
-    setTypeChip("hidden");
+    setAgeChip("hidden");
   }
 
   function closerFilterArea() {
     setValue2("None");
     setColumn2("null");
     setFilterCol2("");
-    setAreaChip("hidden");
+    setGenderChip("hidden");
   }
 
   function closeFilterStatus() {
@@ -114,7 +114,7 @@ export default function ClothesViewer() {
 
   useEffect(() => {
     const filtered =
-      filterUsers(results, column1, value1, column2, value2, column3, value3) ||
+    filterUsersRange(results, column1, value1, column2, value2, column3, value3) ||
       [];
     setFilteredResults(filtered);
     setDisplayedResults(filtered);
@@ -137,7 +137,7 @@ export default function ClothesViewer() {
                 <Chip
                   onClose={closeFilterType}
                   variant="bordered"
-                  className={typeChip}
+                  className={ageChip}
                 >
                   <div className="flex flex-row">
                     <p className="font-bold">Age:</p>
@@ -147,7 +147,7 @@ export default function ClothesViewer() {
                 <Chip
                   onClose={closerFilterArea}
                   variant="bordered"
-                  className={areaChip}
+                  className={genderChip}
                 >
                   <div className="flex flex-row">
                     <p className="font-bold">Gender:</p>
@@ -160,7 +160,7 @@ export default function ClothesViewer() {
                   className={statusChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Area:</p>
+                    <p className="font-bold">Season:</p>
                     {filterCol3}
                   </div>{" "}
                 </Chip>
@@ -187,14 +187,14 @@ export default function ClothesViewer() {
                       values={["Male", "Female"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
+                      column="gender"
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Season"
                       values={["Spring", "Summer", "Autumn", "Winter"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="status"
+                      column="season"
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>

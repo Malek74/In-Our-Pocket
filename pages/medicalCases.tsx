@@ -57,19 +57,19 @@ export default function MedicalCasesViewer() {
     selectedColumn: SetStateAction<string>
   ) {
     console.log(selectedValue, selectedColumn);
-    if (selectedColumn === "age") {
+    if (selectedColumn === "organisation") {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
       setTypeChip("visible");
     }
-    if (selectedColumn === "gender") {
+    if (selectedColumn === "medicalspecialty") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
       setAreaChip("visible");
     }
-    if (selectedColumn === "season") {
+    if (selectedColumn === "governorate") {
       setValue3(selectedValue);
       setColumn3(selectedColumn);
       setFilterCol3(selectedValue);
@@ -140,7 +140,7 @@ export default function MedicalCasesViewer() {
                   className={typeChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Supplies:</p>
+                    <p className="font-bold">Organisation:</p>
                     {filterCol1}
                   </div>
                 </Chip>
@@ -150,7 +150,7 @@ export default function MedicalCasesViewer() {
                   className={areaChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Gender:</p>
+                    <p className="font-bold">Medical Specialty:</p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
@@ -169,32 +169,29 @@ export default function MedicalCasesViewer() {
                 <FilterMenu
                   items={[
                     <FilterItemDropDown
-                      attribute="Age"
+                      attribute="Organization"
                       values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
+                        "Organization 1",
+                        "Organization 2",
+                        "Organization 3",
                       ].sort()}
-                      column="age"
+                      column="organisation"
                       onChange={handleChange}
                       value={value1}
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Gender"
-                      values={["Male", "Female"].sort()}
+                      attribute="Medical Specialty"
+                      values={["Dentist", "Surgeon"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
+                      column="medicalspecialty"
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
+                      attribute="Governorate"
+                      values={["Cairo", "Alexandria"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="status"
+                      column="governorate"
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>

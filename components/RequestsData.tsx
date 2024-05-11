@@ -56,6 +56,84 @@ export function filterUsers(
   );
 }
 
+export function filterUsersRange(
+  users: any[],
+  column1: string,
+  value1: any,
+  column2: string,
+  value2: any,
+  column3: string,
+  value3: any
+) {
+  if (column1 === "null" && column2 === "null" && column3 === "null") {
+    return users;
+  }
+  if (column1 === "null" && column2 === "null" && column3 !== "null") {
+    console.log(column3, value3);
+    return users.filter((user) =>
+      user[column3].toLowerCase().includes(value3.toLowerCase())
+    );
+  }
+  if (column1 === "null" && column2 !== "null" && column3 === "null") {
+    return users.filter((user) =>
+      user[column2].toLowerCase().includes(value2.toLowerCase())
+    );
+  }
+  if (column1 !== "null" && column2 === "null" && column3 === "null") {
+    let val1 = parseInt(value1.split("-")[0]);
+    let val2 = parseInt(value1.split("-")[1]); 
+    
+    return users.filter((user) => {
+        let userValue = parseInt(user[column1]);
+        return userValue >= val1 && userValue <= val2;
+    });
+  }
+
+  if (column1 === "null" && column2 !== "null" && column3 !== "null") {
+    return users.filter(
+      (user) =>
+        user[column2].toLowerCase().includes(value2.toLowerCase()) &&
+        user[column3].toLowerCase().includes(value3.toLowerCase())
+    );
+  }
+  if (column1 !== "null" && column2 === "null" && column3 !== "null") {
+
+    let val1 = parseInt(value1.split("-")[0]);
+    let val2 = parseInt(value1.split("-")[1]);
+
+    return users.filter(
+      (user) =>
+        user[column3].toLowerCase().includes(value3.toLowerCase()) &&
+        (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2)
+    );
+         
+
+    
+  }
+  if (column1 !== "null" && column2 !== "null" && column3 === "null") {
+    let val1 = parseInt(value1.split("-")[0]);
+    let val2 = parseInt(value1.split("-")[1]);
+    
+
+    return users.filter(
+      (user) =>
+        user[column2].toLowerCase().includes(value2.toLowerCase()) &&
+        (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2)
+    );
+  }
+
+  let val1 = parseInt(value1.split("-")[0]);
+  let val2 = parseInt(value1.split("-")[1]);
+
+  // All columns are provided
+  return users.filter(
+    
+    (user) =>
+      (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2) &&
+      user[column2].toLowerCase().includes(value2.toLowerCase()) &&
+      user[column3].toLowerCase().includes(value3.toLowerCase())
+  );
+}
 export function searchUsers(users: any[], query: string) {
   if (query.length === 0) {
     return users;
@@ -80,7 +158,7 @@ const medicalCasesUsers = [
     id: 1,
     name: "Donation 1",
     medicalspecialty: "Dentist",
-    organisation: "Organistion 1",
+    organisation: "Organization 1",
     governorate: "Cairo",
     area: "Tagamoa",
   },
@@ -88,7 +166,7 @@ const medicalCasesUsers = [
     id: 2,
     name: "Donation 2",
     medicalspecialty: "Surgeon",
-    organisation: "Organistion 2",
+    organisation: "Organization 2",
     governorate: "Cairo",
     area: "Madinet Nasr",
   },
@@ -96,7 +174,7 @@ const medicalCasesUsers = [
     id: 3,
     name: "Donation 3",
     medicalspecialty: "Dentist",
-    organisation: "Organistion 3",
+    organisation: "Organization 3",
     governorate: "Alexandria",
     area: "Area 1",
   },

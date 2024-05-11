@@ -63,7 +63,7 @@ export default function FoodsViewer() {
       setFilterCol1(selectedValue);
       setTypeChip("visible");
     }
-    if (selectedColumn === "gender") {
+    if (selectedColumn === "foodtype") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
@@ -168,34 +168,15 @@ export default function FoodsViewer() {
               <div className="align-middle m-1">
                 <FilterMenu
                   items={[
+                    
                     <FilterItemDropDown
-                      attribute="Age"
-                      values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
-                      ].sort()}
-                      column="age"
-                      onChange={handleChange}
-                      value={value1}
-                    ></FilterItemDropDown>,
-                    <FilterItemDropDown
-                      attribute="Gender"
-                      values={["Male", "Female"].sort()}
+                      attribute="Food Type"
+                      values={["Fruits & Vegetables", "Canned Foods","Fresh Meals","Baked Goods"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
-                    ></FilterItemDropDown>,
-                    <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
-                      onChange={handleChange}
-                      value={value3}
-                      column="status"
-                    ></FilterItemDropDown>,
+                      column="foodtype"
+                    ></FilterItemDropDown>
+                    
                   ]}
                 ></FilterMenu>
               </div>

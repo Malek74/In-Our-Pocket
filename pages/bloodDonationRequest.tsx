@@ -52,32 +52,32 @@ export default function BloodDonationRequestsViewer() {
   const [filterCol1, setFilterCol1] = useState("");
   const [filterCol2, setFilterCol2] = useState("");
   const [filterCol3, setFilterCol3] = useState("");
+  const [govChip, setGovChip] = useState("hidden");
+  const [hospitalChip, setHospitalChip] = useState("hidden");
   const [areaChip, setAreaChip] = useState("hidden");
-  const [typeChip, setTypeChip] = useState("hidden");
-  const [statusChip, setStatusChip] = useState("hidden");
 
   function handleChange(
     selectedValue: SetStateAction<string>,
     selectedColumn: SetStateAction<string>
   ) {
     console.log(selectedValue, selectedColumn);
-    if (selectedColumn === "age") {
+    if (selectedColumn === "hospital") {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
-      setTypeChip("visible");
+      setHospitalChip("visible");
     }
-    if (selectedColumn === "gender") {
+    if (selectedColumn === "governorate") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
-      setAreaChip("visible");
+      setGovChip("visible");
     }
-    if (selectedColumn === "season") {
+    if (selectedColumn === "area") {
       setValue3(selectedValue);
       setColumn3(selectedColumn);
       setFilterCol3(selectedValue);
-      setStatusChip("visible");
+      setAreaChip("visible");
     }
   }
   function handleDelete(id: any) {
@@ -99,21 +99,21 @@ export default function BloodDonationRequestsViewer() {
     setValue1("None");
     setColumn1("null");
     setFilterCol1("");
-    setTypeChip("hidden");
+    setHospitalChip("hidden");
   }
 
   function closerFilterArea() {
     setValue2("None");
     setColumn2("null");
     setFilterCol2("");
-    setAreaChip("hidden");
+    setGovChip("hidden");
   }
 
   function closeFilterStatus() {
     setValue3("None");
     setColumn3("null");
     setFilterCol3("");
-    setStatusChip("hidden");
+    setAreaChip("hidden");
   }
 
   useEffect(() => {
@@ -134,34 +134,34 @@ export default function BloodDonationRequestsViewer() {
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
             <div>
-              <h1 className="">Blood Donation Requests</h1>
+              <h1 className="font-bold size-23">Blood Donation Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
                 <Chip
                   onClose={closeFilterType}
                   variant="bordered"
-                  className={typeChip}
+                  className={hospitalChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Supplies:</p>
+                    <p className="font-bold">Hospital:</p>
                     {filterCol1}
                   </div>
                 </Chip>
                 <Chip
                   onClose={closerFilterArea}
                   variant="bordered"
-                  className={areaChip}
+                  className={govChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Gender:</p>
+                    <p className="font-bold">Governate:</p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
                 <Chip
                   onClose={closeFilterStatus}
                   variant="bordered"
-                  className={statusChip}
+                  className={areaChip}
                 >
                   <div className="flex flex-row">
                     <p className="font-bold">Area:</p>
@@ -173,32 +173,29 @@ export default function BloodDonationRequestsViewer() {
                 <FilterMenu
                   items={[
                     <FilterItemDropDown
-                      attribute="Age"
+                      attribute="Hospital"
                       values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
+                        "Hospital 1",
+                        "Hospital 2",
+                        "Hospital 3",
                       ].sort()}
-                      column="age"
+                      column="hospital"
                       onChange={handleChange}
                       value={value1}
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Gender"
-                      values={["Male", "Female"].sort()}
+                      attribute="Governorate"
+                      values={["Alexandria", "Cairo"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
+                      column="governorate"
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
+                      attribute="Area"
+                      values={[ "New Cairo", "Madinet Nasr", "Maadi"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="status"
+                      column="area"
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>

@@ -13,7 +13,7 @@ import FilterMenu from "../components/filterMenu";
 import { SetStateAction, useEffect, useState } from "react";
 import {
   toysUsers,
-  filterUsers,
+  filterUsersRange,
   searchUsers,
   toysColumns,
 } from "@/components/RequestsData";
@@ -69,7 +69,7 @@ export default function ToysViewer() {
       setFilterCol2(selectedValue);
       setAreaChip("visible");
     }
-    if (selectedColumn === "season") {
+    if (selectedColumn === "category") {
       setValue3(selectedValue);
       setColumn3(selectedColumn);
       setFilterCol3(selectedValue);
@@ -80,7 +80,7 @@ export default function ToysViewer() {
     const newRes = results.filter((result) => result.id !== id);
     setResults(newRes);
     const filteredResults =
-      filterUsers(newRes, column1, value1, column2, value2, column3, value3) ||
+    filterUsersRange(newRes, column1, value1, column2, value2, column3, value3) ||
       [];
     setDisplayedResults(filteredResults);
   }
@@ -114,7 +114,7 @@ export default function ToysViewer() {
 
   useEffect(() => {
     const filtered =
-      filterUsers(results, column1, value1, column2, value2, column3, value3) ||
+    filterUsersRange(results, column1, value1, column2, value2, column3, value3) ||
       [];
     setFilteredResults(filtered);
     setDisplayedResults(filtered);
@@ -140,7 +140,7 @@ export default function ToysViewer() {
                   className={typeChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Supplies:</p>
+                    <p className="font-bold">Age:</p>
                     {filterCol1}
                   </div>
                 </Chip>
@@ -152,7 +152,7 @@ export default function ToysViewer() {
                   <div className="flex flex-row">
                     <p className="font-bold">Gender:</p>
                     {filterCol2}
-                  </div>{" "}
+                  </div>
                 </Chip>
                 <Chip
                   onClose={closeFilterStatus}
@@ -171,12 +171,9 @@ export default function ToysViewer() {
                     <FilterItemDropDown
                       attribute="Age"
                       values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
+                        "0-5",
+                        "6-10",
+                        "10-15", 
                       ].sort()}
                       column="age"
                       onChange={handleChange}
@@ -187,14 +184,14 @@ export default function ToysViewer() {
                       values={["Male", "Female"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
+                      column="gender"
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
+                      attribute="Category"
+                      values={["Board Games", "Doll", "Cars", "Stuffed Toys","Outdoor"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="status"
+                      column="category"
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>

@@ -57,19 +57,19 @@ export default function TeachingPostsViewer() {
     selectedColumn: SetStateAction<string>
   ) {
     console.log(selectedValue, selectedColumn);
-    if (selectedColumn === "age") {
+    if (selectedColumn === "subject") {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
       setTypeChip("visible");
     }
-    if (selectedColumn === "gender") {
+    if (selectedColumn === "area") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
       setAreaChip("visible");
     }
-    if (selectedColumn === "season") {
+    if (selectedColumn === "governorate") {
       setValue3(selectedValue);
       setColumn3(selectedColumn);
       setFilterCol3(selectedValue);
@@ -169,32 +169,29 @@ export default function TeachingPostsViewer() {
                 <FilterMenu
                   items={[
                     <FilterItemDropDown
-                      attribute="Age"
+                      attribute="Subject"
                       values={[
-                        "0-10",
-                        "11-20",
-                        "21-30",
-                        "31-40",
-                        "41-50",
-                        "50+",
+                        "Maths",
+                        "Science",
+                        "English",
                       ].sort()}
-                      column="age"
+                      column="subject"
                       onChange={handleChange}
                       value={value1}
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Gender"
-                      values={["Male", "Female"].sort()}
+                      attribute="Area"
+                      values={["Madinet Nasr", "Maadi"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="Gender"
+                      column="area"
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
-                      attribute="Season"
-                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
+                      attribute="Governorate"
+                      values={["Cairo", "Alexandria"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="status"
+                      column="governorate"
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
