@@ -37,7 +37,7 @@ export default function MyDropdown(props: any) {
                              
 
               ))}
-              <div className='h-6'></div>
+              <div className='h-7'></div>
             </div>
           </ScrollShadow>
         </Popover.Panel>

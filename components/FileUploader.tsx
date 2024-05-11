@@ -112,12 +112,12 @@ const FileUploader: React.FC = () => {
           Upload
         </button>
       )}
-      <button
+      {/* <button
         className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
         onClick={downloadFile}
       >
         Download
-      </button>
+      </button> */}
     </div>
   );
 };

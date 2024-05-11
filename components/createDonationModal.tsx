@@ -23,7 +23,7 @@ export const CreateDonationModal = () => {
 
   return (
     <>
-      <Button onPress={onOpen}>Open Modal</Button>
+      <Button onPress={onOpen}><p className="font-bold">Create Donation</p></Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} shadow="md">
         <ModalContent>
           {(onClose) => (
