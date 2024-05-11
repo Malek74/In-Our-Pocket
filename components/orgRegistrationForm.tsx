@@ -226,6 +226,7 @@ export const OrgRegistrationForm = () => {
         </Select>
         <CreateDonationModal />
       </div>
+      <span className="w-[1px] h-screen bg-gray-300"></span>
       <div className="flex flex-col gap-4">
         <p>
           Click on a place on the map or drag the marker to select an address
