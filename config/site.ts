@@ -76,5 +76,7 @@ export const siteConfig = {
 			name: "Alexandria",
 			areas:  ["IDK", "Kornseh", "2emet el share3", "MASHROOOO3333", "Genyh"]
 		}
-	]
+	],
+	orgTypes:["Mosque","Church","Orphanage","Hospital","School","Refugee Camp"],
+	donationCat:["Clothes", "Toys", "Food", "Medical Supplies", "School Supplies", "Blood Donations"],
 };

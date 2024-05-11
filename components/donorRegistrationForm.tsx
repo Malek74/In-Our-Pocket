@@ -64,7 +64,7 @@ export const DonorRegistrationForm = () => {
           variant="bordered"
           color={"default"}
           onValueChange={setFirstNameValue}
-          className="w-80"
+          className="flex-1"
           placeholder="Enter your first name"
           isRequired
           isInvalid={isFNvalid}
@@ -76,7 +76,7 @@ export const DonorRegistrationForm = () => {
           variant="bordered"
           color={"default"}
           onValueChange={setLastNameValue}
-          className="w-80"
+          className="flex-1"
           placeholder="Enter your last name"
           isRequired
           isInvalid={isLNvalid}
@@ -111,7 +111,7 @@ export const DonorRegistrationForm = () => {
           isInvalid={isInvalidPassword}
           errorMessage={isInvalidPassword && "Passwords do not match"}
           onValueChange={setPasswordValue}
-          className="w-80"
+          className="flex-1"
           placeholder="Enter your password"
           isRequired
         />
@@ -124,7 +124,7 @@ export const DonorRegistrationForm = () => {
           color={isInvalidPassword ? "danger" : "default"}
           errorMessage={isInvalidPassword && "Passwords do not match"}
           onValueChange={setConfirmPasswordValue}
-          className="w-80"
+          className="flex-1"
           placeholder="Confirm your password"
           isRequired
         />
@@ -156,8 +156,8 @@ export const DonorRegistrationForm = () => {
           label="Governate"
           variant="bordered"
           placeholder="Select a governate"
-          selectedKeys={[governateSelected]}
-          className="w-80"
+          selectedKeys={governateSelected ? [governateSelected] : []}
+          className="flex-1"
           onChange={handleGovernateSelection}
         >
           {siteConfig.governates.map((g) => (
@@ -171,8 +171,8 @@ export const DonorRegistrationForm = () => {
           label="Area"
           variant="bordered"
           placeholder="Select a governate"
-          selectedKeys={[areaSelected]}
-          className="w-80"
+          selectedKeys={areaSelected ? [areaSelected] : []}
+          className="flex-1"
           onChange={handleAreaSelection}
           isDisabled={governateSelected == ""}
         >
