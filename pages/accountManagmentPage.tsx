@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import Sidebar from "@/components/sideBar";
-import { Button } from "@nextui-org/react";
+import { Button, Pagination, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
+import FormView from "@/components/organizationPage";
 import React from 'react';
 import {Image} from "@nextui-org/image";
 import OrganizationLogo from "@/components/OrganizationLogo";
