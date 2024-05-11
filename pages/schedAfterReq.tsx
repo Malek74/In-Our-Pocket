@@ -6,7 +6,7 @@ import Sidebar from "@/components/sideBar";
 import OrgTable from "@/components/orgTable";
 import SearchBar from "@/components/searchBar";
 import FilterMenu from "./api/filterMenu";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 
 export default function Requests() {
     return (
@@ -35,9 +35,11 @@ export default function Requests() {
                         </div>
                         <div className="flex flex-col gap-4">
                             <PickRide></PickRide>
-                            <div>
-                                <Button className="flex justify-center p-4 ml-36 ">submit</Button>
-                            </div>
+
+                            <Link href="" className="flex justify-start ">
+                                <Button variant="ghost" color='success'>submit </Button>
+                            </Link>
+
                         </div>
 
                     </div>
