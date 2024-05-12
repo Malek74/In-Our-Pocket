@@ -158,6 +158,7 @@ const medicalCasesUsers = [
     organisation: "Organization 1",
     governorate: "Cairo",
     area: "Tagamoa",
+    link: "./MedicalCase",
   },
   {
     id: 2,
@@ -184,7 +185,7 @@ const foodsColumns = [
 ];
 
 const foodsUsers = [
-  { id: 1, name: "Canned Beans", foodtype: "Canned Foods" },
+  { id: 1, name: "Canned Beans", foodtype: "Canned Foods", link:"./FoodDetails" },
   { id: 2, name: "Request 2", foodtype: "Fruits and Vegetables" },
   { id: 3, name: "Request 3", foodtype: "Fresh Meals" },
   { id: 4, name: "Request 4", foodtype: "Baked Goods" },
@@ -205,7 +206,7 @@ const teachingPostsUsers = [
     subject: "Maths",
     governorate: "Cairo",
     area: "Tagamoa",
-    
+    link:"./TeachingPost",
   },
   {
     id: 2,
@@ -238,6 +239,7 @@ const bloodDonationRequestsUsers = [
     hospital: "Air Force Hospital",
     governorate: "Cairo",
     area: "5th Settlement",
+    link: "./BloodDonation",
   },
   {
     id: 2,
@@ -262,7 +264,7 @@ const medicalSuppliesColumns = [
 ];
 
 const medicalSuppliesUsers = [
-  { id: 1, name: "Stethoscope", supplies: "Medical Devices" },
+  { id: 1, name: "Stethoscope", supplies: "Medical Devices", link:"MedicalSuppliesDetails"},
   { id: 2, name: "Request 2", supplies: "Medical Equipment" },
   { id: 3, name: "Request 3", supplies: "Medication" },
 ];
@@ -359,7 +361,7 @@ const clothesUsers = [
     age: "14",
     gender: "Male",
     season: "Summer",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    link:"./Clothes"
   },
   {
     id: 2,
@@ -367,7 +369,6 @@ const clothesUsers = [
     age: "16",
     gender: "Male",
     season: "Summer",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
     id: 3,
@@ -375,7 +376,6 @@ const clothesUsers = [
     age: "23",
     gender: "Female",
     season: "Autumn",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
     id: 4,
@@ -383,7 +383,6 @@ const clothesUsers = [
     age: "4",
     gender: "Female",
     season: "Summer",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
     id: 5,
@@ -391,7 +390,6 @@ const clothesUsers = [
     age: "34",
     gender: "Male",
     season: "Spring",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
     id: 6,
@@ -399,7 +397,6 @@ const clothesUsers = [
     age: "20",
     gender: "Male",
     season: "Winter",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
 ];
 

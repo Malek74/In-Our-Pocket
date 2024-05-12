@@ -33,11 +33,11 @@ export default function IndexPage() {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleLogin = () => {
-    if (emailValue == "admin@admin.com" && passlValue == "batates") {
+    if (emailValue == "admin@admin.com" && passlValue == "manga") {
       router.push("/AdminAnalytics");
     } else if (emailValue == "org@org.com" && passlValue == "manga") {
       router.push("/OrgLandingPage");
-    } else if (emailValue == "donor@donor.com" && passlValue == "gazar") {
+    } else if (emailValue == "donor@donor.com" && passlValue == "manga") {
       router.push("/requestsFirstPage");
     } else {
       onOpen();

@@ -135,7 +135,7 @@ export const Navbar = (user:any) => {
       );
     case "org":
       return (
-        <NextUINavbar maxWidth="full" position="sticky" className="bg-rose">
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-cyan-50">
           <NavbarContent
             className="basis-1/5 sm:basis-full flex-none"
             justify="start"
@@ -219,7 +219,7 @@ export const Navbar = (user:any) => {
       );
     default:
       return (
-        <NextUINavbar maxWidth="full" position="sticky" className="bg-rose">
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-blue-400">
           <NavbarContent
             className="basis-1/5 sm:basis-full flex-none"
             justify="start"

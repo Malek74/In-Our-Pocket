@@ -72,7 +72,7 @@ export default function StationaryDetails() {
           <Divider />
           <Card className="flex flex-row">
             <Card
-              className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md"
+              className="flex flex-col justify-left items-left gap-4 p-6 bg-cyan-50 rounded-lg shadow-md"
               style={{ width: "30%", minWidth: "350px" }}
             >
               <div className="flex flex-col">
@@ -120,7 +120,7 @@ export default function StationaryDetails() {
                 </div>
               </div>
             </Card>
-            <Card className="flex flex-row bg-rose rounded-lg shadow-md">
+            <Card className="flex flex-row bg-cyan-50 rounded-lg shadow-md">
               <Image
                 src={blackPen}
                 alt="image of donated item: black pen"
@@ -136,12 +136,12 @@ export default function StationaryDetails() {
               onClick={showAlert}
               type="submit"
               radius="full"
-              className="bg-rose text-black text-1xl font-bold shadow-lg"
+              className="bg-cyan-50 text-black text-1xl font-bold shadow-lg"
               style={{ width: "300px" }}
             >
               Donate
             </Button>
-            {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+            {/* <Button radius="full" className="bg-cyan-50 text-black text-1xl font-bold shadow-lg"
                         > Go Back</Button> */}
           </div>
         </Card>
