@@ -8,6 +8,7 @@ import DonorTable from "@/components/donorTable";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import { SetStateAction, useEffect, useState } from "react";
 import { columns,filterDonors, searchDonors,originalSet } from "@/components/donordata";
+import DonorElements from "@/components/donorElements";
 
 const statusColorMap: { [key: string]: "danger" | "default" | "primary" | "secondary" | "success" | "warning" | undefined } = {
     fulfilled: "success",
@@ -79,7 +80,7 @@ export default function DonorViewer() {
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={DonorElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="flex justify-between m-4 align-middle">
                         <div>
@@ -93,8 +94,8 @@ export default function DonorViewer() {
                                 <div className="align-middle m-1">
                                     <FilterMenu
                                     items={[
-                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1} variant="large"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status" variant="large"></FilterItemDropDown>,
                                         ]}>
                                     </FilterMenu>
                                 </div>
