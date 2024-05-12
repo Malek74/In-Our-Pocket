@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input } from "@nextui-org/react";
 import { Navbar } from "@/components/navbar";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
 
 
 export default function ManageAccount() {
@@ -17,7 +17,7 @@ export default function ManageAccount() {
   return (
     <div className="flex flex-col min-h-screen ">
 
-      <SideNavbar elements={[]}></SideNavbar>
+      <Sidebar elements={[]}></Sidebar>
 
      <div className="flex justify-start min-w-screen"> <Navbar></Navbar></div>
       <div className="flex justify-center">

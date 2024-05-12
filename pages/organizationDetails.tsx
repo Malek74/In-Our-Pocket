@@ -17,6 +17,7 @@ import { EmailOutlined, LocalPhoneOutlined, PersonPinCircleOutlined } from "@mui
 import FormView from "@/components/organizationPage";
 import { Originalusers } from "@/components/orgData";
 import OrgElements from "@/components/OrgElements";
+import AdminElements from "@/components/AdminsideBarElements";
 
 
 
@@ -118,9 +119,9 @@ export default function Organisations() {
 
     return (
         <div className="relative flex flex-col h-screen">
-            <Navbar user="org"></Navbar>
+            <Navbar user="org"> </Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={AdminElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                 <div>
                 <div className="flex-1 flex flex-col">

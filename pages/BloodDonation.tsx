@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "@/components/navbar";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
 import {
   Button,
   Card,
@@ -37,7 +37,7 @@ export default function BloodDonation() {
                 <Divider />
               </CardHeader>
 
-              <CardContent className="flex flex-row gap-4 p-6 bg-rose rounded-lg shadow-md">
+              <CardContent className="flex flex-row gap-4 p-6 bg-cyan rounded-lg shadow-md">
                 <div className="flex flex-col justify-between">
                   <div>
                     <div className="flex items-center">
@@ -96,7 +96,7 @@ export default function BloodDonation() {
                   onClick={onOpen}
                   type="submit"
                   radius="full"
-                  className="bg-rose text-black text-1xl font-bold shadow-lg"
+                  className="bg-cyan text-black text-1xl font-bold shadow-lg"
                   style={{ width: "300px" }}
                 >
                   Donate

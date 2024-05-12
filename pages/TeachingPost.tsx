@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { useMemo, useState } from "react";
 import { Navbar } from "@/components/navbar";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
 import {
   Button,
   Card,
@@ -61,7 +61,7 @@ export default function TeachingPost() {
     <>
       <div>
         <Navbar />
-        <SideNavbar elements={[]} />
+        <Sidebar elements={DonorElements}></Sidebar>
       </div>
       <div className="flex flex-col min-h-screen justify-center items-center gap-6 bg-gray-200">
         <Card
@@ -76,7 +76,7 @@ export default function TeachingPost() {
           <Divider />
 
           <Card
-            className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md"
+            className="flex flex-col justify-left items-left gap-4 p-6 bg-cyan rounded-lg shadow-md"
             style={{ width: "30%", minWidth: "550px" }}
           >
             <div className="flex flex-col">
@@ -118,12 +118,12 @@ export default function TeachingPost() {
               onClick={showAlert}
               type="submit"
               radius="full"
-              className="bg-rose text-black text-1xl font-bold shadow-lg"
+              className="bg-cyan text-black text-1xl font-bold shadow-lg"
               style={{ width: "300px" }}
             >
               Submit
             </Button>
-            {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+            {/* <Button radius="full" className="bg-cyan text-black text-1xl font-bold shadow-lg"
                         > Go Back</Button> */}
           </div>
         </Card>

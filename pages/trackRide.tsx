@@ -13,14 +13,15 @@ import { Button, Divider, Tooltip } from "@nextui-org/react";
 import { FaMessage } from "react-icons/fa6";
 import { MdCall } from "react-icons/md";
 import { MdOutlineStarRate,MdStarRate  } from "react-icons/md";
+import DonorElements from "@/components/donorElements";
 
 export default function TrackRide() {
     return (
       <div className="relative flex flex-col h-screen">
-        <Navbar />
+        <Navbar user ="donor"/>
         <div className="flex flex-row justify-center">
           <div className=" ">
-            <Sidebar elements={[]} />
+            <Sidebar elements={DonorElements} />
           </div>
 
           <div className="flex flex-col m-2">

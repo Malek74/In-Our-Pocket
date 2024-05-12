@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { useMemo, useState } from "react";
 import { Navbar } from "@/components/navbar";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
 import { Button, Card, CardHeader, Divider, Input } from "@nextui-org/react";
 import React from "react";
 import FormView from "@/components/organizationPage";
@@ -25,6 +25,7 @@ import {
 import Image from "next/image";
 import jeansImage from "@/components/images/jeans_image.jpg";
 import Stethooo from "@/components/images/stetho.jpg";
+import DonorElements from "@/components/donorElements";
 
 export default function MedicalSuppliesDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -53,7 +54,7 @@ export default function MedicalSuppliesDetails() {
     <>
       <div>
         <Navbar />
-        <SideNavbar elements={[]} />
+        <Sidebar elements={DonorElements}></Sidebar>
       </div>
       <div className="flex flex-col min-h-screen justify-center items-center gap-6 bg-gray-200">
         <Card
@@ -69,7 +70,7 @@ export default function MedicalSuppliesDetails() {
           <Divider />
           <Card className="flex flex-row">
             <Card
-              className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md"
+              className="flex flex-col justify-left items-left gap-4 p-6 bg-cyan rounded-lg shadow-md"
               style={{ width: "30%", minWidth: "350px" }}
             >
               <div className="flex flex-col">
@@ -127,7 +128,7 @@ export default function MedicalSuppliesDetails() {
                 </div>
               </div>
             </Card>
-            <Card className="flex flex-row bg-rose rounded-lg shadow-md">
+            <Card className="flex flex-row bg-cyan rounded-lg shadow-md">
               <Image
                 src={Stethooo}
                 alt="image of donated item: stethoscope"
@@ -139,16 +140,18 @@ export default function MedicalSuppliesDetails() {
 
           <Divider />
           <div className="flex flex-row items-center  justify-center gap-10 ">
+            <Link href="/schedAfterReq" className="text-black">
             <Button
               onClick={showAlert}
               type="submit"
               radius="full"
-              className="bg-rose text-black text-1xl font-bold shadow-lg"
+              className="bg-cyan text-black text-1xl font-bold shadow-lg"
               style={{ width: "300px" }}
             >
               Donate
             </Button>
-            {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+            </Link>
+            {/* <Button radius="full" className="bg-cyan text-black text-1xl font-bold shadow-lg"
                         > Go Back</Button> */}
           </div>
         </Card>

@@ -8,7 +8,7 @@ export default function Notification( props: any) {
     const linkText=props.linkText || "View Notification";
     const redirect=props.dest||"/google.com"
   return (
-    <Card  className="bg-mint w-[250px] flex justify-center align-middle">
+    <Card  className="bg-cyan w-[250px] flex justify-center align-middle">
       <CardHeader className="flex gap-3">
         {icon}
         <div className="flex flex-col">

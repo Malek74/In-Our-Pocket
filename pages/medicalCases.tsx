@@ -17,7 +17,8 @@ import {
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
+import DonorElements from "@/components/donorElements";
 
 const statusColorMap: {
   [key: string]:
@@ -121,10 +122,10 @@ export default function MedicalCasesViewer() {
 
   return (
     <div className="relative flex flex-col h-screen">
-      <Navbar></Navbar>
+      <Navbar user="donor"></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <SideNavbar elements={[]}></SideNavbar>
+        <Sidebar elements={DonorElements}></Sidebar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">

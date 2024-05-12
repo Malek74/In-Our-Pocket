@@ -29,7 +29,7 @@ interface Props {
   elements: Element[];
 }
 
-function SideNavbar({ elements }: Props) {
+function Sidebar({ elements }: Props) {
   return (
     <div className="mt-11">
       <Disclosure as="nav">
@@ -46,7 +46,7 @@ function SideNavbar({ elements }: Props) {
                 <div key={element.id}>
                   <Link
                     href={element.link}
-                    className="text-black w-full hover:bg-cyan-800 p-2 rounded-md group cursor-pointer hover:shadow-lg"
+                    className="text-black w-full hover:bg-cyanDark p-2 rounded-md group cursor-pointer hover:shadow-lg"
                   >
                     <div className="flex mb-2 justify-start items-center gap-4 pl-5 ">
                       {element.icon}
@@ -65,4 +65,4 @@ function SideNavbar({ elements }: Props) {
   );
 }
 
-export default SideNavbar;
+export default Sidebar;

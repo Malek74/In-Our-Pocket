@@ -97,7 +97,7 @@ export default function OrganisationsViewer() {
     
     return (
         <div className="relative flex flex-col h-screen">
-            <Navbar></Navbar>
+            <Navbar user="admin"></Navbar>
             <div className="flex flex-row flex-1">
                 <div className="flex-initial w-[250px]"><Sidebar elements={AdminElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">

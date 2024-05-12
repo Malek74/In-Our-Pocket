@@ -49,7 +49,7 @@ export default function OngoingDonationsTable() {
             case "actions":
                 return (
                     <div>
-                        <Link href="@/pages/trackRide" className="flex justify-start ">
+                        <Link href="/trackRide" className="flex justify-start ">
                             <Button variant="ghost" color='default'>Track driver </Button>
                         </Link>
                     </div>
