@@ -119,13 +119,9 @@ export default function OrgTable({ columns, users,deleteFunction }: { columns: a
       case "actions":
         return (
           <div className="relative flex items-center gap-2 mt-1">
-           <Tooltip content="View Orgaization">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link href="./organizationDetails" className="text-black
-                "><EyeIcon /></Link>
-                
-              </span>
-            </Tooltip>
+          <Link href="./organizationDetails" className="text-black" onClick={() => handleViewClick(user.id)}>
+            <EyeIcon />
+          </Link>
             <Tooltip color="danger" content="Delete organisation">
             <span
                   className="text-lg text-danger cursor-pointer active:opacity-50"
