@@ -10,6 +10,8 @@ import {
 import { useMemo, useState } from "react";
 import { siteConfig } from "@/config/site";
 import FileUploader from "./FileUploader";
+import MapComponent from "./MapComponent";
+import StaticMapView from "./StaticMapView";
 
 export const DonorRegistrationForm = () => {
   const [firstNameValue, setFirstNameValue] = useState("");
@@ -209,7 +211,7 @@ export const DonorRegistrationForm = () => {
           <Radio value="teacher">Teacher</Radio>
         </RadioGroup>
       </div>
-      {jobValue && <span className="w-[1px] h-screen bg-gray-300"></span>}
+      {jobValue && <span className="w-[1px] h-[608px] bg-gray-300"></span>}
       <div className="flex flex-col gap-4 justify-center">
         {jobValue == "doctor" ? (
           <>
@@ -227,6 +229,11 @@ export const DonorRegistrationForm = () => {
               label="How many pro-bono cases can be taken?"
               variant="bordered"
             />
+            <p>
+              Click on a place on the map or drag the marker to select an
+              address for your Clinic.
+            </p>
+            <MapComponent />
             <p>Upload documents that verify you are a doctor.</p>
             <FileUploader />
           </>
