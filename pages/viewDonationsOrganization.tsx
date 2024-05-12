@@ -19,7 +19,7 @@ import DonationTable from "@/components/donationsTable";
 import { SetStateAction, useEffect, useState } from "react";
 import {
   columns,
-  originalSet,
+  originalSetDonation,
   filterDonations,
   searchDonations,
 } from "@/components/donationsData";
@@ -32,9 +32,9 @@ export default function ViewDonationsOrganization() {
   const [value1, setValue1] = useState("None");
   const [column1, setColumn1] = useState("null");
   const [column2, setColumn2] = useState("null");
-  const [results, setResults] = useState(originalSet);
-  const [filteredResults, setFilteredResults] = useState(originalSet);
-  const [displayedResults, setDisplayedResults] = useState(originalSet);
+  const [results, setResults] = useState(originalSetDonation);
+  const [filteredResults, setFilteredResults] = useState(originalSetDonation);
+  const [displayedResults, setDisplayedResults] = useState(originalSetDonation);
   const [filterCol1, setFilterCol1] = useState("");
   const [filterCol2, setFilterCol2] = useState("");
   const [statusChip, setStatusChip] = useState("hidden");
