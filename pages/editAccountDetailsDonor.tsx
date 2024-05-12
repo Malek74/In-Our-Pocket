@@ -21,7 +21,7 @@ import DonorElements from "@/components/donorElements";
 
 export default function DonorDetails() {
     <div className="relative flex flex-col h-screen">
-        <Navbar></Navbar>
+        <Navbar user="donor"></Navbar>
         <div className="flex flex-row flex-1">
             <div className="flex-initial w-[250px]"><Sidebar elements={DonorElements}></Sidebar></div>
         </div>

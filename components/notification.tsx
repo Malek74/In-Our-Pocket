@@ -6,7 +6,7 @@ export default function Notification( props: any) {
     const mainTitle=props.mainTitle;
     const message=props.message;
     const linkText=props.linkText || "View Notification";
-    const link=props.dest||"/google.com"
+    const redirect=props.dest||"/google.com"
   return (
     <Card  className="bg-mint w-[250px] flex justify-center align-middle">
       <CardHeader className="flex gap-3">
@@ -23,7 +23,7 @@ export default function Notification( props: any) {
       <Divider/>
       <CardFooter className="justify-end">
         <Link
-          href={link}
+          href={redirect}
         >
           {linkText}
         </Link>

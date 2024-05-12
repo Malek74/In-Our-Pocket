@@ -72,7 +72,7 @@ export default function Organisations() {
 
     return (
         <div className="relative flex flex-col h-screen">
-            <Navbar></Navbar>
+            <Navbar user="org"></Navbar>
             <div className="flex flex-row flex-1">
                 <div className="flex-initial w-[250px]"><Sidebar elements={OrgElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">

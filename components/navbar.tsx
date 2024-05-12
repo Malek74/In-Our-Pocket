@@ -198,6 +198,23 @@ export const Navbar = (user:any) => {
                     <p className="font-semibold ">email: </p>
                     <p className="font-semibold text-blue-600">malek@email.com</p>
                   </DropdownItem>
+            <NavbarMenuItem>
+              <Dropdown placement="bottom-end">
+                <DropdownTrigger>
+                  <div className="flex justify-center items-center p-2 rounded-xl hover:bg-mint ">
+                    <Avatar />
+                    <p className="font-semibold p-1">Malek</p>
+                    <IoMdArrowDropdown />
+                  </div>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Profile Actions" variant="flat">
+                  <DropdownItem
+                    key="profile"
+                    className="h-14 gap-2 rounded-xl border-2"
+                  >
+                    <p className="font-semibold ">email: </p>
+                    <p className="font-semibold text-blue-600">malek@email.com</p>
+                  </DropdownItem>
 
                   <DropdownItem key="profile">
                     <Link href="/OrganisationDetails" className="text-black">

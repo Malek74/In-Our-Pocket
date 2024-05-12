@@ -81,7 +81,7 @@ export default function VolunteerPage() {
 
   return (
     <div className="relative flex flex-col h-screen">
-      <Navbar></Navbar>
+      <Navbar user="org"></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
           <Sidebar elements={[]}></Sidebar>
@@ -139,7 +139,7 @@ export default function VolunteerPage() {
                       <div className="pr-12 pl-12">
                         <div
                           id="headerText"
-                          className="relative bg-[#FFF] text-center z-1000 w-[150px] mx-[auto] my-[0] font-bold"
+                          className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold"
                         >
                           <p className="bg-white">Volunteer Details:</p>
                         </div>
@@ -150,12 +150,12 @@ export default function VolunteerPage() {
                           <div className="justifymb-4">
                             <p>
                               <span className="font-semibold text-default-400">
-                                First Name: {Name}
+                                First Name: {Name.split(' ')[0]}
                               </span>
                             </p>
                             <p>
                               <span className="font-semibold text-default-400">
-                                Last Name: {Name}
+                                Last Name: {Name.split(' ')[1]}
                               </span>{" "}
                             </p>
                             <p>
