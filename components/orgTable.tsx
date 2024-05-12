@@ -10,34 +10,82 @@ import {
   Chip,
   Tooltip,
   Pagination,
+  Link,
 } from "@nextui-org/react";
-import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
-import { columns, users } from "./orgData";
 import { EyeIcon } from "./eyeIcon";
+import DeleteDialog from "./deleteDialog";
+import { Truculenta } from "next/font/google";
+import { FaRegHospital, FaMosque, FaChurch } from "react-icons/fa";
+import { FaSchoolFlag, FaChildren, FaPeopleRoof } from "react-icons/fa6";
 
 const statusColorMap = {
   active: "success",
   pending: "warning",
 };
 
-export default function OrgTable() {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+export default function OrgTable({ columns, users,deleteFunction }: { columns: any[]; users: any[],deleteFunction: any }) {
 
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [userID, setUserID] = useState(0);
+  const openDeleteDialog = () => {
+    setDeleteDialogOpen(true);
+
+  };
+
+  const handleViewClick = ( orgID: number) => {
+    sessionStorage.setItem('selectedOrgID', orgID.toString());
+    console.log("Org ID:", orgID);
+  };
+
+  const closeDeleteDialog = () => {
+    setDeleteDialogOpen(false);
+  };
+
+  function handleDelete  (id:number)  {
+    openDeleteDialog();
+    setUserID(id); 
+  };
+  function deleteEntry(){
+    deleteFunction(userID);
+    closeDeleteDialog();
+  }
 
   const renderCell = React.useCallback((user: any, columnKey: string) => {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
       case "name":
+
+      let avatarIcon;
+
+      switch (user.type) {
+        case "Hospital":
+          avatarIcon = <FaRegHospital/>;
+          break;
+        case "School":
+          avatarIcon = <FaSchoolFlag />;
+          break;
+        case "Orphanage":
+          avatarIcon = <FaChildren />;
+          break;
+        case "Mosque":
+          avatarIcon = <FaMosque />;
+          break;
+        case "Church":
+          avatarIcon = <FaChurch />;
+          break;
+        case "Refugee Camp":
+        default:
+          avatarIcon = <FaPeopleRoof />;
+          break;
+      }
         return (
-          <User
-            avatarProps={{ radius: "lg", src: user.avatar }}
-            // description={user.email}
-            name={cellValue}
-          >
-            {user.email}
-          </User>
+          <div className="flex items-center">
+          {avatarIcon && <span className="mr-2">{avatarIcon}</span>}
+          <span className="font-semibold">{user.name}</span>
+        </div>
         );
       case "type":
         return (
@@ -71,22 +119,21 @@ export default function OrgTable() {
       case "actions":
         return (
           <div className="relative flex items-center gap-2 mt-1">
-            <Tooltip content="Details"></Tooltip>
-            <Tooltip content="Edit organisation">
+           <Tooltip content="View Orgaization">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EditIcon />
+                <Link href="./organizationDetails" className="text-black
+                "><EyeIcon /></Link>
+                
               </span>
             </Tooltip>
             <Tooltip color="danger" content="Delete organisation">
-              <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                <DeleteIcon />
+            <span
+                  className="text-lg text-danger cursor-pointer active:opacity-50"
+                  onClick={() => handleDelete(user.id)}
+                >               <DeleteIcon />
               </span>
             </Tooltip>
-            <Tooltip content="View Orgaization">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </span>
-            </Tooltip>
+            
           </div>
         );
       default:
@@ -134,6 +181,14 @@ export default function OrgTable() {
         color="primary"
         onChange={(page) => handlePageChange(page)}
       ></Pagination>
+     <DeleteDialog
+        open={deleteDialogOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={deleteEntry}
+        messageHeader="Delete Organization"
+        message="Are you sure you want to delete this organization account? All the organisation  data will be permanently
+        removed. This action cannot be undone."
+      />
     </div>
   );
 }

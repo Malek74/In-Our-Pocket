@@ -10,6 +10,7 @@ import {
 import { useMemo, useState } from "react";
 import NextLink from "next/link";
 import { DonorRegistrationForm } from "@/components/donorRegistrationForm";
+import { OrgRegistrationForm } from "@/components/orgRegistrationForm";
 
 export default function Page() {
   const [buttonPressed, setButtonPressed] = useState(false);
@@ -50,7 +51,7 @@ export default function Page() {
           ) : selectedForm == "Donor" ? (
             <DonorRegistrationForm />
           ) : (
-            ""
+            <OrgRegistrationForm />
           )}
         </CardBody>
       </Card>

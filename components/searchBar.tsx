@@ -1,10 +1,14 @@
 import React from "react";
 import { Input } from "@nextui-org/react";
 import { SearchIcon } from "./SearchIcon";
+import { CloseFilledIcon } from "./closeIcon";
+import { clear } from "console";
 
-export default function SearchBar() {
+export default function SearchBar({query, handleSearch,placeHolder}: {query: any, handleSearch: any,placeHolder:string}){
   return (
       <Input
+        value={query}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleSearch(event.target.value.toString())}
         label="Search"
         isClearable
         radius="lg"
@@ -28,11 +32,13 @@ export default function SearchBar() {
             "!cursor-text",
             "rounded-2xl",
           ],
+          
         }}
-        placeholder="Type to search..."
+        placeholder={placeHolder}
         startContent={
           <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
         }
+        onClear={() => handleSearch("")}
       />
   );
 }
