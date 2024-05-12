@@ -9,6 +9,13 @@ import {
   Chip,
   Tooltip,
   Pagination,
+  useDisclosure,
+  Modal,
+  ModalContent,
+  ModalBody,
+  Button,
+  ModalFooter,
+  ModalHeader,
 } from "@nextui-org/react";
 import { DeleteIcon } from "./deleteIcon";
 import { EyeIcon } from "./eyeIcon";
@@ -17,17 +24,16 @@ import { BiSolidDonateBlood } from "react-icons/bi";
 import { TbHorseToy } from "react-icons/tb";
 import { GiClothes } from "react-icons/gi";
 import { FaDrumstickBite,FaBriefcaseMedical,FaPencilRuler  } from "react-icons/fa";
-
-
-const statusColorMap = {
-  Fulfilled: "success",
-  Pending: "warning",
-};
+import { useRouter } from "next/router";
+// import { ViewRequestDetails } from "../pages/viewRequestDetails";
 
 export default function DonationTable({donations, columns,deleteFunction}: {donations: any[], columns: any[],deleteFunction: any  }) {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const router = useRouter();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [donationId, setDonationId] = useState(0);
+  const [variant, setVariant] = useState("");
   const openDeleteDialog = () => {
     setDeleteDialogOpen(true);
 
@@ -45,6 +51,29 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
     deleteFunction(donationId);
     closeDeleteDialog();
   }
+  
+  const handleViewClick = ( request: any) => {
+    sessionStorage.setItem('selectedReqID', request.id.toString());
+    // onOpen();
+    router.push(`/viewRequestDetails?query=${getActionString(request)}`)
+    console.log("Org ID:", request.id);
+    console.log("Category:", request.Category);
+    console.log("Status:", request.status);
+  };
+
+  const statusColorMap = {
+    Fulfilled: "success",
+    Pending: "default",
+  };
+
+  // Function to determine action string based on category and status
+  const getActionString = (donation: any): string => {
+    if (donation.Category === "Volunteering" && donation.status === "Fulfilled") {
+      return "fulfilledNormalRequest";
+    } else {
+      return "unfulfilled";
+    }
+  };
 
   const renderCell = React.useCallback(
     (donation: any, columnKey: string, key: string, value: string) => {
@@ -104,8 +133,28 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
           return (
             <div className="relative flex items-center gap-2 mt-1">
               <Tooltip content="View Donation">
-                <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+                <span className="text-lg text-default-400 cursor-pointer active:opacity-50" onClick={() => handleViewClick(donation)}>
                   <EyeIcon />
+                  {/* <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                    <ModalContent>
+                      {(onClose) => (
+                        <>
+                        <ModalHeader className="flex flex-col gap-1">Request Details</ModalHeader>
+                        <ModalBody>
+                          <ViewRequestDetails variant={"unfulfilled"} />
+                        </ModalBody>
+                        <ModalFooter>
+                          <Button color="danger" variant="light" onPress={onClose}>
+                            Close
+                          </Button>
+                          <Button color="primary" onPress={onClose}>
+                            Action
+                          </Button>
+                      </ModalFooter>
+                      </>
+                    )}
+                    </ModalContent>
+                    </Modal> */}
                 </span>
               </Tooltip>
               <Tooltip color="danger" content="Delete donation">
@@ -116,6 +165,7 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
                   <DeleteIcon />
                 </span>
               </Tooltip>
+              {/* <span>{getActionString(donation)}</span> */}
             </div>
           );
         default:
@@ -180,3 +230,5 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
     </div>
   );
 }
+
+

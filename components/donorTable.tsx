@@ -44,9 +44,9 @@ export default function DonorTable({
     setDeleteDialogOpen(true);
   };
 
-  const handleViewClick = (orgID: number) => {
-    sessionStorage.setItem("selectedOrgID", orgID.toString());
-    console.log("Org ID:", orgID);
+  const handleViewClick = ( requestID: number) => {
+    sessionStorage.setItem('selectedReqID', requestID.toString());
+    console.log("Org ID:", requestID);
   };
 
   const closeDeleteDialog = () => {
@@ -91,13 +91,13 @@ export default function DonorTable({
             className="capitalize"
             color={
               statusColorMap[user.status as keyof typeof statusColorMap] as
-                | "success"
-                | "warning"
-                | "default"
-                | "primary"
-                | "secondary"
-                | "danger"
-                | undefined
+              | "success"
+              | "warning"
+              | "default"
+              | "primary"
+              | "secondary"
+              | "danger"
+              | undefined
             }
             size="sm"
             variant="flat"
@@ -175,12 +175,7 @@ export default function DonorTable({
       <DeleteDialog
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
-        onConfirm={deleteEntry}
-        message={"Delete Donor"}
-        messageHeader={
-          "Are you sure you want to delete this organization account? All the organisation  data will be permanently removed. This action cannot be undone."
-        }
-      />
+        onConfirm={deleteEntry} message={""} messageHeader={""}    />
     </div>
   );
 }

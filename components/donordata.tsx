@@ -51,7 +51,7 @@ const columns = [
       gender: "Male",
       email: "john.doe@teachers.org",
       number: "+20 123 456 7890",
-      dob: "1996-01-01",
+      dob: "1996-01-01"
     },
     {
       id: 2,
@@ -64,7 +64,7 @@ const columns = [
       gender: "Female",
       email: "jane.smith@healthcare.org",
       number: "+20 123 456 7890",
-      dob: "1991-01-01",
+      dob: "1991-01-01"
     },
     {
       id: 3,
@@ -77,7 +77,7 @@ const columns = [
       gender: "Male",
       email: "michael.johnson@donors.org",
       number: "+20 123 456 7890",
-      dob: "1986-01-01",
+      dob: "1986-01-01"
     },
     {
       id: 4,
@@ -90,7 +90,7 @@ const columns = [
       gender: "Female",
       email: "emily.davis@healthcare.org",
       number: "+20 123 456 7890",
-      dob: "1981-01-01",
+      dob: "1981-01-01"
     },
     {
       id: 5,
@@ -103,7 +103,7 @@ const columns = [
       gender: "Female",
       email: "sarah.brown@teachers.org",
       number: "+20 123 456 7890",
-      dob: "1976-01-01",
+      dob: "1976-01-01"
     },
     {
       id: 6,
@@ -116,7 +116,7 @@ const columns = [
       gender: "Male",
       email: "matthew.clark@donors.org",
       number: "+20 123 456 7890",
-      dob: "1971-01-01",
+      dob: "1971-01-01"
     },
     {
       id: 7,
@@ -129,7 +129,7 @@ const columns = [
       gender: "Female",
       email: "emma.wilson@teachers.org",
       number: "+20 123 456 7890",
-      dob: "1966-01-01",
+      dob: "1966-01-01"
     },
     {
       id: 8,
@@ -142,7 +142,7 @@ const columns = [
       gender: "Male",
       email: "christopher.martinez@healthcare.org",
       number: "+20 123 456 7890",
-      dob: "1961-01-01",
+      dob: "1961-01-01"
     },
     {
       id: 9,
@@ -155,7 +155,7 @@ const columns = [
       gender: "Female",
       email: "olivia.taylor@donors.org",
       number: "+20 123 456 7890",
-      dob: "1956-01-01",
+      dob: "1956-01-01"
     },
     {
       id: 10,
@@ -168,7 +168,7 @@ const columns = [
       gender: "Male",
       email: "daniel.anderson@healthcare.org",
       number: "+20 123 456 7890",
-      dob: "1951-01-01",
+      dob: "1951-01-01"
     }
   ];
 
