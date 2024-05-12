@@ -3,7 +3,7 @@ import MapComponent from "@/components/MapComponent";
 import { Navbar } from "@/components/navbar";
 import Sidebar from "@/components/sideBar";
 import { Button, Pagination, Breadcrumbs, BreadcrumbItem, ButtonGroup } from "@nextui-org/react";
-import React, { useEffect, useState } from 'react';
+import  { useEffect} from 'react';
 import DataHolder_Wborder from "@/components/dataHolderWborder";
 import {Image} from "@nextui-org/image";
 import OrganizationLogo from "@/components/OrganizationLogo";
@@ -20,7 +20,6 @@ import DonorElements from "@/components/donorElements";
 import { siteConfig } from "@/config/site";
 import { FileUpload } from "@mui/icons-material";
 import {
-    Button,
     Card,
     CardBody,
     CardHeader,

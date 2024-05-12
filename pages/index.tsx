@@ -33,11 +33,11 @@ export default function IndexPage() {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleLogin = () => {
-    if (emailValue == "admin@admin.com" && passlValue == "manga") {
+    if (emailValue == "admin@admin.com" && passlValue == "batates") {
       router.push("/AdminAnalytics");
     } else if (emailValue == "org@org.com" && passlValue == "manga") {
       router.push("/OrgLandingPage");
-    } else if (emailValue == "donor@donor.com" && passlValue == "manga") {
+    } else if (emailValue == "donor@donor.com" && passlValue == "gazar") {
       router.push("/requestsFirstPage");
     } else {
       onOpen();
@@ -46,8 +46,8 @@ export default function IndexPage() {
   return (
     <div className="flex flex-row justify-center items-center h-screen">
       <Image src={Logo} alt="" width={400} height={400} />
-      <div className="flex flex-col justify-center items-center gap-6 ">
-        <Card className="flex flex-col justify-center items-center gap-4 p-6 bg-cyan-50">
+      <div className="flex flex-col justify-center items-center gap-6">
+        <Card className="flex flex-col justify-center items-center gap-4 p-6">
           <CardHeader className="flex justify-center items-center">
             <label className="text-xl font-bold">Login</label>
           </CardHeader>
@@ -97,7 +97,7 @@ export default function IndexPage() {
           <Button
             isDisabled={isInvalid}
             radius="full"
-            className="bg-white text-black shadow-lg"
+            className="bg-cyan-40 text-black shadow-lg"
             onClick={handleLogin}
           >
             Log in
