@@ -1,7 +1,7 @@
 import { Card, CardBody, CardFooter, Image, Link } from "@nextui-org/react";
 import React from "react";
 import { Navbar } from "./navbar";
-import SideNavbar from "./sideBar";
+import Sidebar from "./sideBar";
 
 export default function MainCategories() {
   const list = [

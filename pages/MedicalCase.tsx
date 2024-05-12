@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { useMemo, useState } from "react";
 import { Navbar } from '@/components/navbar';
-import SideNavbar from '@/components/sideBar';
+import Sidebar from '@/components/sideBar';
  import {Button, Card, CardHeader, Divider, Input} from "@nextui-org/react";
 import React from "react";
 import FormView from "@/components/organizationPage";
@@ -18,6 +18,7 @@ import Image from 'next/image';
 import jeansImage from "@/components/images/jeans_image.jpg" ;
 import HR from "@/components/images/harry2.jpg" ;
 import DonorElements from "@/components/donorElements";
+import MapComponent from "@/components/MapComponent";
 
 
 
@@ -51,10 +52,10 @@ export default function MedicalCase() {
     return (
         <><div>
             <Navbar user="donor" />
-            <SideNavbar elements={DonorElements}/>
+            <Sidebar elements={DonorElements}/>
         </div>
         <div className="flex flex-col min-h-screen justify-center items-center gap-6 bg-gray-200">
-                  <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-white rounded-lg shadow-md" style={{ width: '50%', minWidth: '850px' }}>
+                  <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-white rounded-lg shadow-md" style={{ width: '50%', minWidth: '975px' }}>
                         <CardHeader className="flex justify-center items-left">
                             <label className="text-4xl text-black font-bold"> Category: Books</label>
                         </CardHeader>
@@ -92,10 +93,7 @@ export default function MedicalCase() {
                                 +
                             </Button>
                             </div> */}
-                            <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Location:</p>
-                                    <p className="text-2xl text-black">GOOGLE MARKER</p>
-                                </div>
+
                                 <div className="flex items-center">
                                     <p className="text-2xl text-black font-bold mr-2 ">Case Description: </p>
                                     </div>
@@ -118,9 +116,9 @@ export default function MedicalCase() {
                                 </div>
                                 </div>
                                 </Card>
-                                <Card className="flex flex-row bg-cyan rounded-lg shadow-md">
+                                <Card className="flex flex-row bg-cyan rounded-lg shadow-md " >
                                 {/* <Image src={HR} alt="image of donated item: harry potter book" width={500} height={200} /> */}
-                                {/* insert ggogle marker here */}
+                                <MapComponent></MapComponent>
                                 
                                 </Card>
                                 

@@ -47,7 +47,7 @@ export default function IndexPage() {
     <div className="flex flex-row justify-center items-center h-screen">
       <Image src={Logo} alt="" width={400} height={400} />
       <div className="flex flex-col justify-center items-center gap-6">
-        <Card className="flex flex-col justify-center items-center gap-4 p-6">
+        <Card className="flex flex-col justify-center items-center gap-4 p-6 bg-cyan">
           <CardHeader className="flex justify-center items-center">
             <label className="text-xl font-bold">Login</label>
           </CardHeader>

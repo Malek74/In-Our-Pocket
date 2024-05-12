@@ -98,7 +98,7 @@ export default function Page() {
         <Button
           isDisabled={isInvalid}
           radius="full"
-          className="bg-rose text-black shadow-lg"
+          className="bg-cyan text-black shadow-lg"
           onClick={handleLogin}
         >
           Log in

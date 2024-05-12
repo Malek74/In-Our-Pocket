@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 import { useMemo, useState } from "react";
 import { Navbar } from "@/components/navbar";
-import SideNavbar from "@/components/sideBar";
+import Sidebar from "@/components/sideBar";
 import { Button, Card, CardHeader, Divider, Input } from "@nextui-org/react";
 import React from "react";
 import FormView from "@/components/organizationPage";
@@ -26,6 +26,7 @@ import Image from "next/image";
 import jeansImage from "@/components/images/jeans_image.jpg";
 import shirtImage from "@/components/images/7shirts.jpg";
 import blackPen from "@/components/images/BP.jpg";
+import DonorElements from "@/components/donorElements";
 
 export default function StationaryDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -54,7 +55,7 @@ export default function StationaryDetails() {
     <>
       <div>
         <Navbar />
-        <SideNavbar elements={[]} />
+        <Sidebar elements={DonorElements}></Sidebar>
       </div>
       {/* <div className="flex justify-center items-center h-screen bg-gray-200">
                 <div className="flex"> */}

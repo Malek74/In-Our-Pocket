@@ -361,7 +361,7 @@ const clothesUsers = [
     age: "14",
     gender: "Male",
     season: "Summer",
-    link:"./Clothes"
+    link:"./clothes"
   },
   {
     id: 2,

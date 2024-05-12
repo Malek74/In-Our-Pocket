@@ -20,9 +20,9 @@ export default function MyDropdown(props: any) {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-0"
       >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-5 transform -translate-x-1/2 bg-rose rounded-sm">
+        <Popover.Panel className="absolute left-1/2 z-10 mt-5 transform -translate-x-1/2 bg-cyanDark rounded-sm">
 
-          <ScrollShadow size={100} hideScrollBar className="w-[300px] h-[400px] bg-rose text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex justify-center items-center overflow-auto rounded-sm">
+          <ScrollShadow size={100} hideScrollBar className="w-[300px] h-[400px] bg-cyanDark text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 flex justify-center items-center overflow-auto rounded-sm">
                         <div className="flex flex-col items-center mt-[350px] " >
                           
                         
