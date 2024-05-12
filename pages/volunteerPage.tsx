@@ -31,7 +31,6 @@ import {
 import FormView from "@/components/organizationPage";
 import { originalSet } from "@/components/donordata";
 import exp from "constants";
-import AdminElements from "@/components/AdminsideBarElements";
 
 export default function VolunteerPage() {
   const [Name, setName] = useState("None");
@@ -80,29 +79,30 @@ export default function VolunteerPage() {
     anchor.click();
   };
 
-    return (
-        <div className="relative flex flex-col h-screen">
-            <Navbar></Navbar>
-            <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar elements={AdminElements}></Sidebar></div>
-                <div className="flex-1 flex flex-col">
-                    <div>
-                        <div className="flex-1 flex flex-col">
-                            <div className="mx-12 my-12 flex justify-between">
-                                <div className="w-1/4">
-                                    <Image
-                                        width={500}
-                                        height={500}
-                                        alt="NextUI hero Image"
-                                        src='/sample-images/sampleTeacherImg.jpeg'
-                                    />
-                                </div>
-                                <div className="w-3/4 mx-4 my-2 flex-col ">
-
-                                    <div className="flex justify-start">
-                                        <Person2Outlined className="ml-1 mt-1 fill-[#A1A1A1] text-6xl" />
-                                        <h1 className="text-6xl font-large ml-2 ">{Name}</h1>
-                                    </div>
+  return (
+    <div className="relative flex flex-col h-screen">
+      <Navbar user="org"></Navbar>
+      <div className="flex flex-row flex-1">
+        <div className="flex-initial w-[250px]">
+          <Sidebar elements={[]}></Sidebar>
+        </div>
+        <div className="flex-1 flex flex-col">
+          <div>
+            <div className="flex-1 flex flex-col">
+              <div className="mx-12 my-12 flex justify-between">
+                <div className="w-1/4">
+                  <Image
+                    width={500}
+                    height={500}
+                    alt="NextUI hero Image"
+                    src="/sample-images/sampleTeacherImg.jpeg"
+                  />
+                </div>
+                <div className="w-3/4 mx-4 my-2 flex-col ">
+                  <div className="flex justify-start">
+                    <Person2Outlined className="ml-1 mt-1 fill-[#A1A1A1] text-6xl" />
+                    <h1 className="text-6xl font-large ml-2 ">{Name}</h1>
+                  </div>
 
                   <div className="flex justify-start ml-24">
                     <Work className="fill-[#A1A1AA] ml-1 mt-3" />
@@ -120,53 +120,77 @@ export default function VolunteerPage() {
                 </div>
               </div>
 
+              <div className="pr-12 pl-12">
+                <div
+                  id="headerText"
+                  className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold"
+                >
+                  Request Details
+                </div>
+                <div
+                  id="insideText"
+                  className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]"
+                >
+                  {/* div holding request details */}
+                  <div className="flex justify-center mb-4 mx-12 ">
+                    {/*div holding left aligned objects  */}
+                    <div className="w-1/2 pl-8 pr-8">
+                      {/* rep info div */}
+                      <div className="pr-12 pl-12">
+                        <div
+                          id="headerText"
+                          className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold"
+                        >
+                          <p className="bg-white">Volunteer Details:</p>
+                        </div>
+                        <div
+                          id="insideText"
+                          className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]"
+                        >
+                          <div className="justifymb-4">
+                            <p>
+                              <span className="font-semibold text-default-400">
+                                First Name: {Name.split(' ')[0]}
+                              </span>
+                            </p>
+                            <p>
+                              <span className="font-semibold text-default-400">
+                                Last Name: {Name.split(' ')[1]}
+                              </span>{" "}
+                            </p>
+                            <p>
+                              <span className="font-semibold text-default-400">
+                                Gender: {Gender}
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
+                    {/* div holding right aligned details */}
+                    <div className="w-1/2 pl-8 pr-8 ">
+                      <div className="pl-12 pr-12">
+                        <div
+                          id="headerText"
+                          className="relative bg-[#FFF] text-center z-1000 w-[205px] mx-[auto] my-[0] font-bold"
+                        >
+                          Contact Information:
+                        </div>
+                        <div
+                          id="insideText"
+                          className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]"
+                        >
+                          {/* Contact Info div */}
+                          <div className="">
+                            <div className="flex justify-start">
+                              <PersonPinCircleOutlined className="" />
+                              <p>
+                                <span className="font-semibold text-default-400 ml-2">
+                                  {Address}
+                                </span>
+                              </p>
                             </div>
-                            </div>
-                            </div>
-                        
-                            <div className="mx-10">
-                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[150px] mx-[auto] my-[0] font-bold">
-                                    Request Details
-                                </div>
-                                <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px] ">
-                                    {/* div holding request details */}
-                                    <div className="flex flex-row justify-center items-center ">
-
-                                        {/*div holding left aligned objects  */}
-                                        <div className="w-1/2">
-                                            {/* rep info div */}
-                                            <div className="pr-12 pl-12">
-                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold">
-                                                    <p className="bg-white">Volunteer Details:</p>
-                                                </div>
-                                                <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]">
-                                                    <div className="justify mb-4">
-                                                        <p><span className="font-semibold text-default-400">First Name: {Name}</span></p>
-                                                        <p><span className="font-semibold text-default-400">Last Name: {Name}</span> </p>
-                                                        <p><span className="font-semibold text-default-400">Gender: {Gender}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                        {/* div holding right aligned details */}
-                                        <div className="w-1/2 pl-8 pr-8 ">
-                                            <div className="pl-12 pr-12">
-                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[200px] mx-[auto] my-[0] font-bold">
-                                                    Contact Information:
-                                                </div>
-                                                <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]">
-
-                                                    {/* Contact Info div */}
-                                                    <div className="">
-
-                                                        <div className="flex justify-start">
-                                                            <PersonPinCircleOutlined className="" />
-                                                            <p><span className="font-semibold text-default-400 ml-2">{Address}</span></p>
-                                                        </div>
 
                             <div className="flex justify-start ">
                               <EmailOutlined className="fill-gray" />
@@ -190,10 +214,13 @@ export default function VolunteerPage() {
                       </div>
                     </div>
 
-                                        <div className="pr-12 pl-12 ">
-                                            <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[100px] mx-[auto] my-[0] font-bold">
-                                                Resume:
-                                            </div>
+                    <div className="pr-12 pl-12">
+                      <div
+                        id="headerText"
+                        className="relative bg-[#FFF] text-center z-1000 w-[100px] mx-[auto] my-[0] font-bold"
+                      >
+                        Resume:
+                      </div>
 
                       <div
                         id="insideText"
@@ -231,15 +258,35 @@ export default function VolunteerPage() {
                   </div>
                 </div>
 
-                                <div className="flex justify-end bg-red mx-1 my-4">
-                                    <Button className=" mx-4 my-4 px-4 py-2 rounded " isDisabled={ Expertise === "Regular Donor" || Status !== "pending"} size="lg" color='danger' variant='solid'>Reject Request</Button>
-                                    <Button className=" mx-4 my-4 px-4 py-2 rounded" isDisabled={ Expertise === "Regular Donor" || Status !== "pending"} size="lg" color='success' variant='solid'>Accept Request</Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="flex justify-end bg-red mx-1 my-4">
+                  <Button
+                    className=" mx-4 my-4 px-4 py-2 rounded "
+                    isDisabled={
+                      Expertise === "Regular Donor" || Status !== "pending"
+                    }
+                    size="lg"
+                    color="danger"
+                    variant="solid"
+                  >
+                    Reject Request
+                  </Button>
+                  <Button
+                    className=" mx-4 my-4 px-4 py-2 rounded"
+                    isDisabled={
+                      Expertise === "Regular Donor" || Status !== "pending"
+                    }
+                    size="lg"
+                    color="success"
+                    variant="solid"
+                  >
+                    Accept Request
+                  </Button>
                 </div>
-
-        
-    );
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

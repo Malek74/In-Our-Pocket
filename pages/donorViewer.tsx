@@ -93,8 +93,8 @@ export default function DonorViewer() {
                                 <div className="align-middle m-1">
                                     <FilterMenu
                                     items={[
-                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
+                                        <FilterItemDropDown variant={"large"} attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1}></FilterItemDropDown>,
+                                        <FilterItemDropDown variant={"large"} attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
                                         ]}>
                                     </FilterMenu>
                                 </div>

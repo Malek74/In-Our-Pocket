@@ -40,28 +40,34 @@ export const columns = [
   ];
   
 
-  export const originalSet = [
+  export const originalSetDonation = [
         {
           id: 1,
           donation: "B+ Blood Donation",
           Category: "Blood Donation",
           status: "Pending",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc:'images/bloodBag.jpeg',
+          volID: 1,
          },
         {
           id: 2,
           donation: "Winter Clothes Donation",
           Category: "Clothes",
           status: "Pending",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: 'images/jeans_image.jpg',
+          volID: 1,
 
         },
         {
           id: 3,
           donation: "Toy Drive for Children",
-          Category: "Toys",
+          Category: "Volunteering",
           status: "Fulfilled",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc:'images/barbie.jpg',
+          volID: 1,
 
         },
         {
@@ -69,7 +75,9 @@ export const columns = [
           donation: "Food Drive for Homeless",
           Category: "Food",
           status: "Pending",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: 'images/beans2.jpg',
+          volID: 1,
 
         },
         {
@@ -77,7 +85,9 @@ export const columns = [
           donation: "Medical Supplies Donation",
           Category: "Medical Supplies",
           status: "Fulfilled",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: 'images/stetho.jpg',
+          volID: 1,
 
         },
         {
@@ -85,23 +95,29 @@ export const columns = [
           donation: "Back-to-School Supplies Drive",
           Category: "School Supplies",
           status: "Pending",
-          avatar:<BiSolidDonateBlood/>
-
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc:'images/5blackpens.jpg',
+          volID: 1,
         },
         {
           id: 7,
           donation: "O- Blood Donation",
           Category: "Blood Donation",
           status: "Fulfilled",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc:'images/bloodBag.jpeg',
+          volID: 1,
 
         },
         {
           id: 8,
-          donation: "Summer Clothes Donation",
-          Category: "Clothes",
+          donation: "3rd Grade Maths Class",
+          Category: "Volunteering",
           status: "Fulfilled",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: "images/teaching.jpeg",
+          volID: 8,
+
 
         },
         {
@@ -109,7 +125,9 @@ export const columns = [
           donation: "Toy Collection for Orphanage",
           Category: "Toys",
           status: "Pending",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: '/images/barbie.jpg',
+          volID: 1,
 
         },
         {
@@ -117,7 +135,9 @@ export const columns = [
           donation: "Emergency Food Drive",
           Category: "Food",
           status: "Fulfilled",
-          avatar:<BiSolidDonateBlood/>
+          avatar:<BiSolidDonateBlood/>,
+          imgsrc: 'images/beans2.jpg',
+          volID: 1,
 
         },
         // Add more users as needed
