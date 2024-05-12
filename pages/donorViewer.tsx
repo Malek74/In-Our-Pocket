@@ -7,7 +7,7 @@ import FilterMenu from "@/components/filterMenu";
 import DonorTable from "@/components/donorTable";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import { SetStateAction, useEffect, useState } from "react";
-import { columns,filterDonors, searchDonors,originalSet } from "@/components/donordata";
+import { columns, filterDonors, searchDonors, originalSet } from "@/components/donordata";
 
 const statusColorMap: { [key: string]: "danger" | "default" | "primary" | "secondary" | "success" | "warning" | undefined } = {
     fulfilled: "success",
@@ -42,13 +42,13 @@ export default function DonorViewer() {
             setStatusChip("visible");
         }
     }
-    function handleDelete(id:any) {
-        const newRes =results.filter((result) => result.id !== id);
+    function handleDelete(id: any) {
+        const newRes = results.filter((result) => result.id !== id);
         setResults(newRes);
-        const filteredResults = filterDonors(newRes, column1, value1, column2, value2) || [];    
+        const filteredResults = filterDonors(newRes, column1, value1, column2, value2) || [];
         setDisplayedResults(filteredResults);
     }
- 
+
     function handleSearch(query: string) {
         setQuery(query);
         const searched = searchDonors(filteredResults, query) || [];
@@ -87,22 +87,22 @@ export default function DonorViewer() {
                         </div>
                         <div className="flex flex-row justify-between">
                             <div className="align-middle m-1">
-                                    <Chip onClose={closeFilterExperience} variant="bordered" className={expChip}><div className="flex flex-row"><p className="font-bold">Expertise:</p>{filterCol1}</div></Chip>
-                                    <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
-                                </div>
-                                <div className="align-middle m-1">
-                                    <FilterMenu
-                                    items={[
-                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
-                                        ]}>
-                                    </FilterMenu>
-                                </div>
-                                <div className="w-[240]">
-                                    <SearchBar placeHolder="Donor Name" query={query} handleSearch={handleSearch}/>
-                                </div>
+                                <Chip onClose={closeFilterExperience} variant="bordered" className={expChip}><div className="flex flex-row"><p className="font-bold">Expertise:</p>{filterCol1}</div></Chip>
+                                <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
                             </div>
-                            
+                            <div className="align-middle m-1">
+                                <FilterMenu
+                                    items={[
+                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional", "Teacher", "Regular Donor"].sort()} column="exp" onChange={handleChange} value={value1}></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Status" values={["Active", "Pending"].sort()} onChange={handleChange} value={value2} column="status"></FilterItemDropDown>,
+                                    ]}>
+                                </FilterMenu>
+                            </div>
+                            <div className="w-[240]">
+                                <SearchBar placeHolder="Donor Name" query={query} handleSearch={handleSearch} />
+                            </div>
+                        </div>
+
                     </div>
                     <DonorTable columns={columns} users={displayedResults} deleteFunction={handleDelete} />
                 </div>
