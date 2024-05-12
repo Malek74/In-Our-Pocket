@@ -63,7 +63,7 @@ export default function MedicalSuppliesDetails() {
           <CardHeader className="flex justify-center items-left">
             <label className="text-4xl text-black font-bold">
               {" "}
-              Category: Medical Supplies
+              Category: Medical Device
             </label>
           </CardHeader>
           <Divider />

@@ -6,7 +6,7 @@ export default function FilterItemDropDown({
   attribute,
   onChange,
   column,
-  variant
+  variant,
 }: {
   value: any;
   values: string[];
@@ -15,25 +15,46 @@ export default function FilterItemDropDown({
   column: string;
   variant: string;
 }) {
-  
-      switch(variant) {
-        case "regular":
-          return <FilterItemDropDownRegular values={values} value={value} attribute={attribute} onChange={onChange} column={column} />;
-        case "large":
-          return <FilterItemDropDownLarge values={values} value={value} attribute={attribute} onChange={onChange} column={column} />;
-        default:
-          return <FilterItemDropDownRegular values={values} value={value} attribute={attribute} onChange={onChange} column={column} />;
-      }
-  
+  switch (variant) {
+    case "regular":
+      return (
+        <FilterItemDropDownRegular
+          values={values}
+          value={value}
+          attribute={attribute}
+          onChange={onChange}
+          column={column}
+        />
+      );
+    case "large":
+      return (
+        <FilterItemDropDownLarge
+          values={values}
+          value={value}
+          attribute={attribute}
+          onChange={onChange}
+          column={column}
+        />
+      );
+    default:
+      return (
+        <FilterItemDropDownRegular
+          values={values}
+          value={value}
+          attribute={attribute}
+          onChange={onChange}
+          column={column}
+        />
+      );
+  }
 }
 
-
- function FilterItemDropDownRegular({
+function FilterItemDropDownRegular({
   values,
   value,
   attribute,
   onChange,
-  column
+  column,
 }: {
   value: any;
   values: string[];
@@ -48,7 +69,9 @@ export default function FilterItemDropDown({
         className=""
         variant="bordered"
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event.target.value, column,)}
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+          onChange(event.target.value, column)
+        }
       >
         {values.map((element) => (
           <SelectItem key={element} value={element}>
@@ -65,7 +88,7 @@ function FilterItemDropDownLarge({
   value,
   attribute,
   onChange,
-  column
+  column,
 }: {
   value: any;
   values: string[];
@@ -80,7 +103,9 @@ function FilterItemDropDownLarge({
         className=""
         variant="bordered"
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event.target.value, column,)}
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
+          onChange(event.target.value, column)
+        }
       >
         {values.map((element) => (
           <SelectItem key={element} value={element}>
