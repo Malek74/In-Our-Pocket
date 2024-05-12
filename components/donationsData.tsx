@@ -40,7 +40,7 @@ export const columns = [
   ];
   
 
-  export const originalSet = [
+  export const originalSetDonation = [
         {
           id: 1,
           donation: "B+ Blood Donation",
