@@ -58,16 +58,62 @@ export default function Organisations() {
         }}
         }, []); 
 
-        const handleOpenInNewTab = () => {
-            const pdfUrl = '/lect.pdf';
-            window.open(pdfUrl, '_blank');
-            };
-            const handleDownload = () => {
-                const anchor = document.createElement('a');
-                anchor.href = '/lect.pdf';
-                anchor.download = '';
-                anchor.click();
-            };
+    interface FileData {
+        name: string;
+        type: string;
+        size: number;
+        data: string; // Base64 string
+    }
+
+
+    const getFileFromLocalStorage = (): File | null => {
+        const storedData = localStorage.getItem("fileData");
+        if (storedData) {
+            const fileData: FileData = JSON.parse(storedData);
+            const byteCharacters = atob(fileData.data.split(",")[1]);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: fileData.type });
+    
+            // Create a new File object
+            const file = new File([blob], fileData.name, {
+            type: fileData.type,
+            lastModified: Date.now(),
+            });
+    
+            return file;
+        }
+        return null;
+    };
+
+
+
+    const handleOpenInNewTab = () => {
+        const pdfUrl = '/lect.pdf';
+        window.open(pdfUrl, '_blank');
+        };
+
+    const handleDownload = () => {
+        const file = getFileFromLocalStorage();
+        if (file) {
+            const url = URL.createObjectURL(file);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = file.name;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }else{
+            const anchor = document.createElement('a');
+            anchor.href = '/lect.pdf';
+            anchor.download = '';
+            anchor.click();
+        }
+    };
 
     return (
         <div className="relative flex flex-col h-screen">
@@ -213,7 +259,7 @@ export default function Organisations() {
 
             </div>
 
-            <div className="flex justify-end bg-red mx-1 my-4">
+            <div className="flex justify-end bg-red mx-1 my-4" >
                 <Button className=" mx-4 my-4 px-4 py-2 rounded " isDisabled={Status !== "pending" } size="lg" color='danger' variant='solid'>Reject Request</Button>
                 <Button className=" mx-4 my-4 px-4 py-2 rounded" isDisabled={Status !== "pending" } size="lg" color='success' variant='solid'>Accept Request</Button>
             </div>
@@ -228,3 +274,5 @@ export default function Organisations() {
         </div>
     );
 }
+
+

@@ -38,9 +38,9 @@ export default function DonorTable({ columns, users,deleteFunction }: { columns:
 
   };
 
-  const handleViewClick = ( orgID: number) => {
-    sessionStorage.setItem('selectedOrgID', orgID.toString());
-    console.log("Org ID:", orgID);
+  const handleViewClick = ( requestID: number) => {
+    sessionStorage.setItem('selectedReqID', requestID.toString());
+    console.log("Org ID:", requestID);
   };
 
   const closeDeleteDialog = () => {
@@ -168,10 +168,9 @@ export default function DonorTable({ columns, users,deleteFunction }: { columns:
         onChange={(page) => handlePageChange(page)}
       ></Pagination>
       <DeleteDialog
-      open={deleteDialogOpen}
-      onClose={closeDeleteDialog}
-      onConfirm={deleteEntry}
-    />
+        open={deleteDialogOpen}
+        onClose={closeDeleteDialog}
+        onConfirm={deleteEntry} message={""} messageHeader={""}    />
     </div>
   );
 }

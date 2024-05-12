@@ -17,6 +17,7 @@ import { CakeOutlined, EmailOutlined, LocalPhoneOutlined, Person, Person2Outline
 import FormView from "@/components/organizationPage";
 import { originalSet } from "@/components/donordata";
 import exp from "constants";
+import AdminElements from "@/components/AdminsideBarElements";
 
 export default function volunteerPage() {
     const [Name, setName] = useState('None');
@@ -66,7 +67,7 @@ export default function volunteerPage() {
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={AdminElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div>
                         <div className="flex-1 flex flex-col">
@@ -99,25 +100,26 @@ export default function volunteerPage() {
 
 
                             </div>
-
-
-                            <div className="pr-12 pl-12">
-                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold">
+                            </div>
+                            </div>
+                        
+                            <div className="mx-10">
+                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[150px] mx-[auto] my-[0] font-bold">
                                     Request Details
                                 </div>
-                                <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]">
+                                <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px] ">
                                     {/* div holding request details */}
-                                    <div className="flex justify-center mb-4 mx-12 ">
+                                    <div className="flex flex-row justify-center items-center ">
 
                                         {/*div holding left aligned objects  */}
-                                        <div className="w-1/2 pl-8 pr-8">
+                                        <div className="w-1/2">
                                             {/* rep info div */}
                                             <div className="pr-12 pl-12">
-                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[150px] mx-[auto] my-[0] font-bold">
+                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[180px] mx-[auto] my-[0] font-bold">
                                                     <p className="bg-white">Volunteer Details:</p>
                                                 </div>
                                                 <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]">
-                                                    <div className="justifymb-4">
+                                                    <div className="justify mb-4">
                                                         <p><span className="font-semibold text-default-400">First Name: {Name}</span></p>
                                                         <p><span className="font-semibold text-default-400">Last Name: {Name}</span> </p>
                                                         <p><span className="font-semibold text-default-400">Gender: {Gender}</span></p>
@@ -131,7 +133,7 @@ export default function volunteerPage() {
                                         {/* div holding right aligned details */}
                                         <div className="w-1/2 pl-8 pr-8 ">
                                             <div className="pl-12 pr-12">
-                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[205px] mx-[auto] my-[0] font-bold">
+                                                <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[200px] mx-[auto] my-[0] font-bold">
                                                     Contact Information:
                                                 </div>
                                                 <div id="insideText" className="p-[20px] border-[1px] border-[solid] border-[#DDDDDD] rounded-lg -mt-[10px]">
@@ -159,7 +161,7 @@ export default function volunteerPage() {
                                             </div>
                                         </div>
 
-                                        <div className="pr-12 pl-12">
+                                        <div className="pr-12 pl-12 ">
                                             <div id="headerText" className="relative bg-[#FFF] text-center z-1000 w-[100px] mx-[auto] my-[0] font-bold">
                                                 Resume:
                                             </div>
@@ -188,7 +190,7 @@ export default function volunteerPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+        
     );
 }

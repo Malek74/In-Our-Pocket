@@ -78,20 +78,21 @@ export default function DonorDetails() {
             <div className="flex flex-col justify-center items-center w-4/5 gap-6 mx-44 my-8" >
                 <h1 className="text-3xl font-bold">Edit Account Details</h1>
                 <Divider />
-                    <div className="flex flex-row justify-between items-center w-full gap-16 px-12">
+                    <div className="flex flex-row justify-between items-center w-full gap-96 px-12">
                         <Input
+                            value={firstNameValue}
                             type="text"
                             label="First Name"
                             variant="bordered"
-                            defaultValue="Malek"
                             color={"default"}
                             onValueChange={setFirstNameValue}
                             className="flex-1"
-                            
                             placeholder="Enter your first name"
                             
+                            isInvalid={isFNvalid}
                         />
                         <Input
+                            value={lastNameValue}
                             type="text"
                             label="Last Name"
                             variant="bordered"
@@ -99,15 +100,18 @@ export default function DonorDetails() {
                             onValueChange={setLastNameValue}
                             className="flex-1"
                             placeholder="Enter your last name"
-                            defaultValue="Ali"
+                            
+                            isInvalid={isLNvalid}
                         />
                     </div>
 
                     <div className="w-full px-12 mr-0.25">
                         <Input
+                            value={emailValue}
                             type="email"
                             label="Email"
                             variant="bordered"
+                            isInvalid={isInvalidEmail}
                             color={
                                 isInvalidEmail
                                 ? "danger"
@@ -117,10 +121,8 @@ export default function DonorDetails() {
                             }
                             errorMessage={isInvalidEmail && "Please enter a valid email"}
                             onValueChange={setEmailValue}
-                            defaultValue="malek.mohamed12345678@gmail.com"
                             className="w-full"
                             placeholder="Enter your email"
-                            
                             
                         />
                     </div>
@@ -128,6 +130,7 @@ export default function DonorDetails() {
                     
                     <div className="flex flex-row justify-between items-center w-full gap-16 px-12">
                         <Input
+                            value={passwordValue}
                             type="password"
                             label="Password"
                             variant="bordered"
@@ -156,13 +159,14 @@ export default function DonorDetails() {
 
                     <div className="w-full px-12 mr-0.25">
                     <Input
+                        value={contactValue}
                         type="text"
                         label="Contact Number"
                         variant="bordered"
                         color={"default"}
                         onValueChange={setContactValue}
                         className="w-full"
-                        defaultValue="+20 123 456 7890"
+                        placeholder="+20 123 456 7890"
                         />
                     </div>
                     <div className="flex flex-row justify-between items-center w-full gap-16 px-12">
@@ -195,20 +199,39 @@ export default function DonorDetails() {
                         ))}
                     </Select>
                     </div>
-                    <div className="flex flex-col justify-center items-center gap-2 mb-20 mt-6">
-                        <h1 className="text-2xl ">Update Documents</h1>
-                        <Divider />
-                        <FileUploader />
+                    <div className="w-full px-12 mr-0.25">
+                        <Input
+                            value={orgNameValue}
+                            type="text"
+                            label="Organization Name"
+                            variant="bordered"
+                            color={"default"}
+                            onValueChange={setOrgNameValue}
+                            placeholder="Enter your Organization name"
+                            isInvalid={isOrgNameValid}
+                        />
                     </div>
-                    <div className="flex flex-row justify-end items-end gap-4 w-full">
+                    <div className="flex justify-center w-1/2 gap-24">
+                        <div className="flex flex-col justify-center items-center gap-2 ">
+                            <h1 className="text-2xl ">Update Location</h1>
+                            <Divider />
+                            <MapComponent />
+                        </div>
+                        <div className="flex flex-col justify-center items-center gap-2 mb-20 mt-6">
+                            <h1 className="text-2xl ">Update Documents</h1>
+                            <Divider />
+                            <FileUploader />
+                        </div>
+                    </div>
+                        <div className="flex flex-row justify-end items-end gap-4 w-full">
                         <a href="/requestsFirstPage" className="flex flex-row justify-end items-end gap-4">
                         <Button color='danger'> Delete</Button>
                         <Button color='default'> Cancel</Button>
                         <Button color="success"> Save</Button>
+
                         </a>
-                    </div>
-            
-                </div>
+                        </div>
+            </div>        
                     
     );
             

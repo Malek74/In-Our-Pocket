@@ -9,6 +9,7 @@ import {
   Chip,
   Tooltip,
   Pagination,
+  useDisclosure,
 } from "@nextui-org/react";
 import { DeleteIcon } from "./deleteIcon";
 import { EyeIcon } from "./eyeIcon";
@@ -25,6 +26,8 @@ const statusColorMap = {
 };
 
 export default function DonationTable({donations, columns,deleteFunction}: {donations: any[], columns: any[],deleteFunction: any  }) {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [donationId, setDonationId] = useState(0);
@@ -45,6 +48,12 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
     deleteFunction(donationId);
     closeDeleteDialog();
   }
+  
+  const handleViewClick = ( requestID: number) => {
+    sessionStorage.setItem('selectedReqID', requestID.toString());
+    onOpenChange
+    console.log("Org ID:", requestID);
+  };
 
   const renderCell = React.useCallback(
     (donation: any, columnKey: string, key: string, value: string) => {
@@ -103,8 +112,9 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
           return (
             <div className="relative flex items-center gap-2 mt-1">
               <Tooltip content="View Donation">
-                <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <EyeIcon />
+                <span className="text-lg text-default-400 cursor-pointer active:opacity-50" >
+                  <link href="" onClick={() => handleViewClick(donationId)}><EyeIcon /></link>
+                  
                 </span>
               </Tooltip>
               <Tooltip color="danger" content="Delete donation">
