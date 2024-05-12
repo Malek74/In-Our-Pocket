@@ -77,9 +77,9 @@ export default function DonorViewer() {
 
     return (
         <div className="relative flex flex-col h-screen">
-            <Navbar></Navbar>
+            <Navbar user="donor"></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="flex justify-between m-4 align-middle">
                         <div>
@@ -91,10 +91,10 @@ export default function DonorViewer() {
                                     <Chip onClose={closeFilterStatus} variant="bordered" className={statusChip}><div className="flex flex-row"><p className="font-bold">Status:</p>{filterCol2}</div> </Chip>
                                 </div>
                                 <div className="align-middle m-1">
-                                    <FilterMenu
+                                    <FilterMenu variant="large"
                                     items={[
-                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Expertise" values={["Healthcare Professional","Teacher", "Regular Donor"].sort()} column= "exp" onChange={handleChange}  value={value1} variant="large"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value2} column="status" variant="large"></FilterItemDropDown>,
                                         ]}>
                                     </FilterMenu>
                                 </div>
