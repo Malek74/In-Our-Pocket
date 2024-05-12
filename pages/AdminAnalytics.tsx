@@ -21,14 +21,14 @@ export default function AdminAnalytics() {
                         <div className="flex flex-row ">
                             <div className="border-solid border-2 m-2 rounded-xl">
                                 <div>
-                                    <h1 className="font-bold text-lg m-2">
+                                    <h1 className="font-bold text-2xl m-2">
                                         Number of New Organizations
                                     </h1>
                                 </div>
                                 <Image src={newOrgChart}  alt={"New Organizations per Month"} className="m-2 border-solid" />
                             </div>
                             <div className="border-solid border-2 m-2 rounded-xl min-w-[500px] min-h-[296px]">
-                                <h1 className="font-bold text-lg m-2">
+                                <h1 className="font-bold text-2xl m-2">
                                     Number of Organizations
                                 </h1>
                                 <Image src={orgsNumbers}  alt={"Number of Organizations"} className="m-2 border-solid" />
@@ -40,14 +40,14 @@ export default function AdminAnalytics() {
                         <div className="flex flex-row ">
                             <div className="border-solid border-2 m-2 rounded-xl">
                                 <div>
-                                    <h1 className="font-bold text-lg m-2">
+                                    <h1 className="font-bold text-2xl m-2">
                                         Number of New Users
                                     </h1>
                                 </div>
                                 <Image src={newUserChart}  alt={"New Organizations per Month"} className="m-2 border-solid" />
                             </div>
                             <div className="border-solid border-2 m-2 rounded-xl min-w-[500px] min-h-[296px]">
-                                <h1 className="font-bold text-lg m-2">
+                                <h1 className="font-bold text-2xl m-2">
                                     Number of Users
                                 </h1>
                                 <Image src={usersNumbers}  alt={"Number of Organizations"} className="m-2 border-solid" />

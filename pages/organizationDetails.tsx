@@ -16,6 +16,7 @@ import OpenInNewTabIcon from "@/components/openInNewTabIcon";
 import { EmailOutlined, LocalPhoneOutlined, PersonPinCircleOutlined } from "@mui/icons-material";
 import FormView from "@/components/organizationPage";
 import { Originalusers } from "@/components/orgData";
+import OrgElements from "@/components/OrgElements";
 
 
 
@@ -117,7 +118,7 @@ export default function Organisations() {
 
     return (
         <div className="relative flex flex-col h-screen">
-            <Navbar></Navbar>
+            <Navbar user="org"></Navbar>
             <div className="flex flex-row flex-1">
                 <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
                 <div className="flex-1 flex flex-col">

@@ -10,7 +10,7 @@ import OrgElements from "@/components/OrgElements";
 export default function OrgLandingPage() {
   return (
     <div className="relative flex flex-col h-screen">
-      <Navbar />
+      <Navbar user="org"/>
       <div className="flex flex-row justify-center">
         <div className=" ">
           <Sidebar elements={OrgElements} />
@@ -20,7 +20,7 @@ export default function OrgLandingPage() {
             <h1 className="font-bold text-4xl m-2">Donations Analytics</h1>
             <div className="flex flex-row ">
               <div className="border-solid border-2 m-2 rounded-xl min-w-[500px] min-h-[296px]">
-                <h1 className="font-bold text-lg m-2">Number of Donations</h1>
+                <h1 className="font-bold text-2xl m-2">Number of Donations</h1>
                 <Image
                   src={donationsChart}
                   alt={"Number of Donation"}
@@ -30,7 +30,7 @@ export default function OrgLandingPage() {
 
               <div className="border-solid border-2 m-2 rounded-xl">
                 <div>
-                  <h1 className="font-bold text-lg m-2">
+                  <h1 className="font-bold text-2xl m-2">
                     {"Number of this month's Donations"}
                   </h1>
                 </div>

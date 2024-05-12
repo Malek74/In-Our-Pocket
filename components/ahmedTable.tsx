@@ -1,8 +1,7 @@
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, Chip, Tooltip, getKeyValue} from "@nextui-org/react";
-import {columns, users} from "./ahmedData";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, Chip, Tooltip, getKeyValue } from "@nextui-org/react";
+import { columns, users } from "./ahmedData";
 import AcceptOrReject from "./acceptOrReject";
-import MyButton from "./ahmedButton";
 ;
 
 
@@ -11,36 +10,32 @@ export default function ReqTable() {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
-      case "name":
+      case "organisation":
         return (
           <User
-            avatarProps={{radius: "lg", src: user.avatar}}
+            avatarProps={{ radius: "lg", src: user.avatar }}
             description={user.email}
-            name={cellValue}
+            name={user.name}
           >
             {user.email}
           </User>
         );
-      case "role":
+      case "request":
         return (
           <div className="flex flex-col">
-            <p className="text-bold text-sm capitalize">{cellValue}</p>
+            <p className="text-bold text-sm capitalize">{user.role}</p>
             <p className="text-bold text-sm capitalize text-default-400">{user.team}</p>
           </div>
         );
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
+            <Tooltip>
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <AcceptOrReject />
               </span>
             </Tooltip>
-            <Tooltip content="view info">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <MyButton/>
-              </span>
-            </Tooltip>
+
           </div>
         );
       default:
@@ -49,7 +44,7 @@ export default function ReqTable() {
   }, []);
 
   return (
-  <Table aria-label="Example table with custom cells">
+    <Table aria-label="Example table with custom cells">
       <TableHeader columns={columns}>
         {(column) => (
           <TableColumn key={column.uid} align={column.uid === "actions" ? "center" : "start"}>

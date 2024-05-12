@@ -12,23 +12,17 @@ import {
   Pagination,
   Link,
 } from "@nextui-org/react";
-import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
-import { columns } from "./donordata";
 import { EyeIcon } from "./eyeIcon";
 import DeleteDialog from "./deleteDialog";
+import { FaBell } from "react-icons/fa";
 
 const statusColorMap = {
   active: "success",
   pending: "warning",
 };
 
-const handleClick = (donorId: number) => {
-  sessionStorage.setItem("selectedDonorId", donorId.toString());
-  console.log("Donor ID:", donorId);
-};
-
-export default function DonorTable({
+export default function RequestTable({
   columns,
   users,
   deleteFunction,
@@ -37,16 +31,11 @@ export default function DonorTable({
   users: any[];
   deleteFunction: any;
 }) {
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [userID, setUserID] = useState(0);
   const openDeleteDialog = () => {
     setDeleteDialogOpen(true);
-  };
-
-  const handleViewClick = ( requestID: number) => {
-    sessionStorage.setItem('selectedReqID', requestID.toString());
-    console.log("Org ID:", requestID);
   };
 
   const closeDeleteDialog = () => {
@@ -67,16 +56,14 @@ export default function DonorTable({
 
     switch (columnKey) {
       case "name":
+        let avatarIcon = <FaBell></FaBell>;
         return (
-          <User
-            avatarProps={{ radius: "lg", src: user.avatar }}
-            // description={user.email}
-            name={cellValue}
-          >
-            {user.email}
-          </User>
+          <div className="flex items-center">
+            {avatarIcon && <span className="mr-2">{avatarIcon}</span>}
+            <span className="font-semibold">{user.name}</span>
+          </div>
         );
-      case "exp":
+      case "age":
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
@@ -85,19 +72,19 @@ export default function DonorTable({
             </p>
           </div>
         );
-      case "status":
+      case "gender":
         return (
           <Chip
             className="capitalize"
             color={
               statusColorMap[user.status as keyof typeof statusColorMap] as
-              | "success"
-              | "warning"
-              | "default"
-              | "primary"
-              | "secondary"
-              | "danger"
-              | undefined
+                | "success"
+                | "warning"
+                | "default"
+                | "primary"
+                | "secondary"
+                | "danger"
+                | undefined
             }
             size="sm"
             variant="flat"
@@ -108,15 +95,10 @@ export default function DonorTable({
       case "actions":
         return (
           <div className="relative flex items-center gap-2 mt-1">
-            <Tooltip content="Details"></Tooltip>
-            <Tooltip content="View Volunteer Request">
+            <Tooltip content="View Orgaization">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link
-                  onClick={() => handleClick(user.id)}
-                  href="/volunteerPage"
-                  className="text-[#a1a1a1]"
-                >
-                  <EyeIcon className="" />
+                <Link href="./organizationDetails" className="bg-grey">
+                  <EyeIcon />
                 </Link>
               </span>
             </Tooltip>
@@ -127,6 +109,18 @@ export default function DonorTable({
               >
                 {" "}
                 <DeleteIcon />
+              </span>
+            </Tooltip>
+          </div>
+        );
+      case "review":
+        return (
+          <div className="justify center gap-2 mt-1">
+            <Tooltip content="View Request">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+                <Link href={user.link} className="bg-grey">
+                  <EyeIcon />
+                </Link>
               </span>
             </Tooltip>
           </div>
@@ -175,7 +169,10 @@ export default function DonorTable({
       <DeleteDialog
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
-        onConfirm={deleteEntry} message={""} messageHeader={""}    />
+        onConfirm={deleteEntry}
+        message={""}
+        messageHeader={""}
+      />
     </div>
   );
 }

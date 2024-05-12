@@ -93,6 +93,7 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
               avatarIcon = <FaDrumstickBite />;
               break;
             case "Medical Supplies":
+              
               avatarIcon = <FaBriefcaseMedical />;
               break;
             case "School Supplies":

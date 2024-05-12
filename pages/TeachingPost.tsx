@@ -101,69 +101,13 @@ export default function TeachingPost() {
               </div>
               <div className="flex items-center">
                 <p className="text-2xl text-black font-bold mr-4 mt-2">
-                  Subject 1:{" "}
+                  Subject: Maths
                 </p>
 
                 <div
                   className="flex items-center mt-2"
                   style={{ width: "300px" }}
-                >
-                  <Select
-                    placeholder="Select an option"
-                    onChange={(value) => console.log("Selected:", value)}
-                    required
-                  >
-                    {options.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <p className="text-2xl text-black font-bold mr-4 mt-3">
-                  Subject 2:{" "}
-                </p>
-                <div
-                  className="flex items-center mt-3"
-                  style={{ width: "300px" }}
-                >
-                  <Select
-                    placeholder="Select an option"
-                    onChange={(value) => console.log("Selected:", value)}
-                    required
-                  >
-                    {options.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-
-              <div className="flex items-center">
-                <p className="text-2xl text-black font-bold mr-4 mt-3">
-                  Subject 3:{" "}
-                </p>
-                <div
-                  className="flex items-center mt-3"
-                  style={{ width: "300px" }}
-                >
-                  <Select
-                    placeholder="Select an option"
-                    onChange={(value) => console.log("Selected:", value)}
-                    isRequired
-                  >
-                    {options.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                </div>
+                ></div>
               </div>
             </div>
           </Card>
