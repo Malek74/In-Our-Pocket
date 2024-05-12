@@ -20,7 +20,7 @@ export default function Page() {
     router.prefetch("/AdminAnalytics");
     router.prefetch("/OrgLandingPage");
     router.prefetch("/requestsFirstPage");
-    console.log("prefetching done");
+    console.log("pref");
   }, [router]);
   const validateEmail = (emailValue: string) =>
     emailValue.match(/^^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i);
