@@ -7,14 +7,21 @@ import {
   Input,
   useDisclosure,
 } from "@nextui-org/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import NextLink from "next/link";
 import AlertModal from "@/components/AlertModal";
-
+import { useRouter } from "next/navigation";
 export default function Page() {
+  const router = useRouter();
   const [emailValue, setEmailValue] = useState("");
   const [passlValue, setPassValue] = useState("");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  useEffect(() => {
+    router.prefetch("/AdminAnalytics");
+    router.prefetch("/OrgLandingPage");
+    router.prefetch("/requestsFirstPage");
+    console.log("prefetching done");
+  }, [router]);
   const validateEmail = (emailValue: string) =>
     emailValue.match(/^^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i);
 
@@ -30,11 +37,11 @@ export default function Page() {
 
   const handleLogin = () => {
     if (emailValue == "admin@admin.com" && passlValue == "batates") {
-      window.location.href = "/AdminAnalytics";
+      router.push("/AdminAnalytics");
     } else if (emailValue == "org@org.com" && passlValue == "manga") {
-      window.location.href = "/OrgLandingPage";
+      router.push("/OrgLandingPage");
     } else if (emailValue == "donor@donor.com" && passlValue == "gazar") {
-      window.location.href = "/requestsFirstPage";
+      router.push("/requestsFirstPage");
     } else {
       onOpen();
     }
