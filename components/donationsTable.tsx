@@ -16,7 +16,7 @@ import DeleteDialog from "./deleteDialog";
 import { BiSolidDonateBlood } from "react-icons/bi";
 import { TbHorseToy } from "react-icons/tb";
 import { GiClothes } from "react-icons/gi";
-import { FaDrumstickBite,FaBriefcaseMedical  } from "react-icons/fa";
+import { FaDrumstickBite,FaBriefcaseMedical,FaPencilRuler  } from "react-icons/fa";
 
 
 const statusColorMap = {
@@ -67,7 +67,8 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
               avatarIcon = <FaBriefcaseMedical />;
               break;
             case "School Supplies":
-              avatarIcon = <FaDrumstickBite />;
+              avatarIcon = <FaPencilRuler />;
+              ;
               break;
             case "Blood Donation":
             default:
@@ -75,6 +76,7 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
               break;
           }
           return (
+
             <div className="flex items-center">
               {avatarIcon && <span className="mr-2">{avatarIcon}</span>}
               <span className="font-semibold">{donation.donation}</span>
@@ -170,6 +172,9 @@ export default function DonationTable({donations, columns,deleteFunction}: {dona
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
         onConfirm={deleteEntry}
+        messageHeader="Delete Donation"
+        message="Are you sure you want to delete this donation request? Donation will be permanently
+        removed. This action cannot be undone."
       />
     </div>
   );

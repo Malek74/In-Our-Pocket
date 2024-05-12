@@ -7,6 +7,8 @@ import FilterMenu from "../components/filterMenu";
 import { SetStateAction, useEffect, useState } from "react";
 import {Originalusers,filterUsers,searchUsers,columns} from "@/components/orgData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
+import AdminElements from "@/components/AdminsideBarElements";
+
 
 const statusColorMap: { [key: string]: "danger" | "default" | "primary" | "secondary" | "success" | "warning" | undefined } = {
     fulfilled: "success",
@@ -97,11 +99,11 @@ export default function OrganisationsViewer() {
         <div className="relative flex flex-col h-screen">
             <Navbar></Navbar>
             <div className="flex flex-row flex-1">
-                <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+                <div className="flex-initial w-[250px]"><Sidebar elements={AdminElements}></Sidebar></div>
                 <div className="flex-1 flex flex-col">
                     <div className="flex justify-between m-4 align-middle">
                         <div>
-                            <h1 className="">Organizations</h1>
+                            <h1 className="text-4xl font-bold">Organizations</h1>
                         </div>
                             <div className="flex flex-row justify-between">
                             <div className="align-middle m-1">
@@ -112,14 +114,15 @@ export default function OrganisationsViewer() {
                                 <div className="align-middle m-1">
                                     <FilterMenu
                                     items={[
-                                        <FilterItemDropDown attribute="Type" values={["Mosque","Church","Orphanage","Hospital","School","Refugee Camp"].sort()} column= "type" onChange={handleChange}  value={value1}></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Area" values={["New Cairo","Giza","Maadi"].sort()} onChange={handleChange}  value={value2} column="area"></FilterItemDropDown>,
-                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value3} column="status"></FilterItemDropDown>
-                                        ]}>
+                                        <FilterItemDropDown attribute="Type" values={["Mosque","Church","Orphanage","Hospital","School","Refugee Camp"].sort()} column= "type" onChange={handleChange}  value={value1} variant="regular"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Area" values={["New Cairo","Giza","Maadi"].sort()} onChange={handleChange}  value={value2} column="area" variant="regular"></FilterItemDropDown>,
+                                        <FilterItemDropDown attribute="Status" values={["Active","Pending"].sort()} onChange={handleChange}  value={value3} column="status" variant="regular"></FilterItemDropDown>
+                                        ]}
+                                        variant="regular">
                                     </FilterMenu>
                                 </div>
                                 <div className="w-[240]">
-                                    <SearchBar placeHolder="Search by Organisation Name" query={query} handleSearch={handleSearch}/>
+                                    <SearchBar placeHolder="Organization Name" query={query} handleSearch={handleSearch}/>
                                 </div>
                             </div>
                     </div>

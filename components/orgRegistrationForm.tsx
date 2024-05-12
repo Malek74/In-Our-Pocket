@@ -1,27 +1,27 @@
 import {
-  Divider,
+  Button,
   Input,
   Radio,
   RadioGroup,
   Select,
   SelectItem,
-  Switch,
+  useDisclosure,
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import { siteConfig } from "@/config/site";
 import FileUploader from "./FileUploader";
 import MapComponent from "./MapComponent";
-import StaticMapView from "./StaticMapView";
+import { CreateDonationModal } from "./createDonationModal";
+import AlertModal from "./AlertModal";
 
-export const DonorRegistrationForm = () => {
+export const OrgRegistrationForm = () => {
   const [firstNameValue, setFirstNameValue] = useState("");
   const [lastNameValue, setLastNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
   const [genderValue, setGenderValue] = useState("");
-  const [jobValue, setJobValue] = useState("");
-  const [addressValue, setAddressValue] = useState("");
+  const [orgNameValue, setOrgNameValue] = useState("");
 
   const validateEmail = (email: string) =>
     email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i);
@@ -43,8 +43,13 @@ export const DonorRegistrationForm = () => {
     return lastNameValue.length == 0;
   }, [lastNameValue]);
 
+  const isOrgNameValid = useMemo(() => {
+    return orgNameValue.length == 0;
+  }, [orgNameValue]);
+
   const [governateSelected, setGovernateSelected] = useState("");
   const [areasToSelect, setAreasToSelect] = useState([""]);
+  const [typeSelected, setTypeSelected] = useState("");
 
   const handleGovernateSelection = (e: any) => {
     setGovernateSelected(e.target.value);
@@ -59,10 +64,15 @@ export const DonorRegistrationForm = () => {
   const handleAreaSelection = (e: any) => {
     setAreaSelected(e.target.value);
   };
+
+  const handleTypeSelection = (e: any) => {
+    setTypeSelected(e.target.value);
+  };
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [contactValue, setContactValue] = useState("");
   return (
-    <div className="flex flex-row gap-6 items-start">
-      <div className="flex flex-col gap-4 justify-center">
+    <div className="flex flex-row gap-6 justify-center">
+      <div className="flex flex-col gap-4 w-[550px]">
         <div className="flex flex-row justify-center items-center gap-4">
           <Input
             value={firstNameValue}
@@ -177,7 +187,7 @@ export const DonorRegistrationForm = () => {
             isRequired
             label="Area"
             variant="bordered"
-            placeholder="Select a governate"
+            placeholder="Select an area"
             selectedKeys={areaSelected ? [areaSelected] : []}
             className="flex-1"
             onChange={handleAreaSelection}
@@ -191,75 +201,49 @@ export const DonorRegistrationForm = () => {
           </Select>
         </div>
         <Input
-          value={addressValue}
+          value={orgNameValue}
           type="text"
-          label="Address"
+          label="Organization Name"
           variant="bordered"
           color={"default"}
-          onValueChange={setAddressValue}
-          className="w-full"
-          placeholder="Enter your Address"
+          onValueChange={setOrgNameValue}
+          placeholder="Enter your Organization name"
           isRequired
+          isInvalid={isOrgNameValid}
         />
-        <RadioGroup
-          label="Are you a Doctor or Teacher?"
-          value={jobValue}
-          onValueChange={setJobValue}
-          orientation="horizontal"
+        <Select
+          isRequired
+          label="Organization Type"
+          variant="bordered"
+          placeholder="Select a type"
+          selectedKeys={typeSelected ? [typeSelected] : []}
+          className="flex-1"
+          onChange={handleTypeSelection}
         >
-          <Radio value="doctor">Doctor</Radio>
-          <Radio value="teacher">Teacher</Radio>
-        </RadioGroup>
+          {siteConfig.orgTypes.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+        <CreateDonationModal />
+        <Button onPress={onOpen}>Open That Modallll</Button>
+        <AlertModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          message={"Created Donation Successfully"}
+          variant="success"
+        />
       </div>
-      {jobValue && <span className="w-[1px] h-[608px] bg-gray-300"></span>}
-      <div className="flex flex-col gap-4 justify-center">
-        {jobValue == "doctor" ? (
-          <>
-            <Input
-              isRequired
-              type="text"
-              placeholder="eg Dentistry."
-              label="Enter Speciality"
-              variant="bordered"
-            />
-            <Input
-              isRequired
-              type="number"
-              placeholder="eg 20."
-              label="How many pro-bono cases can be taken?"
-              variant="bordered"
-            />
-            <p>
-              Click on a place on the map or drag the marker to select an
-              address for your Clinic.
-            </p>
-            <MapComponent />
-            <p>Upload documents that verify you are a doctor.</p>
-            <FileUploader />
-          </>
-        ) : jobValue == "teacher" ? (
-          <>
-            <Input
-              isRequired
-              type="text"
-              placeholder="eg Dentistry."
-              label="Enter Speciality"
-              variant="bordered"
-            />
-            <Input
-              isRequired
-              type="number"
-              placeholder="eg 20."
-              label="How many pro-bono classes can be taught?"
-              variant="bordered"
-            />
-            <Switch>Can teach students privately</Switch>
-            <p>Upload documents that verify you are a teacher.</p>
-            <FileUploader />
-          </>
-        ) : (
-          <></>
-        )}
+      <span className="w-[1px] h-inherit bg-gray-300"></span>
+      <div className="flex flex-col gap-4">
+        <p>
+          Click on a place on the map or drag the marker to select an address
+          for your Organization.
+        </p>
+        <MapComponent />
+        <p>Upload document to verify your organization.</p>
+        <FileUploader />
       </div>
     </div>
   );

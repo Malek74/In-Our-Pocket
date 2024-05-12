@@ -27,6 +27,27 @@ import blackPen from "@/components/images/BP.jpg" ;
 
 
 export default function StationaryDetails() {
+    const [quantity, setQuantity] = useState(1);
+    const [buttonPressed, setButtonPressed] = useState(false);
+    const [selectedForm, setSelectedForm] = useState("");
+ 
+  const [desc, setDesc] = useState("");
+  
+    const decrementQuantity = () => {
+      if (quantity > 1) {
+        setQuantity(quantity - 1);
+      }
+    };
+  
+    const incrementQuantity = () => {
+      if (quantity < 5 ){
+      setQuantity(quantity + 1);}
+      else {
+          alert ("The maximum quantity you can donate for such item is 5.")
+      }
+    };
+    function showAlert() {
+        alert("Thank you for your contribution, your request has been submitted.");}
     return (
         <><div>
             <Navbar />
@@ -44,23 +65,47 @@ export default function StationaryDetails() {
                         <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-rose rounded-lg shadow-md" style={{ width: '30%', minWidth: '350px' }}>
                             <div className="flex flex-col">
                                 <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Type of item: </p>
-                                    <p className="text-2xl text-black">Black pens</p>
+                                    <p className="text-2xl text-black font-bold mr-2 mt-4">Type of item: </p>
+                                    <p className="text-2xl text-black mt-4">Black pens</p>
                                 </div>
-                                <div className="flex items-center">
-                                    <p className="text-2xl text-black font-bold mr-2">Quantity: </p>
-                                    <p className="text-2xl text-black">5</p>
+                                <div className="flex flex-row items-center">
+                                <p className="text-2xl text-black font-bold mr-2 mt-6">Quantity: </p>
+                            <Button radius="full" className="bg-black text-white text-1xl font-bold shadow-lg mr-4 mt-8"  onClick={decrementQuantity} style={{ width: '10px', height: '30px' }}>
+                                -
+                            </Button>
+                            <span className="mr-4 mt-6"  >{quantity}</span>
+                            <Button radius="full" className="bg-black text-white text-1xl font-bold shadow-lg mt-8 " onClick={incrementQuantity} style={{ width: '10px', height: '30px' }}>
+                                +
+                            </Button>
+                            </div>
+                                <div className=" text-black gap-10 text-2xl  mt-8 ">
+                                 <Input
+                                value={desc}
+                                type="text"
+                                label="Description"
+                                variant="bordered"
+                                //color={"bg-black"}
+                                onValueChange={setDesc}
+                                className="max-w-xs text-black"
+                                style={{ width: '300px'}}
+                                placeholder="Enter specification for item (if needed)?"
+                                //isRequired
+                                />
                                 </div>
-                               
                             </div>
                         </Card>
                         <Card className="flex flex-row bg-rose rounded-lg shadow-md">
-                        <Image src={blackPen} alt="image of donated item: black pen" width={300} height={200} />
+                        <Image src={blackPen} alt="image of donated item: black pen" width={300} height={100} />
                     </Card>
                     </Card>
 
                         <Divider />
-                        <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg">Go Back</Button>
+                        <div className="flex flex-row items-center  justify-center gap-10 " >
+                        <Button onClick={showAlert} type="submit" radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Donate</Button>
+                        {/* <Button radius="full" className="bg-rose text-black text-1xl font-bold shadow-lg"
+                        > Go Back</Button> */}
+                    
+                    </div>
                     </Card>
                    
                 
