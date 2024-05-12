@@ -90,9 +90,13 @@ const MapComponent: FC = () => {
       {selectedPlace && (
         <Card className="w-[200px]">
           <CardHeader>
-            <p className="text-center color-blue">{selectedPlace.name}</p>
+            <p className="text-center">
+              {"Selected Location Name: " + selectedPlace.name}
+            </p>
           </CardHeader>
-          <CardBody>{selectedPlace.vicinity}</CardBody>
+          <CardBody>
+            {"Selected Location Address: " + selectedPlace.vicinity}
+          </CardBody>
         </Card>
       )}
     </span>
