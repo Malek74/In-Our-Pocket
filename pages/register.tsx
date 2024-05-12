@@ -11,11 +11,14 @@ import { useMemo, useState } from "react";
 import NextLink from "next/link";
 import { DonorRegistrationForm } from "@/components/donorRegistrationForm";
 import { OrgRegistrationForm } from "@/components/orgRegistrationForm";
+import { useRouter } from "next/router";
 
 export default function Page() {
   const [buttonPressed, setButtonPressed] = useState(false);
   const [selectedForm, setSelectedForm] = useState("");
-
+  const router = useRouter();
+  const { query } = router.query;
+  console.log(query);
   return (
     <div className="flex flex-col min-h-screen justify-center items-center gap-6">
       <Card className="flex flex-col justify-center items-center gap-4 p-6">
