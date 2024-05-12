@@ -13,6 +13,7 @@ import { Button, Divider, Tooltip } from "@nextui-org/react";
 import { FaMessage } from "react-icons/fa6";
 import { MdCall } from "react-icons/md";
 import { MdOutlineStarRate,MdStarRate  } from "react-icons/md";
+import DonorElements from "@/components/donorElements";
 
 export default function TrackRide() {
     return (
