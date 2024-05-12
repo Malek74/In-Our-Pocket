@@ -135,7 +135,7 @@ export const Navbar = (user:any) => {
       );
     case "org":
       return (
-        <NextUINavbar maxWidth="full" position="sticky" className="bg-cyan-50">
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-cyan">
           <NavbarContent
             className="basis-1/5 sm:basis-full flex-none"
             justify="start"

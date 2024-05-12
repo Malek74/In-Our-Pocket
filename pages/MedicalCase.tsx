@@ -60,7 +60,7 @@ export default function MedicalCase() {
                         </CardHeader>
                         <Divider />
                         <Card className="flex flex-row">
-                        <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-cyan-50 rounded-lg shadow-md" style={{ width: '50%', minWidth: '500px' }}>
+                        <Card className="flex flex-col justify-left items-left gap-4 p-6 bg-cyan rounded-lg shadow-md" style={{ width: '50%', minWidth: '500px' }}>
                             <div className="flex flex-col">
                                 <div className="flex items-center">
                                     <p className="text-2xl text-black font-bold mr-2">Patient Name: </p>
@@ -118,7 +118,7 @@ export default function MedicalCase() {
                                 </div>
                                 </div>
                                 </Card>
-                                <Card className="flex flex-row bg-cyan-50 rounded-lg shadow-md">
+                                <Card className="flex flex-row bg-cyan rounded-lg shadow-md">
                                 {/* <Image src={HR} alt="image of donated item: harry potter book" width={500} height={200} /> */}
                                 {/* insert ggogle marker here */}
                                 
@@ -131,8 +131,8 @@ export default function MedicalCase() {
                         </Card>
                         <Divider />
                         <div className="flex flex-row items-center  justify-center gap-10 " >
-                        <Button onClick={showAlert} type="submit" radius="full" className="bg-cyan-50 text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Donate</Button>
-                        {/* <Button radius="full" className="bg-cyan-50 text-black text-1xl font-bold shadow-lg"
+                        <Button onClick={showAlert} type="submit" radius="full" className="bg-cyan text-black text-1xl font-bold shadow-lg"  style={{ width: '300px' }}>Donate</Button>
+                        {/* <Button radius="full" className="bg-cyan text-black text-1xl font-bold shadow-lg"
                         > Go Back</Button> */}
                     
                     </div>

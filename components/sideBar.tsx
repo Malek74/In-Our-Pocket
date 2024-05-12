@@ -39,7 +39,7 @@ function SideNavbar({ elements }: Props) {
             aria-hidden="true"
           />
         </Disclosure.Button>
-        <div className="p-6 w-1/2 h-screen bg-cyan-50 z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200 mt-7">
+        <div className="p-6 w-1/2 h-screen bg-cyan z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200 mt-7">
           <div className="flex flex-col justify-start item-center">
             <div className="my-4 border-b border-rose-100 pb-4">
               {elements.map((element) => (
