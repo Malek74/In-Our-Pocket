@@ -13,14 +13,11 @@ export default function Categories() {
           <SideNavbar></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
-          <div className="flex justify-between m-4 align-middle">
+          <div className="flex text-xl justify-center m-4 align-middle">
             <div>
-              <h1 className="">What would you like to donate?</h1>
-            </div>
-            <div className="flex flex-row justify-between">
-              <div className="align-middle m-1">
-                <FilterMenu></FilterMenu>
-              </div>
+              <h1 className="p-6 font-bold justify-center">
+                What would you like to donate?
+              </h1>
             </div>
           </div>
           <MainCategories></MainCategories>

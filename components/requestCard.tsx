@@ -115,21 +115,12 @@ export default function RequestTable({
         );
       case "review":
         return (
-          <div className="relative flex items-center gap-2 mt-1">
-            <Tooltip content="View Orgaization">
+          <div className="justify center gap-2 mt-1">
+            <Tooltip content="View Request">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link href="./organizationDetails" className="bg-grey">
+                <Link href={user.link} className="bg-grey">
                   <EyeIcon />
                 </Link>
-              </span>
-            </Tooltip>
-            <Tooltip color="danger" content="Delete organisation">
-              <span
-                className="text-lg text-danger cursor-pointer active:opacity-50"
-                onClick={() => handleDelete(user.id)}
-              >
-                {" "}
-                <DeleteIcon />
               </span>
             </Tooltip>
           </div>

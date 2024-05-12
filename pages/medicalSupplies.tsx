@@ -130,8 +130,8 @@ export default function MedicalSuppliesViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">Medical Supplies Requests</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Medical Supplies Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -172,19 +172,20 @@ export default function MedicalSuppliesViewer() {
                     <FilterItemDropDown
                       attribute="Supplies"
                       values={[
-                       "Medication","Medical Devices","Medical Equipment"
+                        "Medication",
+                        "Medical Devices",
+                        "Medical Equipment",
                       ].sort()}
                       column="supplies"
                       onChange={handleChange}
                       value={value1}
-                    ></FilterItemDropDown>
-                   
+                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

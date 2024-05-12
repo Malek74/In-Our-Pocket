@@ -129,8 +129,8 @@ export default function SchoolSuppliesViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">School Supplies Donations</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">School Supplies Donations</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -170,10 +170,7 @@ export default function SchoolSuppliesViewer() {
                   items={[
                     <FilterItemDropDown
                       attribute="Supplies"
-                      values={[
-                        "Books",
-                        "Stationary",
-                      ].sort()}
+                      values={["Books", "Stationary"].sort()}
                       column="supplies"
                       onChange={handleChange}
                       value={value1}
@@ -183,7 +180,7 @@ export default function SchoolSuppliesViewer() {
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organization Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

@@ -129,8 +129,8 @@ export default function TeachingPostsViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">Teaching Posts Requests</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Teaching Posts Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -140,7 +140,7 @@ export default function TeachingPostsViewer() {
                   className={typeChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Supplies:</p>
+                    <p className="font-bold">Subject:</p>
                     {filterCol1}
                   </div>
                 </Chip>
@@ -150,7 +150,7 @@ export default function TeachingPostsViewer() {
                   className={areaChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Gender:</p>
+                    <p className="font-bold">Area:</p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
@@ -160,7 +160,7 @@ export default function TeachingPostsViewer() {
                   className={statusChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Area:</p>
+                    <p className="font-bold">Governorate:</p>
                     {filterCol3}
                   </div>{" "}
                 </Chip>
@@ -170,11 +170,7 @@ export default function TeachingPostsViewer() {
                   items={[
                     <FilterItemDropDown
                       attribute="Subject"
-                      values={[
-                        "Maths",
-                        "Science",
-                        "English",
-                      ].sort()}
+                      values={["Maths", "Science", "English"].sort()}
                       column="subject"
                       onChange={handleChange}
                       value={value1}
@@ -198,7 +194,7 @@ export default function TeachingPostsViewer() {
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

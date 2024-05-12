@@ -80,8 +80,15 @@ export default function ToysViewer() {
     const newRes = results.filter((result) => result.id !== id);
     setResults(newRes);
     const filteredResults =
-    filterUsersRange(newRes, column1, value1, column2, value2, column3, value3) ||
-      [];
+      filterUsersRange(
+        newRes,
+        column1,
+        value1,
+        column2,
+        value2,
+        column3,
+        value3
+      ) || [];
     setDisplayedResults(filteredResults);
   }
 
@@ -114,8 +121,15 @@ export default function ToysViewer() {
 
   useEffect(() => {
     const filtered =
-    filterUsersRange(results, column1, value1, column2, value2, column3, value3) ||
-      [];
+      filterUsersRange(
+        results,
+        column1,
+        value1,
+        column2,
+        value2,
+        column3,
+        value3
+      ) || [];
     setFilteredResults(filtered);
     setDisplayedResults(filtered);
   }, [results, column1, value1, column2, value2, column3, value3]);
@@ -129,8 +143,8 @@ export default function ToysViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">Toys Donations</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Toys Donations</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -160,7 +174,7 @@ export default function ToysViewer() {
                   className={statusChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Area:</p>
+                    <p className="font-bold">Category:</p>
                     {filterCol3}
                   </div>{" "}
                 </Chip>
@@ -170,11 +184,7 @@ export default function ToysViewer() {
                   items={[
                     <FilterItemDropDown
                       attribute="Age"
-                      values={[
-                        "0-5",
-                        "6-10",
-                        "10-15", 
-                      ].sort()}
+                      values={["0-5", "6-10", "10-15"].sort()}
                       column="age"
                       onChange={handleChange}
                       value={value1}
@@ -188,7 +198,13 @@ export default function ToysViewer() {
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Category"
-                      values={["Board Games", "Doll", "Cars", "Stuffed Toys","Outdoor"].sort()}
+                      values={[
+                        "Board Games",
+                        "Doll",
+                        "Cars",
+                        "Stuffed Toys",
+                        "Outdoor",
+                      ].sort()}
                       onChange={handleChange}
                       value={value3}
                       column="category"
@@ -198,7 +214,7 @@ export default function ToysViewer() {
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

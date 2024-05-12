@@ -51,7 +51,7 @@ export default function MainCategories() {
     <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
       {list.map((item) => (
         <Link href={item.link} className="overflow-visible p-0">
-          <Card shadow="sm" isPressable>
+          <Card className="w-full" shadow="sm" isPressable>
             <CardBody>
               <Image
                 shadow="sm"

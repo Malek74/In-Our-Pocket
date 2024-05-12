@@ -129,8 +129,8 @@ export default function FoodsViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">Food Requests</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Food Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -150,7 +150,7 @@ export default function FoodsViewer() {
                   className={areaChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Gender:</p>
+                    <p className="font-bold">Food Type: </p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
@@ -168,21 +168,24 @@ export default function FoodsViewer() {
               <div className="align-middle m-1">
                 <FilterMenu
                   items={[
-                    
                     <FilterItemDropDown
                       attribute="Food Type"
-                      values={["Fruits & Vegetables", "Canned Foods","Fresh Meals","Baked Goods"].sort()}
+                      values={[
+                        "Fruits & Vegetables",
+                        "Canned Foods",
+                        "Fresh Meals",
+                        "Baked Goods",
+                      ].sort()}
                       onChange={handleChange}
                       value={value2}
                       column="foodtype"
-                    ></FilterItemDropDown>
-                    
+                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

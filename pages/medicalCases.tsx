@@ -129,8 +129,8 @@ export default function MedicalCasesViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="">Medical Cases Requests</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Medical Cases Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -140,7 +140,7 @@ export default function MedicalCasesViewer() {
                   className={typeChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Organisation:</p>
+                    <p className="font-bold">Organization: </p>
                     {filterCol1}
                   </div>
                 </Chip>
@@ -150,7 +150,7 @@ export default function MedicalCasesViewer() {
                   className={areaChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Medical Specialty:</p>
+                    <p className="font-bold">Medical Specialty: </p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
@@ -160,7 +160,7 @@ export default function MedicalCasesViewer() {
                   className={statusChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Area:</p>
+                    <p className="font-bold">Governorate: </p>
                     {filterCol3}
                   </div>{" "}
                 </Chip>
@@ -198,7 +198,7 @@ export default function MedicalCasesViewer() {
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />

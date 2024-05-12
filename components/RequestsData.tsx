@@ -81,11 +81,11 @@ export function filterUsersRange(
   }
   if (column1 !== "null" && column2 === "null" && column3 === "null") {
     let val1 = parseInt(value1.split("-")[0]);
-    let val2 = parseInt(value1.split("-")[1]); 
-    
+    let val2 = parseInt(value1.split("-")[1]);
+
     return users.filter((user) => {
-        let userValue = parseInt(user[column1]);
-        return userValue >= val1 && userValue <= val2;
+      let userValue = parseInt(user[column1]);
+      return userValue >= val1 && userValue <= val2;
     });
   }
 
@@ -97,28 +97,25 @@ export function filterUsersRange(
     );
   }
   if (column1 !== "null" && column2 === "null" && column3 !== "null") {
-
     let val1 = parseInt(value1.split("-")[0]);
     let val2 = parseInt(value1.split("-")[1]);
 
     return users.filter(
       (user) =>
         user[column3].toLowerCase().includes(value3.toLowerCase()) &&
-        (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2)
+        parseInt(user[column1]) >= val1 &&
+        parseInt(user[column1]) <= val2
     );
-         
-
-    
   }
   if (column1 !== "null" && column2 !== "null" && column3 === "null") {
     let val1 = parseInt(value1.split("-")[0]);
     let val2 = parseInt(value1.split("-")[1]);
-    
 
     return users.filter(
       (user) =>
         user[column2].toLowerCase().includes(value2.toLowerCase()) &&
-        (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2)
+        parseInt(user[column1]) >= val1 &&
+        parseInt(user[column1]) <= val2
     );
   }
 
@@ -127,9 +124,9 @@ export function filterUsersRange(
 
   // All columns are provided
   return users.filter(
-    
     (user) =>
-      (parseInt(user[column1]) >= val1 && parseInt(user[column1]) <= val2) &&
+      parseInt(user[column1]) >= val1 &&
+      parseInt(user[column1]) <= val2 &&
       user[column2].toLowerCase().includes(value2.toLowerCase()) &&
       user[column3].toLowerCase().includes(value3.toLowerCase())
   );
@@ -329,8 +326,13 @@ const schoolColumns = [
 ];
 
 const schoolUsers = [
-  { id: 1, name: "Donation 1", supplies: "Books" },
-  { id: 1, name: "Donation 1", supplies: "Stationary" },
+  { id: 1, name: "Donation 1", supplies: "Books", link: "./BookDetails" },
+  {
+    id: 2,
+    name: "Donation 2",
+    supplies: "Stationary",
+    link: "./StationaryDetails",
+  },
 ];
 
 const clothesColumns = [

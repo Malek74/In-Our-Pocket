@@ -133,8 +133,8 @@ export default function BloodDonationRequestsViewer() {
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
-            <div>
-              <h1 className="font-bold size-23">Blood Donation Requests</h1>
+            <div className="flex justify-between m-4 align-middle">
+              <h1 className="font-bold">Blood Donation Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
@@ -174,11 +174,7 @@ export default function BloodDonationRequestsViewer() {
                   items={[
                     <FilterItemDropDown
                       attribute="Hospital"
-                      values={[
-                        "Hospital 1",
-                        "Hospital 2",
-                        "Hospital 3",
-                      ].sort()}
+                      values={["Hospital 1", "Hospital 2", "Hospital 3"].sort()}
                       column="hospital"
                       onChange={handleChange}
                       value={value1}
@@ -192,7 +188,7 @@ export default function BloodDonationRequestsViewer() {
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Area"
-                      values={[ "New Cairo", "Madinet Nasr", "Maadi"].sort()}
+                      values={["New Cairo", "Madinet Nasr", "Maadi"].sort()}
                       onChange={handleChange}
                       value={value3}
                       column="area"
@@ -202,7 +198,7 @@ export default function BloodDonationRequestsViewer() {
               </div>
               <div className="w-[240]">
                 <SearchBar
-                  placeHolder="Search by Organisation Name"
+                  placeHolder="Search by Request Name"
                   query={query}
                   handleSearch={handleSearch}
                 />
