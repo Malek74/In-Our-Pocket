@@ -12,7 +12,7 @@ const columns = [
 const users = [
   {
     id: 1,
-    type: "Clothes",
+    type: "Medical Supplies",
     to: "Maadi",
     from: "Nasr city",
     status: 40,
@@ -59,7 +59,7 @@ const users = [
   },
   {
     id: 6,
-    type: "Medical Supplies",
+    type: "Clothes",
     to: "New cairo",
     from: "Zamalek",
     status: 5,
@@ -100,7 +100,7 @@ const users = [
   {
     id: 10,
     type: "Medical supplies",
-    to: "Zamalek",
+    to: "Sheikh zayed",
     from: "New cairo",
     status: 80,
     arrival_time_estimate: "0 day(s) 8 hour(s)",

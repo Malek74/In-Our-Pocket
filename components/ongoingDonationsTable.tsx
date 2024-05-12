@@ -11,6 +11,7 @@ import {
     Tooltip,
     Pagination,
     Button,
+    Link,
 } from "@nextui-org/react";
 import { EditIcon } from "./editIcon";
 import { DeleteIcon } from "./deleteIcon";
@@ -48,7 +49,9 @@ export default function OngoingDonationsTable() {
             case "actions":
                 return (
                     <div>
-                        <Button color="default">Track driver</Button>
+                        <Link href="@/pages/trackRide" className="flex justify-start ">
+                            <Button variant="ghost" color='default'>Track driver </Button>
+                        </Link>
                     </div>
                 );
             default:
