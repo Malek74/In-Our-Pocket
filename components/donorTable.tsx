@@ -91,13 +91,13 @@ export default function DonorTable({
             className="capitalize"
             color={
               statusColorMap[user.status as keyof typeof statusColorMap] as
-                | "success"
-                | "warning"
-                | "default"
-                | "primary"
-                | "secondary"
-                | "danger"
-                | undefined
+              | "success"
+              | "warning"
+              | "default"
+              | "primary"
+              | "secondary"
+              | "danger"
+              | undefined
             }
             size="sm"
             variant="flat"
