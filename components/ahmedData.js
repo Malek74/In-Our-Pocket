@@ -1,4 +1,3 @@
-import React from "react";
 const columns = [
     { name: "-------ORGANISATION--------", uid: "organisation" },
     { name: "-------REQUEST-------", uid: "request" },

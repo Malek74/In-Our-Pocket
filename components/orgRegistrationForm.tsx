@@ -5,12 +5,14 @@ import {
   RadioGroup,
   Select,
   SelectItem,
+  useDisclosure,
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import { siteConfig } from "@/config/site";
 import FileUploader from "./FileUploader";
 import MapComponent from "./MapComponent";
 import { CreateDonationModal } from "./createDonationModal";
+import AlertModal from "./AlertModal";
 
 export const OrgRegistrationForm = () => {
   const [firstNameValue, setFirstNameValue] = useState("");
@@ -66,7 +68,7 @@ export const OrgRegistrationForm = () => {
   const handleTypeSelection = (e: any) => {
     setTypeSelected(e.target.value);
   };
-
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [contactValue, setContactValue] = useState("");
   return (
     <div className="flex flex-row gap-6 justify-center">
@@ -225,8 +227,15 @@ export const OrgRegistrationForm = () => {
           ))}
         </Select>
         <CreateDonationModal />
+        <Button onPress={onOpen}>Open That Modallll</Button>
+        <AlertModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          message={"Created Donation Successfully"}
+          variant="success"
+        />
       </div>
-      <span className="w-[1px] h-screen bg-gray-300"></span>
+      <span className="w-[1px] h-inherit bg-gray-300"></span>
       <div className="flex flex-col gap-4">
         <p>
           Click on a place on the map or drag the marker to select an address

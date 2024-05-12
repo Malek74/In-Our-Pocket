@@ -1,6 +1,9 @@
+import { useDisclosure } from "@nextui-org/react";
 import React, { useState, useRef } from "react";
+import AlertModal from "./AlertModal";
 
 const FileUploader: React.FC = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -36,8 +39,8 @@ const FileUploader: React.FC = () => {
         };
         localStorage.setItem("fileData", JSON.stringify(fileData));
       };
+      onOpen();
     }
-    console.log("Uploading file:", JSON.stringify(selectedFile));
   };
   const getFileFromLocalStorage = (): File | null => {
     const storedData = localStorage.getItem("fileData");
@@ -105,19 +108,21 @@ const FileUploader: React.FC = () => {
         </button>
       )}
       {selectedFile && (
-        <button
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-          onClick={uploadFile}
-        >
-          Upload
-        </button>
+        <>
+          <button
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={uploadFile}
+          >
+            Upload
+          </button>
+          <AlertModal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            variant={"success"}
+            message={"Uploaded " + selectedFile.name + " Successfully"}
+          />
+        </>
       )}
-      {/* <button
-        className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-        onClick={downloadFile}
-      >
-        Download
-      </button> */}
     </div>
   );
 };

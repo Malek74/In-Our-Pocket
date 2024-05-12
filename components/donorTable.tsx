@@ -24,22 +24,28 @@ const statusColorMap = {
 };
 
 const handleClick = (donorId: number) => {
-  sessionStorage.setItem('selectedDonorId', donorId.toString());
+  sessionStorage.setItem("selectedDonorId", donorId.toString());
   console.log("Donor ID:", donorId);
 };
 
-export default function DonorTable({ columns, users, deleteFunction }: { columns: any[]; users: any[], deleteFunction: any }) {
-
+export default function DonorTable({
+  columns,
+  users,
+  deleteFunction,
+}: {
+  columns: any[];
+  users: any[];
+  deleteFunction: any;
+}) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [userID, setUserID] = useState(0);
   const openDeleteDialog = () => {
     setDeleteDialogOpen(true);
-
   };
 
   const handleViewClick = (orgID: number) => {
-    sessionStorage.setItem('selectedOrgID', orgID.toString());
+    sessionStorage.setItem("selectedOrgID", orgID.toString());
     console.log("Org ID:", orgID);
   };
 
@@ -50,14 +56,11 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
   function handleDelete(id: number) {
     openDeleteDialog();
     setUserID(id);
-  };
+  }
   function deleteEntry() {
     deleteFunction(userID);
     closeDeleteDialog();
   }
-
-
-
 
   const renderCell = React.useCallback((user: any, columnKey: string) => {
     const cellValue = user[columnKey];
@@ -108,7 +111,11 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
             <Tooltip content="Details"></Tooltip>
             <Tooltip content="View Volunteer Request">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <Link onClick={() => handleClick(user.id)} href="/volunteerPage" className="text-[#a1a1a1]">
+                <Link
+                  onClick={() => handleClick(user.id)}
+                  href="/volunteerPage"
+                  className="text-[#a1a1a1]"
+                >
                   <EyeIcon className="" />
                 </Link>
               </span>
@@ -117,7 +124,9 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
               <span
                 className="text-lg text-danger cursor-pointer active:opacity-50"
                 onClick={() => handleDelete(user.id)}
-              >               <DeleteIcon />
+              >
+                {" "}
+                <DeleteIcon />
               </span>
             </Tooltip>
           </div>
@@ -127,10 +136,7 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
     }
   }, []);
 
-  const paginatedUsers = users.slice(
-    (currentPage - 1) * 5,
-    currentPage * 5
-  );
+  const paginatedUsers = users.slice((currentPage - 1) * 5, currentPage * 5);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -153,15 +159,14 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
           {(item) => (
             <TableRow key={item.id}>
               {(columnKey: Key) => (
-                <TableCell>
-                  {renderCell(item, columnKey.toString())}
-                </TableCell>
+                <TableCell>{renderCell(item, columnKey.toString())}</TableCell>
               )}
             </TableRow>
           )}
         </TableBody>
       </Table>
-      <Pagination className="mt-2"
+      <Pagination
+        className="mt-2"
         initialPage={currentPage}
         total={Math.ceil(users.length / 5)}
         color="primary"
@@ -170,7 +175,12 @@ export default function DonorTable({ columns, users, deleteFunction }: { columns
       <DeleteDialog
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
-        onConfirm={deleteEntry} message={""} messageHeader={""} />
+        onConfirm={deleteEntry}
+        message={"Delete Donor"}
+        messageHeader={
+          "Are you sure you want to delete this organization account? All the organisation  data will be permanently removed. This action cannot be undone."
+        }
+      />
     </div>
   );
 }
