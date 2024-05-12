@@ -1,6 +1,6 @@
 import AdminTable from "@/components/admin-table";
 import { Navbar } from "@/components/navbar";
-import Sidebar from "@/components/sideBar";
+import SideNavbar from "@/components/sideBar";
 import { AdminPanelSettingsTwoTone } from "@mui/icons-material";
 
 export default function adminReviewPage() {
@@ -9,7 +9,7 @@ export default function adminReviewPage() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar></Sidebar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div>
           <AdminTable></AdminTable>

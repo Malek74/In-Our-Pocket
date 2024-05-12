@@ -142,7 +142,7 @@ export function searchUsers(users: any[], query: string) {
 }
 
 const medicalCasesColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Medical Specialty", uid: "medicalspecialty" },
   { name: "Organisation", uid: "organisation" },
   { name: "Governorate", uid: "governorate" },
@@ -153,7 +153,7 @@ const medicalCasesColumns = [
 const medicalCasesUsers = [
   {
     id: 1,
-    name: "Donation 1",
+    name: "Request 1",
     medicalspecialty: "Dentist",
     organisation: "Organization 1",
     governorate: "Cairo",
@@ -161,7 +161,7 @@ const medicalCasesUsers = [
   },
   {
     id: 2,
-    name: "Donation 2",
+    name: "Request 2",
     medicalspecialty: "Surgeon",
     organisation: "Organization 2",
     governorate: "Cairo",
@@ -169,7 +169,7 @@ const medicalCasesUsers = [
   },
   {
     id: 3,
-    name: "Donation 3",
+    name: "Request 3",
     medicalspecialty: "Dentist",
     organisation: "Organization 3",
     governorate: "Alexandria",
@@ -178,20 +178,20 @@ const medicalCasesUsers = [
 ];
 
 const foodsColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Food Type", uid: "foodtype" },
   { name: "Review", uid: "review" },
 ];
 
 const foodsUsers = [
-  { id: 1, name: "Donation 1", foodtype: "Fruits and Vegetables" },
-  { id: 2, name: "Donation 2", foodtype: "Canned Foods" },
-  { id: 3, name: "Donation 3", foodtype: "Fresh Meals" },
-  { id: 4, name: "Donation 4", foodtype: "Baked Goods" },
+  { id: 1, name: "Canned Beans", foodtype: "Canned Foods" },
+  { id: 2, name: "Request 2", foodtype: "Fruits and Vegetables" },
+  { id: 3, name: "Request 3", foodtype: "Fresh Meals" },
+  { id: 4, name: "Request 4", foodtype: "Baked Goods" },
 ];
 
 const teachingPostsColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Subject", uid: "subject" },
   { name: "Governorate", uid: "governorate" },
   { name: "Area", uid: "area" },
@@ -201,21 +201,21 @@ const teachingPostsColumns = [
 const teachingPostsUsers = [
   {
     id: 1,
-    name: "Donation 1",
+    name: "Request 1",
     subject: "Maths",
     governorate: "Cairo",
     area: "Tagamoa",
   },
   {
     id: 2,
-    name: "Donation 2",
+    name: "Request 2",
     subject: "English",
     governorate: "ALexandria",
     area: "area 1",
   },
   {
     id: 3,
-    name: "Donation 3",
+    name: "Request 3",
     subject: "Science",
     governorate: "Cairo",
     area: "Madinet Nasr",
@@ -223,7 +223,7 @@ const teachingPostsUsers = [
 ];
 
 const bloodDonationRequestsColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Hospital", uid: "hospital" },
   { name: "Governorate", uid: "governorate" },
   { name: "Area", uid: "area" },
@@ -233,21 +233,21 @@ const bloodDonationRequestsColumns = [
 const bloodDonationRequestsUsers = [
   {
     id: 1,
-    name: "Donation 1",
-    hospital: "Hospital 1",
+    name: "Omar",
+    hospital: "Air Force Hospital",
     governorate: "Cairo",
-    area: "Tagamoa",
+    area: "5th Settlement",
   },
   {
     id: 2,
-    name: "Donation 2",
+    name: "Request 2",
     hospital: "Hospital 2",
     governorate: "Alexandria",
     area: "area 1",
   },
   {
     id: 3,
-    name: "Donation 3",
+    name: "Request 3",
     hospital: "Hospital 3",
     governorate: "Cairo",
     area: "Madinet Nasr",
@@ -255,19 +255,19 @@ const bloodDonationRequestsUsers = [
 ];
 
 const medicalSuppliesColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Supplies", uid: "supplies" },
   { name: "Review", uid: "review" },
 ];
 
 const medicalSuppliesUsers = [
-  { id: 1, name: "Donation 1", supplies: "Medical Devices" },
-  { id: 2, name: "Donation 2", supplies: "Medical Equipment" },
-  { id: 3, name: "Donation 3", supplies: "Medication" },
+  { id: 1, name: "Stethoscope", supplies: "Medical Devices" },
+  { id: 2, name: "Request 2", supplies: "Medical Equipment" },
+  { id: 3, name: "Request 3", supplies: "Medication" },
 ];
 
 const toysColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Age", uid: "age" },
   { name: "Gender", uid: "gender" },
   { name: "Category", uid: "category" },
@@ -277,42 +277,50 @@ const toysColumns = [
 const toysUsers = [
   {
     id: 1,
-    name: "Donation 1",
+    name: "Barbie Doll",
+    age: "3",
+    gender: "Female",
+    category: "Doll",
+    link: "./ToyDetails",
+  },
+  {
+    id: 2,
+    name: "Request 1",
     age: "12",
     gender: "Male",
     category: "Board Games",
   },
   {
-    id: 2,
-    name: "Donation 2",
+    id: 3,
+    name: "Request 2",
     age: "5",
     gender: "Female",
     category: "Dolls",
   },
   {
-    id: 3,
-    name: "Donation 3",
+    id: 4,
+    name: "Request 3",
     age: "7",
     gender: "Male",
     category: "Cars",
   },
   {
-    id: 4,
-    name: "Donation 4",
+    id: 5,
+    name: "Request 4",
     age: "10",
     gender: "Female",
     category: "Stuffed Toys",
   },
   {
-    id: 5,
-    name: "Donation 5",
+    id: 6,
+    name: "Request 5",
     age: "14",
     gender: "Male",
     category: "Outdoor",
   },
   {
-    id: 6,
-    name: "Donation 6",
+    id: 7,
+    name: "Request 6",
     age: "15",
     gender: "Male",
     category: "Sports",
@@ -320,23 +328,23 @@ const toysUsers = [
 ];
 
 const schoolColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Supplies", uid: "supplies" },
   { name: "Review", uid: "review" },
 ];
 
 const schoolUsers = [
-  { id: 1, name: "Donation 1", supplies: "Books", link: "./BookDetails" },
+  { id: 1, name: "Harry Potter", supplies: "Books", link: "./BookDetails" },
   {
     id: 2,
-    name: "Donation 2",
+    name: "Black Pens",
     supplies: "Stationary",
     link: "./StationaryDetails",
   },
 ];
 
 const clothesColumns = [
-  { name: "Donation", uid: "name" },
+  { name: "Request", uid: "name" },
   { name: "Age", uid: "age" },
   { name: "Gender", uid: "gender" },
   { name: "Season", uid: "season" },
@@ -346,82 +354,50 @@ const clothesColumns = [
 const clothesUsers = [
   {
     id: 1,
-    name: "Donation 1",
-    age: "16",
+    name: "Jeans",
+    age: "14",
     gender: "Male",
     season: "Summer",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
     id: 2,
-    name: "Donation 2",
+    name: "Request 1",
+    age: "16",
+    gender: "Male",
+    season: "Summer",
+    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+  },
+  {
+    id: 3,
+    name: "Request 2",
     age: "23",
     gender: "Female",
     season: "Autumn",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
-    id: 3,
-    name: "Donation 3",
+    id: 4,
+    name: "Request 3",
     age: "4",
     gender: "Female",
     season: "Summer",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
-    id: 4,
-    name: "Donation 4",
+    id: 5,
+    name: "Request 4",
     age: "34",
     gender: "Male",
     season: "Spring",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
   {
-    id: 5,
-    name: "Donation 5",
+    id: 6,
+    name: "Request 5",
     age: "20",
     gender: "Male",
     season: "Winter",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  },
-  {
-    id: 6,
-    name: "Donation 6",
-    age: "11",
-    gender: "Female",
-    season: "Summer",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  },
-  {
-    id: 7,
-    name: "Donation 7",
-    age: "43",
-    gender: "Male",
-    season: "Autumn",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  },
-  {
-    id: 8,
-    name: "Donation 8",
-    age: "32",
-    gender: "Female",
-    season: "Spring",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  },
-  {
-    id: 9,
-    name: "Donation 9",
-    age: "14",
-    gender: "Female",
-    season: "Autumn",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-  },
-  {
-    id: 10,
-    name: "Donation 10",
-    age: "9",
-    gender: "Male",
-    season: "Summer",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
   },
 ];

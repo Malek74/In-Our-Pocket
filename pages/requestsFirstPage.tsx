@@ -10,7 +10,7 @@ export default function Categories() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <SideNavbar></SideNavbar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex text-xl justify-center m-4 align-middle">

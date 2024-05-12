@@ -170,6 +170,8 @@ export default function RequestTable({
         open={deleteDialogOpen}
         onClose={closeDeleteDialog}
         onConfirm={deleteEntry}
+        message={""}
+        messageHeader={""}
       />
     </div>
   );

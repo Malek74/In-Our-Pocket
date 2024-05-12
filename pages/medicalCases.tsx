@@ -1,7 +1,5 @@
 import { Navbar } from "@/components/navbar";
-import OrgTable from "@/components/orgTable";
 import SearchBar from "@/components/searchBar";
-import Sidebar from "@/components/sideBar";
 import {
   Button,
   Pagination,
@@ -19,6 +17,7 @@ import {
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
+import SideNavbar from "@/components/sideBar";
 
 const statusColorMap: {
   [key: string]:
@@ -125,7 +124,7 @@ export default function MedicalCasesViewer() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar></Sidebar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
@@ -177,22 +176,19 @@ export default function MedicalCasesViewer() {
                       ].sort()}
                       column="organisation"
                       onChange={handleChange}
-                      value={value1}
-                    ></FilterItemDropDown>,
+                      value={value1} variant={""}                    ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Medical Specialty"
                       values={["Dentist", "Surgeon"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="medicalspecialty"
-                    ></FilterItemDropDown>,
+                      column="medicalspecialty" variant={""}                    ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Governorate"
                       values={["Cairo", "Alexandria"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="governorate"
-                    ></FilterItemDropDown>,
+                      column="governorate" variant={""}                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>

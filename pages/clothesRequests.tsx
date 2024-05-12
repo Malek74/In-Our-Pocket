@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import OrgTable from "@/components/orgTable";
 import SearchBar from "@/components/searchBar";
+import Sidebar from "@/components/sideBar";
 import {
   Button,
   Pagination,
@@ -11,14 +12,13 @@ import {
 import FilterMenu from "../components/filterMenu";
 import { SetStateAction, useEffect, useState } from "react";
 import {
-  foodsUsers,
-  filterUsers,
+  clothesUsers,
   searchUsers,
-  foodsColumns,
+  clothesColumns,
+  filterUsersRange,
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
-import SideNavbar from "@/components/sideBar";
 
 const statusColorMap: {
   [key: string]:
@@ -34,7 +34,7 @@ const statusColorMap: {
   pending: "warning",
 };
 
-export default function FoodsViewer() {
+export default function ClothesViewer() {
   const [query, setQuery] = useState("");
   const [value2, setValue2] = useState("None");
   const [value1, setValue1] = useState("None");
@@ -42,14 +42,14 @@ export default function FoodsViewer() {
   const [column1, setColumn1] = useState("null");
   const [column2, setColumn2] = useState("null");
   const [column3, setColumn3] = useState("null");
-  const [results, setResults] = useState(foodsUsers);
-  const [filteredResults, setFilteredResults] = useState(foodsUsers);
-  const [displayedResults, setDisplayedResults] = useState(foodsUsers);
+  const [results, setResults] = useState(clothesUsers);
+  const [filteredResults, setFilteredResults] = useState(clothesUsers);
+  const [displayedResults, setDisplayedResults] = useState(clothesUsers);
   const [filterCol1, setFilterCol1] = useState("");
   const [filterCol2, setFilterCol2] = useState("");
   const [filterCol3, setFilterCol3] = useState("");
-  const [areaChip, setAreaChip] = useState("hidden");
-  const [typeChip, setTypeChip] = useState("hidden");
+  const [genderChip, setGenderChip] = useState("hidden");
+  const [ageChip, setAgeChip] = useState("hidden");
   const [statusChip, setStatusChip] = useState("hidden");
 
   function handleChange(
@@ -61,13 +61,13 @@ export default function FoodsViewer() {
       setValue1(selectedValue);
       setColumn1(selectedColumn);
       setFilterCol1(selectedValue);
-      setTypeChip("visible");
+      setAgeChip("visible");
     }
-    if (selectedColumn === "foodtype") {
+    if (selectedColumn === "gender") {
       setValue2(selectedValue);
       setColumn2(selectedColumn);
       setFilterCol2(selectedValue);
-      setAreaChip("visible");
+      setGenderChip("visible");
     }
     if (selectedColumn === "season") {
       setValue3(selectedValue);
@@ -80,8 +80,15 @@ export default function FoodsViewer() {
     const newRes = results.filter((result) => result.id !== id);
     setResults(newRes);
     const filteredResults =
-      filterUsers(newRes, column1, value1, column2, value2, column3, value3) ||
-      [];
+      filterUsersRange(
+        newRes,
+        column1,
+        value1,
+        column2,
+        value2,
+        column3,
+        value3
+      ) || [];
     setDisplayedResults(filteredResults);
   }
 
@@ -95,14 +102,14 @@ export default function FoodsViewer() {
     setValue1("None");
     setColumn1("null");
     setFilterCol1("");
-    setTypeChip("hidden");
+    setAgeChip("hidden");
   }
 
   function closerFilterArea() {
     setValue2("None");
     setColumn2("null");
     setFilterCol2("");
-    setAreaChip("hidden");
+    setGenderChip("hidden");
   }
 
   function closeFilterStatus() {
@@ -114,8 +121,15 @@ export default function FoodsViewer() {
 
   useEffect(() => {
     const filtered =
-      filterUsers(results, column1, value1, column2, value2, column3, value3) ||
-      [];
+      filterUsersRange(
+        results,
+        column1,
+        value1,
+        column2,
+        value2,
+        column3,
+        value3
+      ) || [];
     setFilteredResults(filtered);
     setDisplayedResults(filtered);
   }, [results, column1, value1, column2, value2, column3, value3]);
@@ -125,32 +139,32 @@ export default function FoodsViewer() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <SideNavbar elements={[]}></SideNavbar>
+          <Sidebar elements={[]}></Sidebar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
             <div className="flex justify-between m-4 align-middle">
-              <h1 className="font-bold">Food Requests</h1>
+              <h1 className="font-bold">Clothes Requests</h1>
             </div>
             <div className="flex flex-row justify-between">
               <div className="align-middle m-1">
                 <Chip
                   onClose={closeFilterType}
                   variant="bordered"
-                  className={typeChip}
+                  className={ageChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Supplies:</p>
+                    <p className="font-bold">Age:</p>
                     {filterCol1}
                   </div>
                 </Chip>
                 <Chip
                   onClose={closerFilterArea}
                   variant="bordered"
-                  className={areaChip}
+                  className={genderChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Food Type: </p>
+                    <p className="font-bold">Gender:</p>
                     {filterCol2}
                   </div>{" "}
                 </Chip>
@@ -160,7 +174,7 @@ export default function FoodsViewer() {
                   className={statusChip}
                 >
                   <div className="flex flex-row">
-                    <p className="font-bold">Area:</p>
+                    <p className="font-bold">Season:</p>
                     {filterCol3}
                   </div>{" "}
                 </Chip>
@@ -169,16 +183,36 @@ export default function FoodsViewer() {
                 <FilterMenu
                   items={[
                     <FilterItemDropDown
-                      attribute="Food Type"
+                      attribute="Age"
                       values={[
-                        "Fruits & Vegetables",
-                        "Canned Foods",
-                        "Fresh Meals",
-                        "Baked Goods",
+                        "0-10",
+                        "11-20",
+                        "21-30",
+                        "31-40",
+                        "41-50",
+                        "50+",
                       ].sort()}
+                      column="age"
+                      onChange={handleChange}
+                      value={value1}
+                      variant={""}
+                    ></FilterItemDropDown>,
+                    <FilterItemDropDown
+                      attribute="Gender"
+                      values={["Male", "Female"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="foodtype" variant={""}                    ></FilterItemDropDown>,
+                      column="gender"
+                      variant={""}
+                    ></FilterItemDropDown>,
+                    <FilterItemDropDown
+                      attribute="Season"
+                      values={["Spring", "Summer", "Autumn", "Winter"].sort()}
+                      onChange={handleChange}
+                      value={value3}
+                      column="season"
+                      variant={""}
+                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>
@@ -193,7 +227,7 @@ export default function FoodsViewer() {
           </div>
           <RequestTable
             users={displayedResults}
-            columns={foodsColumns}
+            columns={clothesColumns}
             deleteFunction={handleDelete}
           />
         </div>

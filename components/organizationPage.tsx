@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar";
 import OrgTable from "@/components/orgTable";
 import SearchBar from "@/components/searchBar";
-import Sidebar from "@/components/sideBar";
 import {
   Button,
   Pagination,

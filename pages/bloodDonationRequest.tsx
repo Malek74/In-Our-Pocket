@@ -19,6 +19,7 @@ import {
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
+import SideNavbar from "@/components/sideBar";
 
 const statusColorMap: {
   [key: string]:
@@ -129,7 +130,7 @@ export default function BloodDonationRequestsViewer() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar></Sidebar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
@@ -177,22 +178,19 @@ export default function BloodDonationRequestsViewer() {
                       values={["Hospital 1", "Hospital 2", "Hospital 3"].sort()}
                       column="hospital"
                       onChange={handleChange}
-                      value={value1}
-                    ></FilterItemDropDown>,
+                      value={value1} variant={""}                    ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Governorate"
                       values={["Alexandria", "Cairo"].sort()}
                       onChange={handleChange}
                       value={value2}
-                      column="governorate"
-                    ></FilterItemDropDown>,
+                      column="governorate" variant={""}                    ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Area"
                       values={["New Cairo", "Madinet Nasr", "Maadi"].sort()}
                       onChange={handleChange}
                       value={value3}
-                      column="area"
-                    ></FilterItemDropDown>,
+                      column="area" variant={""}                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>

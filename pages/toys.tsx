@@ -19,6 +19,7 @@ import {
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
+import SideNavbar from "@/components/sideBar";
 
 const statusColorMap: {
   [key: string]:
@@ -139,7 +140,7 @@ export default function ToysViewer() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar></Sidebar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
@@ -188,6 +189,7 @@ export default function ToysViewer() {
                       column="age"
                       onChange={handleChange}
                       value={value1}
+                      variant={""}
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Gender"
@@ -195,6 +197,7 @@ export default function ToysViewer() {
                       onChange={handleChange}
                       value={value2}
                       column="gender"
+                      variant={""}
                     ></FilterItemDropDown>,
                     <FilterItemDropDown
                       attribute="Category"
@@ -208,6 +211,7 @@ export default function ToysViewer() {
                       onChange={handleChange}
                       value={value3}
                       column="category"
+                      variant={""}
                     ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>

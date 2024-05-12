@@ -8,7 +8,7 @@ export default function MainCategories() {
     {
       title: "Clothes",
       img: "/clothes.jpg",
-      link: "/clothes",
+      link: "/clothesRequests",
     },
     {
       title: "School Supplies",

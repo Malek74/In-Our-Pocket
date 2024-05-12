@@ -26,8 +26,6 @@ interface Props {
   elements: Element[];
 }
 
-function SideNavbar() {
-  return (
 function SideNavbar({ elements }: Props) {
   return (
     <div>
@@ -46,7 +44,10 @@ function SideNavbar({ elements }: Props) {
             <div className="my-4 border-b border-rose-100 pb-4">
               {elements.map((element) => (
                 <div key={element.id}>
-                  <Link href={element.link} className="text-black w-full hover:bg-rose p-2 rounded-md group cursor-pointer hover:shadow-lg" >
+                  <Link
+                    href={element.link}
+                    className="text-black w-full hover:bg-rose p-2 rounded-md group cursor-pointer hover:shadow-lg"
+                  >
                     <div className="flex mb-2 justify-start items-center gap-4 pl-5 ">
                       {element.icon}
                       <h3 className="text-base text-gray-800 group-hover:text-black font-semibold">
@@ -57,7 +58,6 @@ function SideNavbar({ elements }: Props) {
                 </div>
               ))}
             </div>
-            
           </div>
         </div>
       </Disclosure>

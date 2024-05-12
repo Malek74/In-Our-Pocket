@@ -19,6 +19,7 @@ import {
 } from "@/components/RequestsData";
 import FilterItemDropDown from "@/components/filterItemDropDown";
 import RequestTable from "@/components/requestCard";
+import SideNavbar from "@/components/sideBar";
 
 const statusColorMap: {
   [key: string]:
@@ -125,7 +126,7 @@ export default function SchoolSuppliesViewer() {
       <Navbar></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar></Sidebar>
+          <SideNavbar elements={[]}></SideNavbar>
         </div>
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between m-4 align-middle">
@@ -173,8 +174,7 @@ export default function SchoolSuppliesViewer() {
                       values={["Books", "Stationary"].sort()}
                       column="supplies"
                       onChange={handleChange}
-                      value={value1}
-                    ></FilterItemDropDown>,
+                      value={value1} variant={""}                    ></FilterItemDropDown>,
                   ]}
                 ></FilterMenu>
               </div>
