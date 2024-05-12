@@ -205,6 +205,7 @@ const teachingPostsUsers = [
     subject: "Maths",
     governorate: "Cairo",
     area: "Tagamoa",
+    
   },
   {
     id: 2,

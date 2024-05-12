@@ -9,7 +9,7 @@ import usersNumbers from "@/components/images/numberOfUsers.png" ;
 
 export default function AdminAnalytics() {
     return (
-        <div className="relative flex flex-col h-screen">
+        <div className="relative flex flex-col h-screen w-screen">
 			<Navbar />
 			<div className="flex flex-row justify-center">
                 <div className=" ">

@@ -46,8 +46,8 @@ export default function IndexPage() {
   return (
     <div className="flex flex-row justify-center items-center h-screen">
       <Image src={Logo} alt="" width={400} height={400} />
-      <div className="flex flex-col justify-center items-center gap-6">
-        <Card className="flex flex-col justify-center items-center gap-4 p-6">
+      <div className="flex flex-col justify-center items-center gap-6 ">
+        <Card className="flex flex-col justify-center items-center gap-4 p-6 bg-cyan-50">
           <CardHeader className="flex justify-center items-center">
             <label className="text-xl font-bold">Login</label>
           </CardHeader>
@@ -97,7 +97,7 @@ export default function IndexPage() {
           <Button
             isDisabled={isInvalid}
             radius="full"
-            className="bg-rose text-black shadow-lg"
+            className="bg-white text-black shadow-lg"
             onClick={handleLogin}
           >
             Log in

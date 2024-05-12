@@ -155,8 +155,8 @@ const columns = [
 
     {
       id: 6,
-      name: "NGO 1",
-      type: "NGO",
+      name: "Mosque 2",
+      type: "Mosque",
       address:"",
       area:"Maadi",
       governate:"Cairo",
@@ -172,8 +172,8 @@ const columns = [
 
     {
       id: 7,
-      name: "Community Center 1",
-      type: "Community Center",
+      name: "School 2",
+      type: "School",
       address:"",
       area:"Maadi",
       governate:"Cairo",
@@ -188,8 +188,8 @@ const columns = [
     },
     {
       id: 8,
-      name: "Food Bank 1",
-      type: "Food Bank",
+      name: "Church 2",
+      type: "Church",
       address:"",
       area:"Maadi",
       governate:"Cairo",
@@ -221,8 +221,8 @@ const columns = [
     },
     {
       id: 10,
-      name: "Animal Rescue 1",
-      type: "Animal Rescue",
+      name: "School 3",
+      type: "School",
       address:"",
       area:"Maadi",
       governate:"Cairo",
@@ -238,4 +238,3 @@ const columns = [
   ];
   
   export { columns, Originalusers };
-  

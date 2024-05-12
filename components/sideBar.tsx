@@ -14,6 +14,9 @@ import { FaRegComments, FaUsers } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import { Link } from "@nextui-org/react";
+import Logo from "@/components/images/LogoTextRight.png";
+import Image from "next/image";
+
 
 interface Element {
   id: number;
@@ -38,9 +41,6 @@ function SideNavbar({ elements }: Props) {
         </Disclosure.Button>
         <div className="p-6 w-1/2 h-screen bg-mint z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
           <div className="flex flex-col justify-start item-center">
-            <h1 className="text-base text-center cursor-pointer font-bold text-black border-b pb-4 w-full">
-              Virtual D
-            </h1>
             <div className="my-4 border-b border-rose-100 pb-4">
               {elements.map((element) => (
                 <div key={element.id}>

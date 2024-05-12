@@ -31,6 +31,7 @@ import {
 import FormView from "@/components/organizationPage";
 import { originalSet } from "@/components/donordata";
 import exp from "constants";
+import AdminElements from "@/components/AdminsideBarElements";
 
 export default function VolunteerPage() {
   const [Name, setName] = useState("None");
@@ -84,7 +85,7 @@ export default function VolunteerPage() {
       <Navbar user="org"></Navbar>
       <div className="flex flex-row flex-1">
         <div className="flex-initial w-[250px]">
-          <Sidebar elements={[]}></Sidebar>
+          <Sidebar elements={AdminElements}></Sidebar>
         </div>
         <div className="flex-1 flex flex-col">
           <div>

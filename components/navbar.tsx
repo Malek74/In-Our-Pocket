@@ -30,7 +30,9 @@ import NextLink from "next/link";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 
-import { Logo } from "@/components/icons";
+import Image from "next/image";
+import Logo from "@/components/images/LogoTextRight.png";
+
 import Profile from "./profileIcon";
 import { redirect } from "next/navigation";
 import Notification from "./notification";
@@ -42,15 +44,15 @@ export const Navbar = (user:any) => {
   switch(user){
     case "donor:":
         return (
-        <NextUINavbar maxWidth="xl" position="sticky" className="bg-rose">
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-blue-300">
           <NavbarContent
             className="basis-1/5 sm:basis-full flex-none"
             justify="start"
           >
-            <NavbarBrand className=" max-w-fit">
-              <Logo></Logo>
-              <NextLink className="flex-start" href="/">
-                <p className="font-bold text-inherit">KindHub</p>
+            <NavbarBrand className=" max-w-full">
+              <NextLink className="flex-start" href="/requestsFirstPage">
+            <Image src={Logo} className="mt-3" alt="Logo" width={100} height={100}></Image>
+
               </NextLink>
             </NavbarBrand>
           </NavbarContent>
@@ -113,7 +115,7 @@ export const Navbar = (user:any) => {
                     className="h-14 gap-2 rounded-xl border-2"
                   >
                     <p className="font-semibold ">email: </p>
-                    <p className="font-semibold text-blue-600">donor@email.com</p>
+                    <p className="font-semibold text-blue-600">donor@donor.com</p>
                   </DropdownItem>
 
                   <DropdownItem key="profile">
@@ -133,15 +135,16 @@ export const Navbar = (user:any) => {
       );
     case "org":
       return (
-        <NextUINavbar maxWidth="xl" position="sticky" className="bg-rose">
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-rose">
           <NavbarContent
             className="basis-1/5 sm:basis-full flex-none"
             justify="start"
           >
-            <NavbarBrand className=" max-w-fit">
-              <Logo></Logo>
-              <NextLink className="flex-start" href="/">
-                <p className="font-bold text-inherit">DONATIONS</p>
+            <NavbarBrand className=" max-w-full">
+              <NextLink className="flex-start" href="/OrgLandingPage">
+              <Image src={Logo} className="mt-3" alt="Logo" width={100} height={100}></Image>
+            
+
               </NextLink>
             </NavbarBrand>
           </NavbarContent>
@@ -196,24 +199,7 @@ export const Navbar = (user:any) => {
                     className="h-14 gap-2 rounded-xl border-2"
                   >
                     <p className="font-semibold ">email: </p>
-                    <p className="font-semibold text-blue-600">malek@email.com</p>
-                  </DropdownItem>
-            <NavbarMenuItem>
-              <Dropdown placement="bottom-end">
-                <DropdownTrigger>
-                  <div className="flex justify-center items-center p-2 rounded-xl hover:bg-mint ">
-                    <Avatar />
-                    <p className="font-semibold p-1">Malek</p>
-                    <IoMdArrowDropdown />
-                  </div>
-                </DropdownTrigger>
-                <DropdownMenu aria-label="Profile Actions" variant="flat">
-                  <DropdownItem
-                    key="profile"
-                    className="h-14 gap-2 rounded-xl border-2"
-                  >
-                    <p className="font-semibold ">email: </p>
-                    <p className="font-semibold text-blue-600">malek@email.com</p>
+                    <p className="font-semibold text-blue-600">org@org.com</p>
                   </DropdownItem>
 
                   <DropdownItem key="profile">
@@ -232,6 +218,56 @@ export const Navbar = (user:any) => {
         </NextUINavbar>
       );
     default:
+      return (
+        <NextUINavbar maxWidth="full" position="sticky" className="bg-rose">
+          <NavbarContent
+            className="basis-1/5 sm:basis-full flex-none"
+            justify="start"
+          >
+            <NavbarBrand className=" max-w-full">
+              <NextLink className="flex-start" href="/AdminAnalytics">
+              <Image src={Logo} className="mt-3" alt="Logo" width={200} height={200}></Image>
+
+              </NextLink>
+            </NavbarBrand>
+          </NavbarContent>
+
+          <NavbarContent className="basis-1/5 sm:basis-full" justify="end">
+            
+
+            <NavbarMenuItem>
+              <Dropdown placement="bottom-end">
+                <DropdownTrigger>
+                  <div className="flex justify-center items-center p-2 rounded-xl hover:bg-mint ">
+                    <Avatar />
+                    <p className="font-semibold p-1">Admin</p>
+                    <IoMdArrowDropdown />
+                  </div>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Profile Actions" variant="flat">
+                  <DropdownItem
+                    key="profile"
+                    className="h-14 gap-2 rounded-xl border-2"
+                  >
+                    <p className="font-semibold ">email: </p>
+                    <p className="font-semibold text-blue-600">admin@admin.com</p>
+                  </DropdownItem>
+
+                  <DropdownItem key="profile">
+                    <Link href="/OrganisationDetails" className="text-black">
+                      Profile
+                    </Link>
+                  </DropdownItem>
+                  <DropdownItem key="help_and_feedback">Security</DropdownItem>
+                  <DropdownItem key="logout" color="danger">
+                    Log Out
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </NavbarMenuItem>
+          </NavbarContent>
+        </NextUINavbar>
+      );
       
 
 }};

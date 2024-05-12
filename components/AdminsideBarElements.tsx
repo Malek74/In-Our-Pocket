@@ -15,7 +15,7 @@ const AdminElements= [
         id: 2,
         title: "Donors Management",
         icon: <FaUsers />, 
-        link: "./organisationsViewer"
+        link: "./donorViewer"
     },
     {
         id: 3,
