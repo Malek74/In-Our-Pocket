@@ -20,9 +20,9 @@ import { Originalusers } from "@/components/orgData";
 
 export default function DonorDetails() {
     <div className="relative flex flex-col h-screen">
-        <Navbar></Navbar>
+        <Navbar user="donor"></Navbar>
         <div className="flex flex-row flex-1">
-            <div className="flex-initial w-[250px]"><Sidebar></Sidebar></div>
+            <div className="flex-initial w-[250px]"><Sidebar elements={[]}></Sidebar></div>
         </div>
     </div>
 }
