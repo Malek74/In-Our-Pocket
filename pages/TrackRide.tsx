@@ -7,6 +7,8 @@ import driverImage from "@/components/images/driver.jpg";
 import licensePlate from "@/components/images/licensePlate.png";
 import car from "@/components/images/car.png";
 import trip from "@/components/images/trip.png";
+import DonorElements from "@/components/donorElements";
+
 
 import OrgElements from "@/components/OrgElements";
 import { Button, Divider, Tooltip } from "@nextui-org/react";
@@ -20,7 +22,7 @@ export default function TrackRide() {
         <Navbar />
         <div className="flex flex-row justify-center">
           <div className=" ">
-            <Sidebar elements={[]} />
+            <Sidebar elements={DonorElements} />
           </div>
 
           <div className="flex flex-col m-2">
